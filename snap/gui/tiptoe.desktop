@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Tiptoe
+Comment=Foam dart blaster battles for up to eight friends, on one screen or many.
+Exec=tiptoe
+Icon=${SNAP}/meta/gui/tiptoe.svg
+Categories=Game;ActionGame;
+Keywords=party;shooter;couch;local;multiplayer;lan;
+StartupWMClass=Tiptoe
