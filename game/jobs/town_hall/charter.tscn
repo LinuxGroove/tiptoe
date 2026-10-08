@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3]
+
+[sub_resource type="StandardMaterial3D" id="Paper"]
+albedo_color = Color(0.93, 0.87, 0.7, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="Ribbon"]
+albedo_color = Color(0.7, 0.1, 0.12, 1)
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Seal"]
+albedo_color = Color(0.55, 0.05, 0.07, 1)
+roughness = 0.4
+
+[sub_resource type="CylinderMesh" id="Roll"]
+material = SubResource("Paper")
+top_radius = 0.045
+bottom_radius = 0.045
+height = 0.42
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="Band"]
+material = SubResource("Ribbon")
+top_radius = 0.049
+bottom_radius = 0.049
+height = 0.04
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="Wax"]
+material = SubResource("Seal")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.015
+radial_segments = 12
+
+[node name="Charter" type="Node3D"]
+
+[node name="Roll" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.045, 0)
+mesh = SubResource("Roll")
+
+[node name="Band" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.045, 0)
+mesh = SubResource("Band")
+
+[node name="Seal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.045, 0.052)
+mesh = SubResource("Wax")
