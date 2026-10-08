@@ -48,7 +48,13 @@ func _ready() -> void:
 	Engine.time_scale = 4.0
 	await _frames(600)
 	Engine.time_scale = 1.0
-	var views := VIEWS.duplicate()
+	# Maple Close's views are here; later jobs list theirs in the level.
+	var views: Dictionary = _job.level.screenshot_views()
+	if views.is_empty():
+		views = VIEWS.duplicate()
+	for id in _job.level.starts:
+		var t: Transform3D = _job.level.start_transform(id)
+		views["start_" + id] = [t.origin - Vector3(0, 0.9, 0), rad_to_deg(t.basis.get_euler().y), 0.0]
 	# Views of each person (and the dog), from a couple of metres in front.
 	for p in _job.people:
 		var front: Vector3 = p.rig.global_basis.z.normalized()

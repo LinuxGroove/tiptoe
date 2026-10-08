@@ -123,6 +123,12 @@ func voice_info() -> Dictionary:
 	return {}
 
 
+## Viewpoints for tools/screenshot.tscn: name -> [feet position, yaw in
+## degrees (0 looks north, -Z), pitch in degrees].
+func screenshot_views() -> Dictionary:
+	return {}
+
+
 ## Someone answered the front door and the player is on the step: the
 ## level decides what happens (the pizza delivery gets let in). Return true
 ## if it dealt with it; false, and they shrug and close the door.

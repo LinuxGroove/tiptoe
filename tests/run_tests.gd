@@ -2,7 +2,8 @@ extends Node
 ## Headless tests: run with
 ##   godot --headless --path . tests/run_tests.tscn
 ## Add `-- --games=N` to also play N scripted nights against the people's
-## AI (default 1). Exits non-zero on failure.
+## AI (default 1), or `-- --job=<id>` to test only one job after Maple Close.
+## Exits non-zero on failure.
 
 ## A job's own tests: game/jobs/<id>/<id>_tests.gd, a RefCounted whose
 ## run(t, games) uses this runner's check(), _until(), _make_job() and so on.
@@ -14,15 +15,23 @@ var checks := 0
 
 func _ready() -> void:
 	var games := 1
+	var only := ""
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--games="):
 			games = maxi(1, arg.substr(8).to_int())
+		elif arg.begins_with("--job="):
+			only = arg.substr(6)
 	LGSettings.register_defaults(GameConfig.SETTING_DEFAULTS)
 	LGTheme.apply(get_tree().root)
 	LGInput.register_actions(GameConfig.ACTIONS)
 	LGInput.extend_ui_actions()
 	Progress.in_memory = true
 	Progress.load_progress()
+	if only != "":
+		await _test_jobs([only], games)
+		print("\n%d checks, %d failed" % [checks, failures])
+		get_tree().quit(1 if failures > 0 else 0)
+		return
 	printerr("- _test_job_data")
 	_test_job_data()
 	printerr("- _test_run_capers")
@@ -46,15 +55,7 @@ func _ready() -> void:
 	for i in games:
 		printerr("- _test_night %d" % (i + 1))
 		await _test_night()
-	for id in Jobs.ids():
-		if Jobs.get_job(id) == null or id == "maple_close":
-			continue
-		printerr("- _test_built_job %s" % id)
-		await _test_built_job(id)
-		var suite := JOB_TESTS % [id, id]
-		if ResourceLoader.exists(suite):
-			printerr("- %s" % suite.get_file())
-			await load(suite).new().run(self, games)
+	await _test_jobs(Jobs.ids(), games)
 	print("\n%d checks, %d failed" % [checks, failures])
 	get_tree().quit(1 if failures > 0 else 0)
 
@@ -452,6 +453,20 @@ func _test_night() -> void:
 	Engine.time_scale = 1.0
 	job.queue_free()
 	await _frames(2)
+
+
+## The common checks and each job's own tests for the jobs after Maple
+## Close (`-- --job=<id>` runs just one).
+func _test_jobs(ids: Array, games: int) -> void:
+	for id in ids:
+		if Jobs.get_job(id) == null or id == "maple_close":
+			continue
+		printerr("- _test_built_job %s" % id)
+		await _test_built_job(id)
+		var suite := JOB_TESTS % [id, id]
+		if ResourceLoader.exists(suite):
+			printerr("- %s" % suite.get_file())
+			await load(suite).new().run(self, games)
 
 
 ## What every built job needs: enough capers and leads, start points that open
