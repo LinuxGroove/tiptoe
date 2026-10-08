@@ -12,6 +12,7 @@ static func make() -> JobDef:
 	j.place = "on council night"
 	j.treasure = "The town charter"
 	j.treasure_item = "charter"
+	j.treasure_model = "res://game/jobs/town_hall/charter.tscn"
 	j.music = "night_town_hall"
 	j.blurb = "Tonight the council votes on selling the town green to Augustus Hoard. The town charter says the green belongs to Kettleford for ever, and without it on the table there's no vote. It's locked in the mayor's strongbox upstairs, and at ten o'clock she fetches it. The chamber is packed, the clerk is fussing, the caretaker is doing his rounds. Take the charter before the vote."
 	j.scene = "res://game/jobs/town_hall/town_hall_level.gd"

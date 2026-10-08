@@ -60,6 +60,9 @@ static func update(m: Dictionary) -> Dictionary:
 	for v in found:
 		var was: Dictionary = old.get(v, {})
 		var info: Dictionary = found[v].info
+		# Mumble-only crowds have no recorded voice.
+		if info.get("kokoro", was.get("kokoro_voice", "")) == "":
+			continue
 		var entry := {
 			"who": info.get("who", was.get("who", v)),
 			"kokoro_voice": info.get("kokoro", was.get("kokoro_voice", "")),

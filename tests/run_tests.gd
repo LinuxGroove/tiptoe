@@ -471,7 +471,10 @@ func _test_jobs(ids: Array, games: int) -> void:
 		var suite := JOB_TESTS % [id, id]
 		if ResourceLoader.exists(suite):
 			printerr("- %s" % suite.get_file())
-			await load(suite).new().run(self, games)
+			var script: GDScript = load(suite)
+			check(script != null and script.can_instantiate(), "%s's tests load" % id)
+			if script != null and script.can_instantiate():
+				await script.new().run(self, games)
 
 
 ## What every built job needs: enough capers and leads, start points that open

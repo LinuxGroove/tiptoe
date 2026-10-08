@@ -122,7 +122,7 @@ KETTLEFORD GREEN
 Given to the people of the town, for ever.
 24th May, 1846"""
 
-const MAYOR_DIARY := """Mayor P. Pell, her diary
+const MAYOR_DIARY := """Mayor P. Plum, her diary
 
 Tuesday. Hoard sent flowers again. And a cheque "for the bandstand". Sent both back.
 
@@ -153,7 +153,7 @@ Practice is off tonight (council meeting).
 
 And STOP climbing the bins by the clerk's window to get on the annex roof. I can see your footprints.
 
-And Mayor Pell, PLEASE shut your balcony window. The pigeons are getting in.
+And Mayor Plum, PLEASE shut your balcony window. The pigeons are getting in.
 
 - Stanley (Caretaker)"""
 
@@ -922,7 +922,7 @@ func _marks() -> void:
 
 func voice_info() -> Dictionary:
 	return {
-		"town_hall_mayor": {"who": "Mayor Prudence Pell: a brisk, decent, slightly frazzled woman in her fifties, chairing a rowdy meeting", "kokoro": "bf_isabella", "speed": 1.0},
+		"town_hall_mayor": {"who": "Mayor Prudence Plum: a brisk, decent, slightly frazzled woman in her fifties, chairing a rowdy meeting", "kokoro": "bf_isabella", "speed": 1.0},
 		"town_hall_clerk": {"who": "Dennis Dobbs, clerk to the council: a fussy, forgetful, very proper young man", "kokoro": "bm_daniel", "speed": 1.05},
 		"town_hall_caretaker": {"who": "Stanley, the town hall caretaker: a slow, gruff, kindly old man who has seen it all", "kokoro": "am_adam", "speed": 0.95},
 		"hoard": {"who": "Augustus Hoard: a pompous, oily rich man in his sixties, pleased with himself", "kokoro": "am_onyx", "speed": 0.95},
@@ -933,7 +933,7 @@ func voice_info() -> Dictionary:
 func add_people(p_run: JobRun) -> Array:
 	var out := []
 	mayor = TownHallPerson.new()
-	mayor.setup("Mayor Pell", "female-c", self, p_run, _mayor_meeting(), "town_hall_mayor", {
+	mayor.setup("Mayor Plum", "female-c", self, p_run, _mayor_meeting(), "town_hall_mayor", {
 		"mumble": "high", "accepts": ["townsfolk", "clerk"], "answers_alarm": true, "sight": 13.0,
 		"lines": {
 			"curious": ["Hm? Who's that?", "Is somebody there?"],
