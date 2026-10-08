@@ -3,6 +3,8 @@ extends RefCounted
 ## Plays sounds in the world: one-shots at a place, and loops on a node.
 
 const DIR := "res://assets/audio/sfx/"
+const VOICE_DIR := "res://assets/audio/voice/"
+const MUSIC_DIR := "res://assets/audio/music/"
 const COGITO := "res://addons/cogito/Assets/Audio/Kenney/"
 
 static var _streams := {}
@@ -54,3 +56,29 @@ static func on(node: Node3D, name: String, volume_db := 0.0, autoplay := true) -
 	p.autoplay = autoplay
 	node.add_child(p)
 	return p
+
+
+## The recorded line for `text` in `voice` ("low", "high"), or "" when there
+## isn't one (people mumble instead). Lines live in
+## assets/audio/voice/<voice>/<slug>.ogg; see [method slug].
+static func voice_line(voice: String, text: String) -> String:
+	var path := VOICE_DIR + voice + "/" + slug(text) + ".ogg"
+	return path if ResourceLoader.exists(path) else ""
+
+
+## A file name for a line: lower case words joined by underscores, at most
+## 48 characters ("Oi! Stop right there!" is "oi_stop_right_there").
+static func slug(text: String) -> String:
+	var out := ""
+	for c in text.to_lower():
+		if (c >= "a" and c <= "z") or (c >= "0" and c <= "9"):
+			out += c
+		elif c != "'" and not out.ends_with("_") and out != "":
+			out += "_"
+	return out.left(48).trim_suffix("_")
+
+
+## Our music track `id` from assets/audio/music, or `fallback` until it exists.
+static func music(id: String, fallback: String) -> String:
+	var path := MUSIC_DIR + id + ".ogg"
+	return path if ResourceLoader.exists(path) else fallback

@@ -31,6 +31,8 @@ func _ready() -> void:
 	_test_progress()
 	printerr("- _test_noise")
 	_test_noise()
+	printerr("- _test_audio_manifest")
+	_test_audio_manifest()
 	printerr("- _test_title_menu")
 	await _test_title_menu()
 	printerr("- _test_level")
@@ -172,6 +174,23 @@ func _test_noise() -> void:
 	check(StealthNoise.step_radius("carpet", false, false) < StealthNoise.step_radius("wood", false, false), "carpet is quieter than wood")
 	check(StealthNoise.step_radius("wood", true, false) < StealthNoise.step_radius("wood", false, false), "crouching is quieter")
 	check(StealthNoise.step_radius("wood", false, true) > StealthNoise.step_radius("wood", false, false), "sprinting is louder")
+
+
+## tools/lemonade/audio.json names voice files the way the game looks them up.
+func _test_audio_manifest() -> void:
+	check(Sfx.slug("Oi! Stop right there!") == "oi_stop_right_there", "lines get plain file names")
+	check(Sfx.slug("Hello? ...Kids.") == "hello_kids", "punctuation runs become one underscore")
+	var m = JSON.parse_string(FileAccess.get_file_as_string("res://tools/lemonade/audio.json"))
+	check(m is Dictionary, "the audio manifest reads")
+	if not m is Dictionary:
+		return
+	var bad := []
+	for v in m.voices.voices:
+		for l in m.voices.voices[v].lines:
+			if l.file != "assets/audio/voice/%s/%s.ogg" % [v, Sfx.slug(l.text)]:
+				bad.append(l.file)
+	check(bad.is_empty(), "voice files match their lines %s" % [bad])
+	check(Sfx.voice_line("nobody", "Hello?") == "", "people without a recorded line mumble")
 
 
 func _test_title_menu() -> void:

@@ -1,0 +1,301 @@
+{
+	"server": "http://192.168.1.226:13305",
+	"notes": "Generated with Lemonade by tools/lemonade/generate.py. Ogg Vorbis 44.1 kHz; voices and sfx mono, music stereo; trim silence, peak about -3 dBFS; loops crossfade their ends. Log every file in assets/audio/GENERATED.md (model, prompt, seed).",
+	"music": {
+		"model": "ACE-Step-Music",
+		"tracks": [
+			{
+				"file": "assets/audio/music/title.ogg",
+				"seconds": 90,
+				"loop": true,
+				"prompt": "playful sneaky cat burglar caper theme, pizzicato strings, upright bass walking line, brushed jazz drums, muted trumpet melody, celesta, mischievous and warm, cartoon heist, 100 bpm, instrumental"
+			},
+			{
+				"file": "assets/audio/music/night.ogg",
+				"seconds": 120,
+				"loop": true,
+				"prompt": "quiet tiptoe sneaking music at night, soft pizzicato strings, low upright bass, gentle brushed snare, light vibraphone, sparse and calm, suburban night, cartoon stealth, 80 bpm, instrumental, no drums fills, loopable"
+			},
+			{
+				"file": "assets/audio/music/chase.ogg",
+				"seconds": 60,
+				"loop": true,
+				"prompt": "frantic comedic chase music, fast pizzicato strings, staccato brass stabs, xylophone runs, driving brushed drums, slapstick cartoon pursuit, 150 bpm, instrumental, loopable"
+			},
+			{
+				"file": "assets/audio/music/escaped.ogg",
+				"seconds": 15,
+				"loop": false,
+				"prompt": "short triumphant cheeky jazz fanfare, muted trumpet, clarinet trill, upright bass, cymbal swell, cartoon heist success sting, instrumental"
+			},
+			{
+				"file": "assets/audio/music/night_over.ogg",
+				"seconds": 15,
+				"loop": false,
+				"prompt": "short sad trombone and tuba comedic sting, deflated cartoon failure, gentle and funny, instrumental"
+			}
+		]
+	},
+	"voices": {
+		"model": "kokoro-v1",
+		"voices": {
+			"low": {
+				"who": "Ted, a cheerful, slightly dozy dad in his fifties",
+				"kokoro_voice": "bm_george",
+				"lines": [
+					{
+						"text": "Hm?",
+						"file": "assets/audio/voice/low/hm.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/low/what_was_that.ogg"
+					},
+					{
+						"text": "Hello?",
+						"file": "assets/audio/voice/low/hello.ogg"
+					},
+					{
+						"text": "Hm? Who's there?",
+						"file": "assets/audio/voice/low/hm_whos_there.ogg"
+					},
+					{
+						"text": "Biscuit? What is it?",
+						"file": "assets/audio/voice/low/biscuit_what_is_it.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/low/whats_going_on.ogg"
+					},
+					{
+						"text": "Hey! You!",
+						"file": "assets/audio/voice/low/hey_you.ogg"
+					},
+					{
+						"text": "Oi! Stop right there!",
+						"file": "assets/audio/voice/low/oi_stop_right_there.ogg"
+					},
+					{
+						"text": "Burglar!",
+						"file": "assets/audio/voice/low/burglar.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/low/where_did_they_go.ogg"
+					},
+					{
+						"text": "I know you're here!",
+						"file": "assets/audio/voice/low/i_know_youre_here.ogg"
+					},
+					{
+						"text": "There. Light!",
+						"file": "assets/audio/voice/low/there_light.ogg"
+					},
+					{
+						"text": "Must be the wind.",
+						"file": "assets/audio/voice/low/must_be_the_wind.ogg"
+					},
+					{
+						"text": "Just the house settling.",
+						"file": "assets/audio/voice/low/just_the_house_settling.ogg"
+					},
+					{
+						"text": "I'm hearing things.",
+						"file": "assets/audio/voice/low/im_hearing_things.ogg"
+					},
+					{
+						"text": "Got you! Out you go.",
+						"file": "assets/audio/voice/low/got_you_out_you_go.ogg"
+					},
+					{
+						"text": "Coming!",
+						"file": "assets/audio/voice/low/coming.ogg"
+					},
+					{
+						"text": "Who's that at this hour?",
+						"file": "assets/audio/voice/low/whos_that_at_this_hour.ogg"
+					},
+					{
+						"text": "Hello? ...Kids.",
+						"file": "assets/audio/voice/low/hello_kids.ogg"
+					},
+					{
+						"text": "Nobody there. Odd.",
+						"file": "assets/audio/voice/low/nobody_there_odd.ogg"
+					},
+					{
+						"text": "Not again!",
+						"file": "assets/audio/voice/low/not_again.ogg"
+					},
+					{
+						"text": "Where's the cheese?",
+						"file": "assets/audio/voice/low/wheres_the_cheese.ogg"
+					},
+					{
+						"text": "Hello, Dave? About the fuse box...",
+						"file": "assets/audio/voice/low/hello_dave_about_the_fuse_box.ogg"
+					},
+					{
+						"text": "Pizza! Come in, come in, I'll find my wallet.",
+						"file": "assets/audio/voice/low/pizza_come_in_come_in_ill_find_my_wallet.ogg"
+					},
+					{
+						"text": "Where's the pizza, then?",
+						"file": "assets/audio/voice/low/wheres_the_pizza_then.ogg"
+					}
+				]
+			},
+			"high": {
+				"who": "Maggie, a brisk, sharp-eared mum in her fifties",
+				"kokoro_voice": "bf_emma",
+				"lines": [
+					{
+						"text": "Hm?",
+						"file": "assets/audio/voice/high/hm.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/high/what_was_that.ogg"
+					},
+					{
+						"text": "Hello?",
+						"file": "assets/audio/voice/high/hello.ogg"
+					},
+					{
+						"text": "Hm? Who's there?",
+						"file": "assets/audio/voice/high/hm_whos_there.ogg"
+					},
+					{
+						"text": "Biscuit? What is it?",
+						"file": "assets/audio/voice/high/biscuit_what_is_it.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/high/whats_going_on.ogg"
+					},
+					{
+						"text": "Hey! You!",
+						"file": "assets/audio/voice/high/hey_you.ogg"
+					},
+					{
+						"text": "Oi! Stop right there!",
+						"file": "assets/audio/voice/high/oi_stop_right_there.ogg"
+					},
+					{
+						"text": "Burglar!",
+						"file": "assets/audio/voice/high/burglar.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/high/where_did_they_go.ogg"
+					},
+					{
+						"text": "I know you're here!",
+						"file": "assets/audio/voice/high/i_know_youre_here.ogg"
+					},
+					{
+						"text": "There. Light!",
+						"file": "assets/audio/voice/high/there_light.ogg"
+					},
+					{
+						"text": "Must be the wind.",
+						"file": "assets/audio/voice/high/must_be_the_wind.ogg"
+					},
+					{
+						"text": "Just the house settling.",
+						"file": "assets/audio/voice/high/just_the_house_settling.ogg"
+					},
+					{
+						"text": "I'm hearing things.",
+						"file": "assets/audio/voice/high/im_hearing_things.ogg"
+					},
+					{
+						"text": "Got you! Out you go.",
+						"file": "assets/audio/voice/high/got_you_out_you_go.ogg"
+					},
+					{
+						"text": "Coming!",
+						"file": "assets/audio/voice/high/coming.ogg"
+					},
+					{
+						"text": "Who's that at this hour?",
+						"file": "assets/audio/voice/high/whos_that_at_this_hour.ogg"
+					},
+					{
+						"text": "Hello? ...Kids.",
+						"file": "assets/audio/voice/high/hello_kids.ogg"
+					},
+					{
+						"text": "Nobody there. Odd.",
+						"file": "assets/audio/voice/high/nobody_there_odd.ogg"
+					},
+					{
+						"text": "Lovely trophy. Shame about the bakery.",
+						"file": "assets/audio/voice/high/lovely_trophy_shame_about_the_bakery.ogg"
+					}
+				]
+			}
+		}
+	},
+	"sfx": {
+		"model": "ThinkSound-SFX",
+		"sounds": [
+			{
+				"file": "assets/audio/sfx/dog_bark_1.ogg",
+				"prompt": "a medium sized friendly dog barking once, indoors, close"
+			},
+			{
+				"file": "assets/audio/sfx/dog_bark_2.ogg",
+				"prompt": "a dog giving one deep, longer bark, indoors"
+			},
+			{
+				"file": "assets/audio/sfx/dog_bark_3.ogg",
+				"prompt": "a small excited dog yapping once, short and high"
+			},
+			{
+				"file": "assets/audio/sfx/dog_whine.ogg",
+				"prompt": "a dog giving a short questioning whine that rises at the end"
+			},
+			{
+				"file": "assets/audio/sfx/dog_sniff.ogg",
+				"prompt": "a dog sniffing the floor four times quickly"
+			},
+			{
+				"file": "assets/audio/sfx/snore_loop.ogg",
+				"prompt": "a dog snoring gently while asleep, steady breathing, loopable"
+			},
+			{
+				"file": "assets/audio/sfx/doorbell.ogg",
+				"prompt": "a classic two tone ding dong house doorbell chime"
+			},
+			{
+				"file": "assets/audio/sfx/ambience_night_loop.ogg",
+				"prompt": "quiet suburban garden at night, crickets, a soft breeze in leaves, distant faint traffic, loopable"
+			},
+			{
+				"file": "assets/audio/sfx/fridge_hum_loop.ogg",
+				"prompt": "a quiet kitchen fridge compressor humming, steady, loopable"
+			},
+			{
+				"file": "assets/audio/sfx/noisemaker_rattle_loop.ogg",
+				"prompt": "a wind up clockwork tin toy clattering and rattling on a wooden floor, loopable"
+			},
+			{
+				"file": "assets/audio/sfx/noisemaker_wind.ogg",
+				"prompt": "winding the key of a small clockwork toy, ratchet clicks"
+			},
+			{
+				"file": "assets/audio/sfx/lock_open.ogg",
+				"prompt": "a door lock cylinder turning and the bolt clacking open"
+			},
+			{
+				"file": "assets/audio/sfx/breaker_off.ogg",
+				"prompt": "flipping a fuse box breaker switch off with a heavy thunk, electrical hum dies"
+			},
+			{
+				"file": "assets/audio/sfx/breaker_on.ogg",
+				"prompt": "flipping a fuse box breaker switch on with a thunk, electrical hum starts"
+			}
+		]
+	}
+}

@@ -25,7 +25,7 @@ func _ready() -> void:
 	version.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT, Control.PRESET_MODE_MINSIZE, 12)
 	_col = LGUi.centered_column(_ui, 640)
 	LGScreenFit.center(_col)
-	LGAudio.play_music("res://assets/kenney/audio/music/wacky_waiting.ogg", -10.0)
+	LGAudio.play_music(Sfx.music("title", "res://assets/kenney/audio/music/wacky_waiting.ogg"), -10.0)
 	_show_main()
 
 

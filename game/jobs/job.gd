@@ -7,6 +7,8 @@ extends Node3D
 const MOTH := preload("res://game/player/moth.tscn")
 const SKY := "res://assets/kenney/skyboxes/skybox-night.png"
 const MUSIC := "res://assets/kenney/audio/music/mishief_stroll.ogg"
+## How long the chase music keeps going after the last chase ends.
+const CHASE_HOLD := 4.0
 ## Starting bag for each gadget.
 const GADGET_COUNTS := {"treats": 3}
 
@@ -22,6 +24,8 @@ var people: Array = []
 var gadgets: Gadgets
 var _last_exit := "door"
 var _fade: ColorRect
+var _chase_music := false
+var _calm_t := 0.0
 
 
 func _ready() -> void:
@@ -79,8 +83,24 @@ func _ready() -> void:
 	results.again.connect(_on_again)
 	results.board.connect(_on_quit)
 	level.bake_navigation()
-	LGAudio.play_music(MUSIC, -14.0)
+	LGAudio.play_music(Sfx.music("night", MUSIC), -14.0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _process(delta: float) -> void:
+	if not run.running:
+		return
+	var chased := false
+	for p in people:
+		if p is Person and p.state == Person.State.CHASE:
+			chased = true
+	_calm_t = 0.0 if chased else _calm_t + delta
+	if chased and not _chase_music:
+		_chase_music = true
+		LGAudio.play_music(Sfx.music("chase", MUSIC), -12.0)
+	elif _chase_music and _calm_t > CHASE_HOLD:
+		_chase_music = false
+		LGAudio.play_music(Sfx.music("night", MUSIC), -14.0)
 
 
 func _build_night() -> void:
@@ -166,6 +186,7 @@ func _on_finished(result: Dictionary) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	player.is_movement_paused = true
 	results.show_result(job, result, unlocked)
+	LGAudio.play_music(Sfx.music("escaped" if result.get("escaped", false) else "night_over", MUSIC), -10.0)
 
 
 func _on_again() -> void:

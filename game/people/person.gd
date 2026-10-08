@@ -502,7 +502,11 @@ func _say(text: String) -> void:
 	var t := _bubble.create_tween()
 	t.tween_interval(2.5)
 	t.tween_property(_bubble, "modulate:a", 0.0, 0.5)
-	Sfx.at(self, "mumble_%s_%d" % [voice, randi_range(1, 3)], global_position + Vector3(0, 1.6, 0), -6.0)
+	var line := Sfx.voice_line(voice, text)
+	if line != "":
+		Sfx.at(self, line, global_position + Vector3(0, 1.6, 0), -2.0)
+	else:
+		Sfx.at(self, "mumble_%s_%d" % [voice, randi_range(1, 3)], global_position + Vector3(0, 1.6, 0), -6.0)
 	said.emit(self, text)
 
 
