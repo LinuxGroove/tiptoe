@@ -1,9 +1,13 @@
 extends Node
-## The title screen: the job board (pick a job and where to start), settings,
-## about and quit.
+## The title screen, over Ottoline's bakery with the treasures brought home so
+## far: the job board (pick a job and where to start; each job opens once the
+## one before it is done), settings, about and quit.
 
 const TITLE_COLOR := Color("ffd54a")
+## Where the menu starts across the screen (0..1).
+const MENU_LEFT := 0.42
 
+var bakery: Bakery
 var _ui: Control
 var _col: VBoxContainer
 var _start := ""
@@ -16,14 +20,19 @@ func _ready() -> void:
 	_ui = Control.new()
 	_ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	layer.add_child(_ui)
-	var bg := ColorRect.new()
-	bg.color = Color(0.04, 0.05, 0.1)
-	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_ui.add_child(bg)
+	bakery = Bakery.new()
+	add_child(bakery)
+	# The menu sits on the right, the bakery's window shelf shows on the left.
+	var shade := ColorRect.new()
+	shade.color = Color(0.03, 0.04, 0.09, 0.82)
+	shade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	shade.anchor_left = MENU_LEFT
+	_ui.add_child(shade)
 	var version := LGUi.label("v%s" % GameConfig.version(), "HintLabel")
 	_ui.add_child(version)
 	version.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT, Control.PRESET_MODE_MINSIZE, 12)
 	_col = LGUi.centered_column(_ui, 640)
+	_col.get_parent().anchor_left = MENU_LEFT
 	LGScreenFit.center(_col)
 	LGAudio.play_music(Sfx.music("title", "res://assets/kenney/audio/music/wacky_waiting.ogg"), -10.0)
 	_show_main()
@@ -60,15 +69,25 @@ func _show_main() -> void:
 func _show_board() -> void:
 	_clear()
 	_col.add_child(LGUi.label("Job board", "HeaderMedium"))
+	var home := 0
 	for job in Jobs.all():
-		if job.playable:
+		if Progress.treasures(job.id) > 0:
+			home += 1
+	_col.add_child(LGUi.label("Treasures home: %d of %d" % [home, Jobs.ids().size()], "HintLabel"))
+	var before: JobDef = null
+	for job in Jobs.all():
+		if job.playable and Jobs.is_open(job.id):
 			var m := Progress.mastery(job.id)
 			var done := Progress.capers_done(job.id).size()
 			var b := LGUi.button("%s: %s   (mastery %d, capers %d/%d)" % [job.title, job.treasure, m, done, job.capers.size()], _show_job.bind(job.id), 600)
 			_col.add_child(b)
+		elif job.playable:
+			var l := LGUi.label("%s: bring home %s first" % [job.title, before.treasure.to_lower()], "HintLabel")
+			_col.add_child(l)
 		else:
 			var l := LGUi.label("%s: %s (coming later)" % [job.title, job.treasure], "HintLabel")
 			_col.add_child(l)
+		before = job
 	_col.add_child(LGUi.button("Back", _show_main))
 	LGUi.focus_first(_col)
 

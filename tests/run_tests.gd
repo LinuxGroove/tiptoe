@@ -213,9 +213,13 @@ func _test_audio_manifest() -> void:
 
 
 func _test_title_menu() -> void:
+	check(not Jobs.is_open("market"), "the corner market waits for the trophy")
+	Progress.record_run("maple_close", {"capers": [], "escaped": true, "treasure": true, "score": 100})
 	var title: Node = load("res://game/ui/title.tscn").instantiate()
 	add_child(title)
 	await _frames(2)
+	check(title.bakery.shown.has("maple_close") and not title.bakery.shown.has("market"), "the trophy is back in the bakery window")
+	check(Jobs.is_open("maple_close") and Jobs.is_open("market") and not Jobs.is_open("bottling"), "jobs open in story order")
 	var board := _find_button(title, "Job board")
 	check(board != null, "title has the job board")
 	if board:
@@ -226,6 +230,7 @@ func _test_title_menu() -> void:
 		await _frames(1)
 		check(_find_button(title, "Start the job") != null, "a job shows its briefing")
 	title.queue_free()
+	Progress.reset()
 	await _frames(1)
 
 

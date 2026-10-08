@@ -9,6 +9,8 @@ extends Resource
 @export var treasure := ""
 ## The treasure's item in the bag ("trophy"): getting out with it wins.
 @export var treasure_item := ""
+## The treasure's model, for the bakery's window shelf once it's home.
+@export var treasure_model := ""
 ## Our night music for this job (assets/audio/music/<music>.ogg), or "" for
 ## the shared night loop.
 @export var music := ""

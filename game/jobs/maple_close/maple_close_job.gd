@@ -10,6 +10,7 @@ static func make() -> JobDef:
 	j.place = "a family home"
 	j.treasure = "The bakery's prize trophy"
 	j.treasure_item = "trophy"
+	j.treasure_model = "res://assets/kenney/mini-arena/trophy.glb"
 	j.blurb = "Augustus Hoard \"lent\" the bakery's prize trophy to his cousins, the Pembertons. It sits in their upstairs study. Ted Pemberton watches TV until late, Maggie potters about, and Biscuit the dog sleeps by the back door. Bring the trophy home."
 	j.scene = "res://game/jobs/maple_close/maple_close_level.gd"
 	j.par_time = 300.0
