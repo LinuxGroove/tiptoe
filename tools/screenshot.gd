@@ -70,6 +70,7 @@ func _ready() -> void:
 		var view: Array = views[v]
 		_job.player.global_position = view[0] + Vector3(0, 0.9, 0)
 		_job.player.velocity = Vector3.ZERO
+		_job.player.rotation.y = 0.0
 		_job.player.body.rotation.y = deg_to_rad(view[1])
 		_job.player.head.rotation.x = deg_to_rad(view[2])
 		await _frames(12)

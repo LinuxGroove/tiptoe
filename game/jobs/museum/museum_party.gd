@@ -67,12 +67,12 @@ const GUEST_LINES := {
 const LIGHTS_OUT_LINE := "Ooh! Is this part of the show?"
 ## What each guest says to wave a waiter over, and to thank them for a drink.
 const CALLS := {
-	"Fenwick": "Ooh, waiter! Over here!", "Ashby": "Is that champagne? Splendid.",
+	"Fairweather": "Ooh, waiter! Over here!", "Ashby": "Is that champagne? Splendid.",
 	"Crumb": "Waiter! Bring that tray here at once.", "Mayor": "A drink? Don't mind if I do.",
 	"Snapper": "Over here, waiter!",
 }
 const THANKS := {
-	"Fenwick": "Oh, lovely. Thank you!", "Ashby": "Much obliged.", "Crumb": "How kind. Thank you.",
+	"Fairweather": "Oh, lovely. Thank you!", "Ashby": "Much obliged.", "Crumb": "How kind. Thank you.",
 	"Mayor": "Cheers! Don't tell Hoard I'm here.", "Snapper": "Ta very much.",
 	"Hoard": "Champagne? Mine, I assume. Everything is.", "Finch": "Oh, thank you. I need this.",
 }
@@ -83,10 +83,10 @@ const VOICES := {
 	"museum_head_waiter": {"who": "Mr Pring, the head waiter: prim, fussy and very proper", "kokoro": "bm_fable", "speed": 1.0},
 	"museum_curator": {"who": "Miss Finch, the curator: clever, flustered and quietly ashamed of her boss", "kokoro": "bf_alice", "speed": 1.05},
 	"museum_guard": {"who": "Ron, the museum guard: big, kind and fond of sausage rolls", "kokoro": "am_liam", "speed": 1.0},
-	"museum_guest_a": {"who": "Mrs Fenwick, a guest: a bright, chatty gossip who knows everything", "kokoro": "af_bella", "speed": 1.05},
+	"museum_guest_a": {"who": "Mrs Fairweather, a guest: a bright, chatty gossip who knows everything", "kokoro": "af_bella", "speed": 1.05},
 	"museum_guest_b": {"who": "Mr Ashby, a guest: a dry, amused old gentleman", "kokoro": "am_echo", "speed": 1.0},
-	"museum_crumb": {"who": "Lady Crumb, a guest: grand, nosy and delighted by scandal", "kokoro": "bf_isabella", "speed": 1.0},
-	"museum_mayor": {"who": "The Mayor of Kettleford: jolly, a little lost, avoiding Hoard", "kokoro": "bm_daniel", "speed": 1.0},
+	"museum_crumb": {"who": "Lady Crumb, a guest: grand, nosy and delighted by scandal", "kokoro": "af_heart", "speed": 1.0},
+	"town_hall_mayor": {"who": "Mayor Prudence Plum: a brisk, decent, slightly frazzled woman in her fifties, chairing a rowdy meeting", "kokoro": "bf_isabella", "speed": 1.0},
 	"museum_snapper": {"who": "Snapper, the photographer: upbeat and bossy with a camera", "kokoro": "am_puck", "speed": 1.1},
 	"museum_violinist": {"who": "The violinist in the string quartet: polite and a bit bored", "kokoro": "af_sky", "speed": 1.0},
 	"museum_cellist": {"who": "The cellist in the string quartet: cheerful, secretly loves sea shanties", "kokoro": "bm_lewis", "speed": 1.0},
@@ -143,7 +143,7 @@ func setup(p_level: MuseumLevel, p_run: JobRun) -> Array:
 	], {
 		"accepts": ["guest", "waiter"], "mumble": "low",
 		"lines": {"seen": ["Who invited you?"], "curious": ["Hm? Who's that?"], "spotted": ["Security! Ron! A burglar!"],
-			"others": ["What's all the fuss?"], "lost": ["Ron! Find them!"], "give_up": ["Probably the Mayor. He wanders."],
+			"others": ["What's all the fuss?"], "lost": ["Ron! Find them!"], "give_up": ["Probably the Mayor. She wanders."],
 			"catch": ["Got you! Ron, show them out."], "wake": ["Wha...? Rich men need their rest."]},
 		"extra_lines": SPEECH + [TOAST_CALL, GONG_LINE, "Cheese!", THANKS.Hoard, "Who turned the lights out? Ron!"],
 	})
@@ -196,9 +196,9 @@ func setup(p_level: MuseumLevel, p_run: JobRun) -> Array:
 			"catch": ["Got you! Out you go, sunshine."], "alarm": ["The alarm! The statue!"],
 			"power_out": ["Not the fuses again!"], "power_fixed": ["There. Lights!"], "wake": ["Wha...? I was just resting my eyes."]},
 	})
-	var fenwick := _person("Fenwick", "female-b", "museum_guest_a", _pair_routine(["p1_hall", "p1_pirates", "p1_buffet", "p1_castles"], "_a"), {
+	var fairweather := _person("Fairweather", "female-b", "museum_guest_a", _pair_routine(["p1_hall", "p1_pirates", "p1_buffet", "p1_castles"], "_a"), {
 		"accepts": ["guest", "waiter"], "mumble": "high", "lines": GUEST_LINES,
-		"extra_lines": _gossip_lines(0, 0) + [CALLS.Fenwick, THANKS.Fenwick, LIGHTS_OUT_LINE],
+		"extra_lines": _gossip_lines(0, 0) + [CALLS.Fairweather, THANKS.Fairweather, LIGHTS_OUT_LINE],
 	})
 	var ashby := _person("Ashby", "male-a", "museum_guest_b", _pair_routine(["p1_hall", "p1_pirates", "p1_buffet", "p1_castles"], "_b"), {
 		"accepts": ["guest", "waiter"], "mumble": "low", "lines": GUEST_LINES,
@@ -208,8 +208,8 @@ func setup(p_level: MuseumLevel, p_run: JobRun) -> Array:
 		"accepts": ["guest", "waiter"], "mumble": "high", "lines": GUEST_LINES,
 		"extra_lines": _gossip_lines(1, 0) + [CALLS.Crumb, THANKS.Crumb, LIGHTS_OUT_LINE],
 	})
-	var mayor := _person("Mayor", "male-e", "museum_mayor", _pair_routine(["p2_castles", "p2_hall", "p2_nature", "p2_foyer", "p2_steps"], "_b"), {
-		"accepts": ["guest", "waiter"], "mumble": "low", "lines": GUEST_LINES,
+	var mayor := _person("Mayor", "female-c", "town_hall_mayor", _pair_routine(["p2_castles", "p2_hall", "p2_nature", "p2_foyer", "p2_steps"], "_b"), {
+		"accepts": ["guest", "waiter"], "mumble": "high", "lines": GUEST_LINES,
 		"extra_lines": _gossip_lines(1, 1) + [CALLS.Mayor, THANKS.Mayor, LIGHTS_OUT_LINE],
 	})
 	snapper = _person("Snapper", "male-b", "museum_snapper", [
@@ -243,20 +243,20 @@ func setup(p_level: MuseumLevel, p_run: JobRun) -> Array:
 		"lines": {"seen": ["Oi! No guests in my kitchen!"], "spotted": ["Out of my kitchen! Thief!"],
 			"curious": ["Who's banging about?"], "give_up": ["Back to the vol-au-vents."]},
 	})
-	pairs = [[fenwick, ashby], [crumb, mayor]]
-	guests = [fenwick, ashby, crumb, mayor, snapper, hoard, finch]
+	pairs = [[fairweather, ashby], [crumb, mayor]]
+	guests = [fairweather, ashby, crumb, mayor, snapper, hoard, finch]
 	gathers = {
 		hoard: "toast_hoard", finch: "toast_curator", ron: "toast_guard", pring: "toast_waiter",
-		fenwick: "toast_1", ashby: "toast_2", crumb: "toast_3", mayor: "toast_4", snapper: "photo",
+		fairweather: "toast_1", ashby: "toast_2", crumb: "toast_3", mayor: "toast_4", snapper: "photo",
 	}
-	for p in [hoard, pring, finch, ron, fenwick, ashby, crumb, mayor, snapper, violinist, cellist, cook]:
+	for p in [hoard, pring, finch, ron, fairweather, ashby, crumb, mayor, snapper, violinist, cellist, cook]:
 		all.append(p)
 	# Where everyone starts.
 	_place(hoard, "hall_c")
 	_place(pring, "pass")
 	_place(finch, "castles")
 	_place(ron, "desk")
-	_place(fenwick, "p1_hall_a")
+	_place(fairweather, "p1_hall_a")
 	_place(ashby, "p1_hall_b")
 	_place(crumb, "p2_castles_a")
 	_place(mayor, "p2_castles_b")

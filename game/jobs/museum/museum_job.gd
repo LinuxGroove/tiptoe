@@ -10,6 +10,7 @@ static func make() -> JobDef:
 	j.place = "at the gala"
 	j.treasure = "The founder's statue"
 	j.treasure_item = "statue"
+	j.treasure_model = "res://assets/kenney/mini-arena/statue.glb"
 	j.music = "night_museum"
 	j.blurb = "Augustus Hoard is opening his Museum of Local Heritage with a gala, and most of the heritage is Kettleford's, borrowed without asking. The centrepiece is the founder's statue from the town square, on a plinth in the rotunda behind lasers and a camera. The hall is full of guests, waiters and gossip, and when Hoard gives his toast everyone turns to look at him. Bring the founder home."
 	j.scene = "res://game/jobs/museum/museum_level.gd"
