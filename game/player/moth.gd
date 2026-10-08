@@ -79,8 +79,8 @@ func _ready():
 ## Settings come from LGSettings, not Cogito's own options file.
 func _reload_options():
 	MOUSE_SENS = float(LGSettings.get_value("play", "mouse_sensitivity", 0.25))
-	# Cogito's INVERT_Y_AXIS = true is the usual (not inverted) look.
-	INVERT_Y_AXIS = not bool(LGSettings.get_value("play", "invert_look", false))
+	# Cogito's INVERT_Y_AXIS = true turns the look upside down (mouse down looks up).
+	INVERT_Y_AXIS = bool(LGSettings.get_value("play", "invert_look", false))
 	TOGGLE_CROUCH = bool(LGSettings.get_value("play", "toggle_crouch", true))
 	HEADBOBBLE = float(LGSettings.get_value("play", "head_bob", 0.7))
 	JOY_H_SENS = float(LGSettings.get_value("play", "stick_sensitivity", 2.0))

@@ -250,6 +250,34 @@ func _test_level() -> void:
 		var path := _nav_path(job, pair[0], pair[1])
 		var end_ok := not path.is_empty() and path[path.size() - 1].distance_to(lvl.points[pair[1]]) < 0.8
 		check(end_ok, "people can walk from %s to %s" % pair)
+	# Moving the mouse down looks down, unless invert look is on.
+	var head: Node3D = job.player.head
+	head.rotation.x = 0.0
+	var move := InputEventMouseMotion.new()
+	move.relative = Vector2(0, 40)
+	job.player._input(move)
+	check(head.rotation.x < -0.01, "moving the mouse down looks down (%.2f)" % head.rotation.x)
+	LGSettings.set_value("play", "invert_look", true, false)
+	job.player._reload_options()
+	head.rotation.x = 0.0
+	job.player._input(move)
+	check(head.rotation.x > 0.01, "invert look turns that around")
+	LGSettings.set_value("play", "invert_look", false, false)
+	job.player._reload_options()
+	head.rotation.x = 0.0
+	# Escape opens the pause menu, and again closes it.
+	var esc := InputEventKey.new()
+	esc.keycode = KEY_ESCAPE
+	esc.physical_keycode = KEY_ESCAPE
+	esc.pressed = true
+	Input.parse_input_event(esc)
+	await _frames(2)
+	check(job.pause.visible and get_tree().paused, "Escape opens the pause menu")
+	Input.parse_input_event(esc)
+	await _frames(2)
+	check(not job.pause.visible and not get_tree().paused, "Escape closes it again")
+	get_tree().paused = false
+	job.pause.visible = false
 	# The player is lit under the porch light and hidden in the back garden.
 	job.player.global_position = Vector3(0.4, 0.9, 6.0)
 	await _physics(20)

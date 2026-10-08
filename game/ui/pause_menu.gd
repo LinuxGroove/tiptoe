@@ -50,6 +50,10 @@ func _set_play(value: Variant, key: String) -> void:
 
 
 func open_pause_menu() -> void:
+	# Cogito opens this from the player's _input; without this the same Escape
+	# press reaches _unhandled_input below and closes the menu straight away.
+	if is_inside_tree():
+		get_viewport().set_input_as_handled()
 	visible = true
 	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
