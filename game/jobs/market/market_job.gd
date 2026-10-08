@@ -10,6 +10,7 @@ static func make() -> JobDef:
 	j.place = "after closing"
 	j.treasure = "Hoard's rent ledger"
 	j.treasure_item = "ledger"
+	j.treasure_model = Kit.FURNITURE + "books.glb"
 	j.music = "night_market"
 	j.blurb = "Augustus Hoard owns every shop on the high street, and squeezes them all. His rent ledger proves he's been overcharging, and tonight it's in the back office of the corner market, where his collector Mrs Pruitt counts the takings. Dev the night clerk is restocking the shelves, the cameras are watching, and the office has a keypad. Bring the ledger home."
 	j.scene = "res://game/jobs/market/market_level.gd"
