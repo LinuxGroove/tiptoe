@@ -2,7 +2,9 @@
 
 Run from the repository root with a Python that has the `bpy` module:
 
-    <python with bpy> tools/blender/props.py assets/models/props
+    <python with bpy> tools/blender/props.py assets/models/props [prop ...]
+
+Naming props (e.g. `safe gloves`) rebuilds only those.
 
 Every prop is modelled in Godot's axes (x right, y up, z toward the viewer)
 and converted to Blender's Z-up axes only when a mesh is made, so the numbers
@@ -320,8 +322,10 @@ def safe():
 
 
 def wall_vent():
-    """Wall air vent: frame, a lift-off grille (`cover`) and a dark duct
-    0.5 m deep behind the wall (the wall needs a hole there)."""
+    """Wall air vent: `frame`, a lift-off grille (`cover`, origin in the middle
+    of the opening) and `duct`, a dark liner 0.5 m deep behind the wall face.
+    The duct's faces point inward, and the wall needs a hole behind the
+    opening for it to show."""
     w, h, inner_w, inner_h, depth = 0.6, 0.4, 0.5, 0.3, 0.025
     frame = Part()
     ox, oy, ix = w / 2, h, inner_w / 2
@@ -365,8 +369,8 @@ def fuse_box():
     +70 degrees is down (off)."""
     bx = Part()
     open_box(bx, (-0.2, 0.0, 0.0), (0.2, 0.5, 0.13), 0.02, 0.015, "metal_grey", "metal_dark")
-    box(bx, (-0.065, 0.30, 0.015), (0.065, 0.44, 0.06), "metal_light")       # main switch housing
-    box(bx, (-0.03, 0.34, 0.06), (0.03, 0.40, 0.063), "dark")                # lever slot
+    box(bx, (-0.08, 0.28, 0.015), (0.08, 0.45, 0.05), "metal_light")         # main switch housing
+    box(bx, (-0.04, 0.32, 0.05), (0.04, 0.41, 0.053), "dark")                 # lever slot
     box(bx, (-0.165, 0.12, 0.015), (0.165, 0.23, 0.05), "metal_light")       # fuse rail
     for i in range(8):                                                       # fuse switches
         x = -0.126 + i * 0.036
@@ -378,10 +382,10 @@ def fuse_box():
         cylinder(bx, 0.01, 0.0, 0.05, 8, "metal_grey", move(0.2, y - 0.025, 0.135) @ rot_x(-90))
 
     breaker = Part()  # origin on its pivot; the lever points up and out
-    cylinder(breaker, 0.012, -0.028, 0.028, 8, "dark", rot_y(90))           # pivot barrel
+    cylinder(breaker, 0.014, -0.034, 0.034, 8, "dark", rot_y(90))           # pivot barrel
     lean = rot_x(-35)
-    box(breaker, (-0.01, -0.007, 0.0), (0.01, 0.007, 0.055), "dark", lean)   # arm
-    box(breaker, (-0.032, -0.012, 0.045), (0.032, 0.012, 0.07), "red", lean) # grip
+    box(breaker, (-0.012, -0.008, 0.0), (0.012, 0.008, 0.068), "dark", lean)  # arm
+    box(breaker, (-0.042, -0.014, 0.056), (0.042, 0.014, 0.085), "red", lean) # grip
 
     door = Part()  # origin on the hinge (back edge, right side)
     box(door, (-0.4, -0.25, 0.0), (0.0, 0.25, 0.02), "metal_grey")
@@ -394,7 +398,7 @@ def fuse_box():
     prism(door, [bolt[2], bolt[3], bolt[4], bolt[5]], 0.023, 0.025, "dark", move(-0.2, 0.06, 0))
 
     b = node("box", bx)
-    node("breaker", breaker, (0.0, 0.37, 0.06), b)
+    node("breaker", breaker, (0.0, 0.365, 0.05), b)
     node("door", door, (0.2, 0.25, 0.13))
 
 
@@ -466,17 +470,17 @@ def glove():
     # Fingers: x at the knuckle, lengths (incl. the part inside the palm),
     # curl per joint, width, height and spread.
     fingers = [
-        (-0.0315, (0.054, 0.026, 0.021), (14, 30, 22), 0.023, 0.021, -3),
-        (-0.0105, (0.058, 0.029, 0.023), (18, 34, 24), 0.023, 0.022, 0),
-        (0.0105, (0.055, 0.027, 0.021), (22, 38, 26), 0.022, 0.021, 3),
-        (0.030, (0.045, 0.022, 0.019), (28, 42, 28), 0.020, 0.019, 7),
+        (-0.0315, (0.054, 0.027, 0.021), (10, 22, 16), 0.024, 0.021, -2),
+        (-0.0105, (0.058, 0.030, 0.023), (12, 25, 18), 0.024, 0.022, 0),
+        (0.0105, (0.055, 0.028, 0.021), (15, 28, 20), 0.023, 0.021, 2),
+        (0.030, (0.045, 0.023, 0.019), (19, 32, 22), 0.021, 0.019, 5),
     ]
     for x, lengths, bends, w, h, spread in fingers:
         fwd = rot_y(-spread).to_3x3() @ Vector((0, 0, -1))
         finger(g, (x, -0.004, -0.07), fwd, (0, 1, 0), lengths, bends, w, h, fab)
     # Thumb: out to the side and forward, curling in under the fingers.
-    finger(g, (-0.024, -0.008, -0.018), (-0.62, -0.30, -0.72), (-0.55, 0.83, 0.0),
-           (0.050, 0.032, 0.027), (8, 18, 22), 0.028, 0.025, fab)
+    finger(g, (-0.026, -0.008, -0.02), (-0.55, -0.22, -0.80), (-0.55, 0.83, 0.0),
+           (0.044, 0.030, 0.025), (6, 14, 18), 0.028, 0.025, fab)
     # Cuff: a short lighter band over the wrist, open at the back, dark inside.
     cuff_rings = [[Vector((x, y, z)) for x, y in ring_pts(w, hh, 0.35)]
                   for z, w, hh in ((-0.010, 0.070, 0.046), (0.035, 0.078, 0.054))]

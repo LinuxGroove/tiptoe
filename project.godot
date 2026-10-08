@@ -47,7 +47,7 @@ window/handheld/orientation=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/cogito/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/quick_audio/plugin.cfg")
+enabled=PackedStringArray("res://addons/input_helper/plugin.cfg", "res://addons/quick_audio/plugin.cfg")
 
 [gui]
 
@@ -62,6 +62,11 @@ pointing/emulate_touch_from_mouse=false
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Interactables"
 3d_physics/layer_3="People"
+
+[navigation]
+
+3d/default_cell_size=0.1
+3d/default_cell_height=0.05
 
 [physics]
 

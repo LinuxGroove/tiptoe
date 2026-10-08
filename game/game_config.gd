@@ -51,7 +51,8 @@ const ACTIONS := {
 	# Use the gadget in hand, or throw what you're carrying.
 	"action_primary": ["mouse:left", "axis:rt+"],
 	"action_secondary": ["mouse:right", "axis:lt+"],
-	"inventory": ["key:Tab", "key:I", "joy:back"],
+	# Cogito reads it, but Tiptoe has no inventory screen: the bag is on the HUD.
+	"inventory": [],
 	"inventory_move_item": ["mouse:left", "joy:x"],
 	"inventory_use_item": ["mouse:right", "joy:a"],
 	"inventory_drop_item": ["key:G", "joy:y"],
