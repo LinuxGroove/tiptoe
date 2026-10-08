@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 Name=Tiptoe
-Comment=Foam dart blaster battles for up to eight friends, on one screen or many.
+Comment=A sneaky first person game about putting things back.
 Exec=tiptoe
 Icon=${SNAP}/meta/gui/tiptoe.svg
 Categories=Game;ActionGame;
-Keywords=party;shooter;couch;local;multiplayer;lan;
+Keywords=stealth;sneak;burglar;first person;immersive sim;
 StartupWMClass=Tiptoe

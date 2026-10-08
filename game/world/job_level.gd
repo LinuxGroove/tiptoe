@@ -66,6 +66,16 @@ func build() -> void:
 	pass
 
 
+## Puts the treasure back where it was (the player was caught with it).
+func return_treasure() -> void:
+	pass
+
+
+## Adds the people (and pets) who live here. Levels override this.
+func add_people(_run: JobRun) -> Array:
+	return []
+
+
 func _physics_process(_delta: float) -> void:
 	var p := get_tree().get_first_node_in_group("moth") as Node3D
 	if p == null:
@@ -312,6 +322,14 @@ func bake_navigation(on_thread := true) -> void:
 
 
 func _on_bake_finished() -> void:
+	# The navigation map takes in the new mesh over the next few physics
+	# frames; paths come back empty until it has.
+	var map := get_world_3d().navigation_map
+	var probe: Vector3 = points.values()[0] if not points.is_empty() else Vector3.ZERO
+	for i in 120:
+		await get_tree().physics_frame
+		if NavigationServer3D.map_get_iteration_id(map) > 0 and NavigationServer3D.map_get_closest_point(map, probe) != Vector3.ZERO:
+			break
 	navigation_ready.emit()
 
 
@@ -334,13 +352,18 @@ func _door(spec: Dictionary, c: Vector3, u: Vector3, yaw: float) -> void:
 		openings.append({"id": d.id, "kind": "door", "pos": c + Vector3(0, 1.0, 0)})
 
 
-func _glass(body: StaticBody3D) -> void:
+func _glass(wall: StaticBody3D) -> void:
+	var glass := StaticBody3D.new()
+	glass.name = "Glass"
+	glass.collision_layer = Kit.LAYER_GLASS
+	glass.collision_mask = 0
 	var cs := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(0.04, WINDOW_TOP - WINDOW_SILL, OPENING_HALF * 2.0)
 	cs.shape = shape
 	cs.position = Vector3(0, (WINDOW_SILL + WINDOW_TOP) * 0.5, 0)
-	body.add_child(cs)
+	glass.add_child(cs)
+	wall.add_child(glass)
 
 
 func _remove_glass(body: StaticBody3D) -> void:
@@ -364,6 +387,7 @@ func _pry_window(id: String, c: Vector3, yaw: float, wall: StaticBody3D) -> void
 	mi.position = Vector3(0, (WINDOW_SILL + WINDOW_TOP) * 0.5, 0)
 	w.add_child(mi)
 	w.add_box(mi.position, Vector3(0.06, WINDOW_TOP - WINDOW_SILL, OPENING_HALF * 2.0))
+	w.collision_layer = Kit.LAYER_GLASS | Kit.LAYER_INTERACT
 	w.add_action("interact", "Pry it open", _pry.bind(id, w))
 	add_child(w)
 

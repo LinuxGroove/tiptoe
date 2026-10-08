@@ -18,7 +18,10 @@ var player: Moth
 var hud: JobHud
 var pause: TiptoePause
 var results: ResultsPanel
+var people: Array = []
+var gadgets: Gadgets
 var _last_exit := "door"
+var _fade: ColorRect
 
 
 func _ready() -> void:
@@ -44,6 +47,11 @@ func _ready() -> void:
 	ui.add_child(pause)
 	results = ResultsPanel.new()
 	ui.add_child(results)
+	_fade = ColorRect.new()
+	_fade.color = Color(0, 0, 0, 0)
+	_fade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ui.add_child(_fade)
 	player = MOTH.instantiate()
 	player.tiptoe_pause = pause
 	add_child(player)
@@ -53,6 +61,13 @@ func _ready() -> void:
 	for g in job.open_gadgets(mastery):
 		player.add_item(g.id, GADGET_COUNTS.get(g.id, 1))
 	hud.setup(run, player)
+	gadgets = Gadgets.new()
+	gadgets.player = player
+	add_child(gadgets)
+	people = level.add_people(run)
+	for p in people:
+		if p is Person:
+			p.caught_player.connect(_on_caught)
 	level.note_opened.connect(hud.show_note)
 	level.entered_house.connect(_on_entered_house)
 	level.left_house.connect(_on_left_house)
@@ -116,9 +131,30 @@ func _on_way_out(_id: String) -> void:
 	if not run.running:
 		return
 	if player.has_item("trophy"):
+		run.has_treasure = true
 		run.escape(_last_exit)
-	else:
+	elif run.has("entered_house"):
 		hud.toast("Come back here with the trophy to get away.")
+
+
+## Caught: marched back out to where the player came in, without the trophy.
+func _on_caught(_by: Person) -> void:
+	if not run.running:
+		return
+	run.add_caught()
+	player.is_movement_paused = true
+	var t := create_tween()
+	t.tween_property(_fade, "color:a", 1.0, 0.5)
+	await t.finished
+	if player.take_item("trophy"):
+		run.drop_treasure()
+		level.return_treasure()
+	player.global_transform = level.start_transform(start_id)
+	player.velocity = Vector3.ZERO
+	player.is_movement_paused = false
+	hud.toast("Caught! Marched out of the garden.", Color(1.0, 0.5, 0.4))
+	var back := create_tween()
+	back.tween_property(_fade, "color:a", 0.0, 0.6)
 
 
 func _on_give_up() -> void:

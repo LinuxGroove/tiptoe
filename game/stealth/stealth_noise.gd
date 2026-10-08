@@ -17,7 +17,7 @@ const SURFACE_RADIUS := {
 const CROUCH_FACTOR := 0.5
 const SPRINT_FACTOR := 2.0
 ## Collision layer of walls and doors that muffle sound.
-const WALL_MASK := 1
+const WALL_MASK := Kit.LAYER_SOLID
 
 var position := Vector3.ZERO
 var radius := 0.0

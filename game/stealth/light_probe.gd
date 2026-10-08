@@ -52,7 +52,7 @@ func light_at(world: Node3D, at: Vector3, exclude: Array) -> float:
 			var ang := rad_to_deg(dir.angle_to((at - light.global_position).normalized()))
 			if ang > light.spot_angle:
 				continue
-		var q := PhysicsRayQueryParameters3D.create(light.global_position, at, 1)
+		var q := PhysicsRayQueryParameters3D.create(light.global_position, at, Kit.LAYER_SOLID)
 		q.exclude = exclude
 		if not space.intersect_ray(q).is_empty():
 			continue

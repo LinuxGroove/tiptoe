@@ -17,6 +17,9 @@ const VIEWS := {
 	"study": [Vector3(2.8, 2.5, -2), -110.0, -10.0],
 	"garage": [Vector3(7, 0, 0), -140.0, -5.0],
 	"roof": [Vector3(9, 2.5, -2), -90.0, 0.0],
+	"ted": [Vector3(-5.2, 0, 3.4), -60.0, -12.0],
+	"maggie": [Vector3(-2.6, 2.5, -3.6), 70.0, -15.0],
+	"dog": [Vector3(-2.6, 0, -2.0), 120.0, -30.0],
 }
 
 var _out := "/tmp/shots"
@@ -40,11 +43,22 @@ func _ready() -> void:
 	_job = (load("res://game/jobs/job.tscn") as PackedScene).instantiate()
 	_job.job = Jobs.get_job(job_id)
 	add_child(_job)
-	await _frames(30)
-	for v in VIEWS:
-		if only != "" and v != only:
+	await _job.level.navigation_ready
+	# Let the people get to their places.
+	Engine.time_scale = 4.0
+	await _frames(600)
+	Engine.time_scale = 1.0
+	var views := VIEWS.duplicate()
+	# Views of each person (and the dog), from a couple of metres in front.
+	for p in _job.people:
+		var front: Vector3 = p.rig.global_basis.z.normalized()
+		var at: Vector3 = p.global_position + front * 2.6
+		at.y = p.global_position.y
+		views["who_" + p.name] = [at, rad_to_deg(atan2(front.x, front.z)), -12.0]
+	for v in views:
+		if only != "" and not v.begins_with(only):
 			continue
-		var view: Array = VIEWS[v]
+		var view: Array = views[v]
 		_job.player.global_position = view[0] + Vector3(0, 0.9, 0)
 		_job.player.velocity = Vector3.ZERO
 		_job.player.body.rotation.y = deg_to_rad(view[1])

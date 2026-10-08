@@ -76,6 +76,7 @@ jobs:
           sed -i -e "s/^application\/short_version=\".*\"$/application\/short_version=\"${version%%+*}\"/" \
                  -e "s/^application\/version=\".*\"$/application\/version=\"${version%%+*}\"/" export_presets.cfg
           "$GODOT" --headless --path . --import
+          "$GODOT" --headless --path . --import
           mkdir -p build/windows build/macos dist
           "$GODOT" --headless --path . --export-release "Windows Desktop" "build/windows/$slug.exe"
           "$GODOT" --headless --path . --export-release "macOS" "build/macos/$slug.zip"

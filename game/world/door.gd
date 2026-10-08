@@ -36,6 +36,7 @@ var _tick := 0.0
 
 static func make(p_id: String, model_path: String) -> HouseDoor:
 	var d := HouseDoor.new()
+	d.collision_layer = Kit.LAYER_DOOR | Kit.LAYER_INTERACT
 	d.id = p_id
 	d.name = "Door_" + p_id
 	var m: Node3D = Kit.scene(model_path).instantiate()

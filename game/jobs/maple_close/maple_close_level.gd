@@ -194,8 +194,8 @@ func _furnish() -> void:
 	Kit.furniture(self, "cabinetTelevision", Vector3(-5.7, 0, 2), 90)
 	Kit.furniture(self, "televisionModern", Vector3(-5.7, 0.62, 2), 90, false)
 	Kit.furniture(self, "loungeSofa", Vector3(-3.0, 0, 2), -90)
-	Kit.furniture(self, "tableCoffee", Vector3(-4.3, 0, 2), 90)
-	Kit.furniture(self, "rugRectangle", Vector3(-4.2, 0, 2), 90, false)
+	Kit.furniture(self, "tableCoffee", Vector3(-4.75, 0, 2), 90)
+	Kit.furniture(self, "rugRectangle", Vector3(-4.4, 0, 2), 90, false)
 	Kit.furniture(self, "lampRoundFloor", Vector3(-2.5, 0, 4.4), 0)
 	Kit.furniture(self, "bookcaseOpen", Vector3(-5.6, 0, -0.5), 90)
 	# Hall.
@@ -346,6 +346,16 @@ func _things() -> void:
 	# The pizza scooter by the kerb, with a spare box and the delivery cap.
 	Kit.block(self, Vector3(-9, 0.45, 14), Vector3(0.6, 0.9, 1.6), "", Kit.flat(Color(0.75, 0.15, 0.12)), false)
 	pickup("pizza", "Take a pizza", Kit.FOOD + "pizza-box.glb", Vector3(-9, 0.92, 14.4), 0.45)
+	# Biscuit's bed by the back door.
+	var bed := MeshInstance3D.new()
+	var cm := CylinderMesh.new()
+	cm.top_radius = 0.45
+	cm.bottom_radius = 0.5
+	cm.height = 0.12
+	cm.material = Kit.flat(Color(0.55, 0.3, 0.25))
+	bed.mesh = cm
+	bed.position = points.get("dog_bed", Vector3(-4.6, 0, -4.3)) + Vector3(0, 0.06, 0)
+	add_child(bed)
 	var cap := pickup("pizza_cap", "Put on the cap", Kit.PROTOTYPE + "hat-cap.glb", Vector3(-9, 0.92, 13.7), 1.0, 0, "got_pizza_cap")
 	cap.action("interact").on_use = _wear_cap.bind(cap)
 	# The trophy, and a cupcake on the kitchen table to leave in its place.
@@ -376,7 +386,7 @@ func _marks() -> void:
 	add_start("garden", Vector3(-10, 0, -14), 160)
 	add_start("alley", Vector3(14.5, 0, -8), 180)
 	points = {
-		"sofa": Vector3(-3.3, 0, 2), "tv": Vector3(-4.8, 0, 2), "living": Vector3(-4, 0, 0.5),
+		"sofa": Vector3(-3.85, 0, 2), "tv": Vector3(-4.2, 0, 3.4), "living": Vector3(-4, 0, 0.5),
 		"hall": Vector3(-0.6, 0, 2), "front_door_in": Vector3(-1, 0, 4.1), "front_step": Vector3(-1, 0, 6),
 		"kitchen": Vector3(-1.5, 0, -2), "fridge": Vector3(1.4, 0, -3.8), "back_door_in": Vector3(-3, 0, -4),
 		"dog_bed": Vector3(-4.6, 0, -4.3), "dining": Vector3(4, 0, 0.3), "utility": Vector3(4, 0, -3),
@@ -449,20 +459,68 @@ func _update_stand(player: Node) -> void:
 
 
 func _flip_breaker(pic: PlayerInteractionComponent) -> void:
-	_breaker_off = not _breaker_off
-	Sfx.at(self, "breaker_off" if _breaker_off else "breaker_on", Vector3(10.5, 1.4, -4.9), -2.0)
 	StealthNoise.make(self, Vector3(10.5, 1.4, -4.9), 3.0, "breaker", pic.get_parent())
-	if _breaker_off:
+	set_power(_breaker_off)
+
+
+## Turns the house's power on or off at the fuse box (people fix it too).
+func set_power(on: bool) -> void:
+	if on != _breaker_off:
+		return
+	_breaker_off = not on
+	Sfx.at(self, "breaker_on" if on else "breaker_off", Vector3(10.5, 1.4, -4.9), -2.0)
+	if not on:
 		for r in HOUSE_CIRCUIT:
 			_lights_before[r] = lights_on(r)
 			set_lights(r, false)
 		_record("lights_out")
 		_record("porch_light_off")
+		get_tree().call_group("people", "lights_went_out")
 	else:
 		for r in HOUSE_CIRCUIT:
 			set_lights(r, _lights_before.get(r, false))
 
 
+## The trophy goes back on its stand (the player was caught with it).
+func return_treasure() -> void:
+	if _trophy != null:
+		return
+	_trophy = Kit.scene("res://assets/kenney/mini-arena/trophy.glb").instantiate()
+	_trophy.scale = Vector3.ONE * 0.7
+	_trophy.position = Vector3(0, 0.77, 0)
+	trophy_stand.add_child(_trophy)
+	trophy_stand.set_action_text("interact", "Take the trophy")
+
+
 ## Is the power off at the fuse box?
 func power_off() -> bool:
 	return _breaker_off
+
+
+func add_people(p_run: JobRun) -> Array:
+	var ted := Person.new()
+	ted.setup("Ted", "male-b", self, p_run, [
+		{"at": "sofa", "face": Vector3(-1, 0, 0), "clip": "sit-watch", "time": 45.0, "room": "living", "sit": Vector3(0.5, 0.0, 0)},
+		{"at": "fridge", "face": Vector3(0, 0, -1), "time": 7.0, "room": "kitchen", "say": "Where's the cheese?"},
+		{"at": "kitchen", "time": 4.0},
+		{"at": "sofa", "face": Vector3(-1, 0, 0), "clip": "sit-watch", "time": 60.0, "room": "living", "sit": Vector3(0.5, 0.0, 0)},
+		{"at": "dining", "clip": "phone-call", "time": 14.0, "room": "dining", "say": "Hello, Dave? About the fuse box..."},
+		{"at": "hall", "time": 3.0},
+	], "low")
+	ted.position = points["sofa"]
+	add_child(ted)
+	var maggie := Person.new()
+	maggie.setup("Maggie", "female-c", self, p_run, [
+		{"at": "bed", "clip": "phone-call", "time": 35.0, "room": "master"},
+		{"at": "bathroom", "time": 8.0, "room": "bathroom", "leave_dark": true},
+		{"at": "corridor", "time": 2.0},
+		{"at": "study", "clip": "look-around", "time": 10.0, "room": "study", "leave_dark": true, "say": "Lovely trophy. Shame about the bakery."},
+		{"at": "bedroom", "time": 25.0, "room": "master"},
+	], "high")
+	maggie.position = points["bed"]
+	add_child(maggie)
+	var dog := Dog.new()
+	dog.setup(self, p_run, points["dog_bed"])
+	dog.position = points["dog_bed"]
+	add_child(dog)
+	return [ted, maggie, dog]

@@ -16,6 +16,13 @@ const PROPS := "res://assets/models/props/"
 const LAYER_WORLD := 1
 const LAYER_INTERACT := 2
 const LAYER_PEOPLE := 4
+## Window glass: stops bodies, but not sight, light or sound.
+const LAYER_GLASS := 8
+## Doors: block the player, sight, light and sound, but people walk through
+## an open door's leaf rather than getting stuck on it.
+const LAYER_DOOR := 16
+## What blocks sight, light and sound.
+const LAYER_SOLID := LAYER_WORLD | LAYER_DOOR
 
 ## The Furniture Kit is modelled at half scale.
 const FURNITURE_SCALE := 2.0

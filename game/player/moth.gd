@@ -49,6 +49,7 @@ func _ready():
 	if tiptoe_pause:
 		pause_menu = tiptoe_pause.get_path()
 	fall_damage = 0
+	collision_mask = Kit.LAYER_SOLID | Kit.LAYER_GLASS
 	CAN_BUNNYHOP = false
 	disable_roll_anim = true
 	WALKING_SPEED = 3.6
@@ -189,7 +190,7 @@ func _try_mantle() -> bool:
 	var shape := crouching_collision_shape.shape
 	var params := PhysicsShapeQueryParameters3D.new()
 	params.shape = shape
-	params.collision_mask = 1
+	params.collision_mask = Kit.LAYER_SOLID | Kit.LAYER_GLASS
 	params.exclude = [get_rid()]
 	params.transform = Transform3D(Basis(), standing_on + Vector3(0, _shape_half_height(shape) + 0.05, 0))
 	if not space.intersect_shape(params, 1).is_empty():

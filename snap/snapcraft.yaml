@@ -2,18 +2,19 @@ name: tiptoe
 title: Tiptoe
 adopt-info: tiptoe
 base: core24
-summary: Foam dart blaster battles for up to eight friends, on one screen or many.
+summary: A sneaky first person game about putting things back.
 description: |
-  Tiptoe is a fast, silly foam dart party game for 2 to 8 campers. Dash
-  around the gym or the test lab, scoop up darts, dive out of the way and tag
-  your friends before the clock runs out. Every dart you fire lands on the
-  floor, so ammo is precious and anyone can grab it.
+  Tiptoe is a first person stealth game about a cat burglar in reverse.
+  Augustus Hoard has "borrowed" half the town's treasures, and you are the
+  one quietly taking them home. Creep through houses at night, keep to the
+  shadows, mind the creaky floors and the sleepy dog, and get out without
+  anyone knowing you were there.
 
-  - Four modes: Free-for-all, Team Battle, Capture the Flag and Dart Hoarder
-  - Play on one screen with a controller each, on your local network, or
-    online through a LinuxGroove game server
-  - Fill empty spots with bots, or warm up in a guided practice round
-  - Made for controllers and handhelds, fully playable with a keyboard
+  - Every job is a little sandbox: doors to pick, lights to cut, a doorbell
+    to ring, windows to climb through and people with their own routines
+  - Capers reward clever runs and unlock new start points and gadgets
+  - Leads point you at new ways in, if you want a nudge
+  - Plays fully offline, with a keyboard and mouse or a controller
 icon: icon.png
 grade: stable
 confinement: strict
@@ -35,7 +36,6 @@ apps:
       - audio-playback
       - joystick
       - network
-      - network-bind
 
 parts:
   tiptoe:
@@ -84,6 +84,7 @@ parts:
       TEMPLATES="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
       mkdir -p "$TEMPLATES"
       unzip -o -q -j templates.tpz "templates/linux_release.${ARCH}" templates/version.txt -d "$TEMPLATES"
+      "$GODOT" --headless --path . --import
       "$GODOT" --headless --path . --import
       mkdir -p "$CRAFT_PART_INSTALL/game" "$CRAFT_PART_INSTALL/bin"
       "$GODOT" --headless --path . --export-release "$PRESET" "$CRAFT_PART_INSTALL/game/tiptoe"
