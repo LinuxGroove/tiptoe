@@ -1,0 +1,3332 @@
+{
+	"files": {
+		"assets/audio/voice/low/hm.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.12,
+					"clipped_runs": 0,
+					"end_db": -102.9,
+					"seconds": 0.64,
+					"gain_db": 1.1,
+					"lufs": null,
+					"seed": 979,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hm?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"say": "Hmm?",
+			"seconds": 0.64,
+			"peak_db": -3.0,
+			"rms_db": -18.3
+		},
+		"assets/audio/voice/low/what_was_that.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.68,
+					"clipped_runs": 0,
+					"end_db": -93.1,
+					"seconds": 1.11,
+					"gain_db": 4.9,
+					"lufs": null,
+					"seed": 63271,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "What was that?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.11,
+			"peak_db": -3.0,
+			"rms_db": -14.9
+		},
+		"assets/audio/voice/low/hello.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.45,
+					"clipped_runs": 0,
+					"end_db": -87.3,
+					"seconds": 0.87,
+					"gain_db": 2.3,
+					"lufs": null,
+					"seed": 49714,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hello?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 0.87,
+			"peak_db": -3.2,
+			"rms_db": -17.1
+		},
+		"assets/audio/voice/low/hm_whos_there.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -103.3,
+					"seconds": 1.33,
+					"gain_db": 1.8,
+					"lufs": null,
+					"seed": 44282,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hm? Who's there?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"say": "Hmm? Who's there?",
+			"seconds": 1.33,
+			"peak_db": -3.0,
+			"rms_db": -18.1
+		},
+		"assets/audio/voice/low/biscuit_what_is_it.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.1,
+					"clipped_runs": 0,
+					"end_db": -109.1,
+					"seconds": 1.48,
+					"gain_db": 3.2,
+					"lufs": null,
+					"seed": 43303,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Biscuit? What is it?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.48,
+			"peak_db": -3.3,
+			"rms_db": -17.0
+		},
+		"assets/audio/voice/low/whats_going_on.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.8,
+					"clipped_runs": 0,
+					"end_db": -93.9,
+					"seconds": 1.19,
+					"gain_db": 3.6,
+					"lufs": null,
+					"seed": 39466,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "What's going on?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.19,
+			"peak_db": -2.8,
+			"rms_db": -16.1
+		},
+		"assets/audio/voice/low/hey_you.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.63,
+					"clipped_runs": 0,
+					"end_db": -92.2,
+					"seconds": 1.01,
+					"gain_db": 1.5,
+					"lufs": null,
+					"seed": 55605,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hey! You!",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.01,
+			"peak_db": -3.1,
+			"rms_db": -18.3
+		},
+		"assets/audio/voice/low/oi_stop_right_there.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.35,
+					"clipped_runs": 0,
+					"end_db": -108.4,
+					"seconds": 1.68,
+					"gain_db": 3.1,
+					"lufs": null,
+					"seed": 24115,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Oi! Stop right there!",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.68,
+			"peak_db": -3.0,
+			"rms_db": -17.2
+		},
+		"assets/audio/voice/low/burglar.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.37,
+					"clipped_runs": 0,
+					"end_db": -78.7,
+					"seconds": 0.83,
+					"gain_db": 3.7,
+					"lufs": null,
+					"seed": 39877,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Burglar!",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 0.83,
+			"peak_db": -3.1,
+			"rms_db": -15.9
+		},
+		"assets/audio/voice/low/where_did_they_go.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -100.4,
+					"seconds": 1.36,
+					"gain_db": 3.0,
+					"lufs": null,
+					"seed": 17789,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Where did they go?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.36,
+			"peak_db": -3.0,
+			"rms_db": -17.3
+		},
+		"assets/audio/voice/low/i_know_youre_here.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.05,
+					"clipped_runs": 0,
+					"end_db": -105.7,
+					"seconds": 1.37,
+					"gain_db": 2.1,
+					"lufs": null,
+					"seed": 73813,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "I know you're here!",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.37,
+			"peak_db": -3.4,
+			"rms_db": -17.6
+		},
+		"assets/audio/voice/low/there_light.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.68,
+					"clipped_runs": 0,
+					"end_db": -93.4,
+					"seconds": 1.09,
+					"gain_db": 4.0,
+					"lufs": null,
+					"seed": 55990,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "There. Light!",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.09,
+			"peak_db": -3.2,
+			"rms_db": -15.7
+		},
+		"assets/audio/voice/low/must_be_the_wind.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.92,
+					"clipped_runs": 0,
+					"end_db": -97.6,
+					"seconds": 1.31,
+					"gain_db": 2.1,
+					"lufs": null,
+					"seed": 76849,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Must be the wind.",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.31,
+			"peak_db": -3.0,
+			"rms_db": -17.6
+		},
+		"assets/audio/voice/low/just_the_house_settling.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.27,
+					"clipped_runs": 0,
+					"end_db": -115.2,
+					"seconds": 1.65,
+					"gain_db": 3.3,
+					"lufs": null,
+					"seed": 80263,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Just the house settling.",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.65,
+			"peak_db": -3.1,
+			"rms_db": -17.2
+		},
+		"assets/audio/voice/low/im_hearing_things.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.12,
+					"clipped_runs": 0,
+					"end_db": -101.2,
+					"seconds": 1.43,
+					"gain_db": 2.6,
+					"lufs": null,
+					"seed": 102,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "I'm hearing things.",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.43,
+			"peak_db": -2.7,
+			"rms_db": -17.3
+		},
+		"assets/audio/voice/low/got_you_out_you_go.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.3,
+					"clipped_runs": 0,
+					"end_db": -111.0,
+					"seconds": 1.63,
+					"gain_db": 3.8,
+					"lufs": null,
+					"seed": 25376,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Got you! Out you go.",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.63,
+			"peak_db": -3.0,
+			"rms_db": -16.2
+		},
+		"assets/audio/voice/low/coming.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.27,
+					"clipped_runs": 0,
+					"end_db": -73.0,
+					"seconds": 0.73,
+					"gain_db": 0.9,
+					"lufs": null,
+					"seed": 60919,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Coming!",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 0.73,
+			"peak_db": -3.1,
+			"rms_db": -18.5
+		},
+		"assets/audio/voice/low/whos_that_at_this_hour.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.45,
+					"clipped_runs": 0,
+					"end_db": -122.3,
+					"seconds": 1.79,
+					"gain_db": 1.3,
+					"lufs": null,
+					"seed": 64733,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Who's that at this hour?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.79,
+			"peak_db": -3.0,
+			"rms_db": -18.7
+		},
+		"assets/audio/voice/low/hello_kids.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.87,
+					"clipped_runs": 0,
+					"end_db": -101.5,
+					"seconds": 1.24,
+					"gain_db": 3.3,
+					"lufs": null,
+					"seed": 88442,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hello? ...Kids.",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.24,
+			"peak_db": -3.1,
+			"rms_db": -16.4
+		},
+		"assets/audio/voice/low/nobody_there_odd.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.37,
+					"clipped_runs": 0,
+					"end_db": -115.2,
+					"seconds": 1.7,
+					"gain_db": 4.4,
+					"lufs": null,
+					"seed": 55285,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Nobody there. Odd.",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.7,
+			"peak_db": -2.7,
+			"rms_db": -15.8
+		},
+		"assets/audio/voice/low/not_again.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.58,
+					"clipped_runs": 0,
+					"end_db": -94.0,
+					"seconds": 0.97,
+					"gain_db": 5.0,
+					"lufs": null,
+					"seed": 49768,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Not again!",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 0.97,
+			"peak_db": -3.0,
+			"rms_db": -14.6
+		},
+		"assets/audio/voice/low/wheres_the_cheese.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.9,
+					"clipped_runs": 0,
+					"end_db": -102.7,
+					"seconds": 1.26,
+					"gain_db": 2.9,
+					"lufs": null,
+					"seed": 20009,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Where's the cheese?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.26,
+			"peak_db": -3.0,
+			"rms_db": -17.0
+		},
+		"assets/audio/voice/low/hello_dave_about_the_fuse_box.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 3.38,
+					"clipped_runs": 0,
+					"end_db": -127.3,
+					"seconds": 2.71,
+					"gain_db": 3.6,
+					"lufs": null,
+					"seed": 49014,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hello, Dave? About the fuse box...",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 2.71,
+			"peak_db": -3.2,
+			"rms_db": -16.8
+		},
+		"assets/audio/voice/low/pizza_come_in_come_in_ill_find_my_wallet.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 3.92,
+					"clipped_runs": 0,
+					"end_db": -138.0,
+					"seconds": 3.23,
+					"gain_db": 1.9,
+					"lufs": null,
+					"seed": 68962,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Pizza! Come in, come in, I'll find my wallet.",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 3.23,
+			"peak_db": -2.9,
+			"rms_db": -18.8
+		},
+		"assets/audio/voice/low/wheres_the_pizza_then.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.52,
+					"clipped_runs": 0,
+					"end_db": -117.8,
+					"seconds": 1.87,
+					"gain_db": 3.2,
+					"lufs": null,
+					"seed": 85374,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Where's the pizza, then?",
+			"voice": "bm_george",
+			"speed": 1.0,
+			"seconds": 1.87,
+			"peak_db": -3.2,
+			"rms_db": -17.3
+		},
+		"assets/audio/voice/high/hm.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 0.78,
+					"clipped_runs": 0,
+					"end_db": -54.7,
+					"seconds": 0.59,
+					"gain_db": 1.4,
+					"lufs": null,
+					"seed": 27667,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hm?",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"say": "Hmm?",
+			"seconds": 0.59,
+			"peak_db": -3.2,
+			"rms_db": -19.0
+		},
+		"assets/audio/voice/high/what_was_that.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.63,
+					"clipped_runs": 0,
+					"end_db": -81.3,
+					"seconds": 1.0,
+					"gain_db": 0.7,
+					"lufs": null,
+					"seed": 7169,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "What was that?",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.0,
+			"peak_db": -3.6,
+			"rms_db": -18.2
+		},
+		"assets/audio/voice/high/hello.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.15,
+					"clipped_runs": 0,
+					"end_db": -80.0,
+					"seconds": 0.93,
+					"gain_db": 2.1,
+					"lufs": null,
+					"seed": 55262,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hello?",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 0.93,
+			"peak_db": -3.4,
+			"rms_db": -18.5
+		},
+		"assets/audio/voice/high/hm_whos_there.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.78,
+					"clipped_runs": 0,
+					"end_db": -81.6,
+					"seconds": 1.08,
+					"gain_db": 0.7,
+					"lufs": null,
+					"seed": 21500,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hm? Who's there?",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"say": "Hmm? Who's there?",
+			"seconds": 1.08,
+			"peak_db": -3.0,
+			"rms_db": -18.0
+		},
+		"assets/audio/voice/high/biscuit_what_is_it.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.07,
+					"clipped_runs": 0,
+					"end_db": -91.2,
+					"seconds": 1.31,
+					"gain_db": 1.5,
+					"lufs": null,
+					"seed": 35400,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Biscuit? What is it?",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.31,
+			"peak_db": -3.2,
+			"rms_db": -17.8
+		},
+		"assets/audio/voice/high/whats_going_on.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.75,
+					"clipped_runs": 0,
+					"end_db": -71.4,
+					"seconds": 1.07,
+					"gain_db": 0.9,
+					"lufs": null,
+					"seed": 13597,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "What's going on?",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.07,
+			"peak_db": -3.6,
+			"rms_db": -17.9
+		},
+		"assets/audio/voice/high/hey_you.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.45,
+					"clipped_runs": 0,
+					"end_db": -79.0,
+					"seconds": 1.19,
+					"gain_db": 0.8,
+					"lufs": null,
+					"seed": 25815,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hey! You!",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.19,
+			"peak_db": -3.2,
+			"rms_db": -19.7
+		},
+		"assets/audio/voice/high/oi_stop_right_there.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.15,
+					"clipped_runs": 0,
+					"end_db": -97.3,
+					"seconds": 1.38,
+					"gain_db": 2.5,
+					"lufs": null,
+					"seed": 43241,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Oi! Stop right there!",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.38,
+			"peak_db": -3.2,
+			"rms_db": -16.3
+		},
+		"assets/audio/voice/high/burglar.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.12,
+					"clipped_runs": 0,
+					"end_db": -93.2,
+					"seconds": 0.91,
+					"gain_db": 2.6,
+					"lufs": null,
+					"seed": 67079,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Burglar!",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 0.91,
+			"peak_db": -3.1,
+			"rms_db": -17.9
+		},
+		"assets/audio/voice/high/where_did_they_go.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.85,
+					"clipped_runs": 0,
+					"end_db": -67.5,
+					"seconds": 1.16,
+					"gain_db": 0.5,
+					"lufs": null,
+					"seed": 29024,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Where did they go?",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.16,
+			"peak_db": -4.4,
+			"rms_db": -18.8
+		},
+		"assets/audio/voice/high/i_know_youre_here.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.8,
+					"clipped_runs": 0,
+					"end_db": -78.9,
+					"seconds": 1.11,
+					"gain_db": 2.6,
+					"lufs": null,
+					"seed": 59112,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "I know you're here!",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.11,
+			"peak_db": -2.7,
+			"rms_db": -16.5
+		},
+		"assets/audio/voice/high/there_light.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.58,
+					"clipped_runs": 0,
+					"end_db": -79.4,
+					"seconds": 0.95,
+					"gain_db": 1.8,
+					"lufs": null,
+					"seed": 88472,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "There. Light!",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 0.95,
+			"peak_db": -3.0,
+			"rms_db": -17.2
+		},
+		"assets/audio/voice/high/must_be_the_wind.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.85,
+					"clipped_runs": 0,
+					"end_db": -71.1,
+					"seconds": 1.13,
+					"gain_db": -1.5,
+					"lufs": null,
+					"seed": 28906,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Must be the wind.",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.13,
+			"peak_db": -3.3,
+			"rms_db": -20.5
+		},
+		"assets/audio/voice/high/just_the_house_settling.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.15,
+					"clipped_runs": 0,
+					"end_db": -98.3,
+					"seconds": 1.37,
+					"gain_db": -1.1,
+					"lufs": null,
+					"seed": 74355,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Just the house settling.",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.37,
+			"peak_db": -3.1,
+			"rms_db": -20.0
+		},
+		"assets/audio/voice/high/im_hearing_things.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.97,
+					"clipped_runs": 0,
+					"end_db": -84.2,
+					"seconds": 1.22,
+					"gain_db": 1.6,
+					"lufs": null,
+					"seed": 25787,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "I'm hearing things.",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.22,
+			"peak_db": -3.1,
+			"rms_db": -17.4
+		},
+		"assets/audio/voice/high/got_you_out_you_go.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.07,
+					"clipped_runs": 0,
+					"end_db": -103.3,
+					"seconds": 1.31,
+					"gain_db": -1.9,
+					"lufs": null,
+					"seed": 68495,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Got you! Out you go.",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.31,
+			"peak_db": -3.2,
+			"rms_db": -21.0
+		},
+		"assets/audio/voice/high/coming.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.2,
+					"clipped_runs": 0,
+					"end_db": -89.9,
+					"seconds": 0.97,
+					"gain_db": 0.1,
+					"lufs": null,
+					"seed": 45084,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Coming!",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 0.97,
+			"peak_db": -3.2,
+			"rms_db": -20.2
+		},
+		"assets/audio/voice/high/whos_that_at_this_hour.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.17,
+					"clipped_runs": 0,
+					"end_db": -98.0,
+					"seconds": 1.42,
+					"gain_db": 0.1,
+					"lufs": null,
+					"seed": 46343,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Who's that at this hour?",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.42,
+			"peak_db": -3.1,
+			"rms_db": -19.1
+		},
+		"assets/audio/voice/high/hello_kids.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 1.75,
+					"clipped_runs": 0,
+					"end_db": -85.8,
+					"seconds": 1.05,
+					"gain_db": 1.6,
+					"lufs": null,
+					"seed": 82540,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Hello? ...Kids.",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.05,
+			"peak_db": -2.9,
+			"rms_db": -16.8
+		},
+		"assets/audio/voice/high/nobody_there_odd.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -88.7,
+					"seconds": 1.27,
+					"gain_db": 1.2,
+					"lufs": null,
+					"seed": 66510,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Nobody there. Odd.",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 1.27,
+			"peak_db": -3.0,
+			"rms_db": -18.1
+		},
+		"assets/audio/voice/high/lovely_trophy_shame_about_the_bakery.ogg": {
+			"kind": "voices",
+			"model": "kokoro-v1",
+			"seed": null,
+			"takes": 1,
+			"ask": null,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 3.0,
+					"clipped_runs": 0,
+					"end_db": -119.2,
+					"seconds": 2.16,
+					"gain_db": 0.7,
+					"lufs": null,
+					"seed": 83443,
+					"score": 0,
+					"parts": {}
+				}
+			],
+			"text": "Lovely trophy. Shame about the bakery.",
+			"voice": "bf_emma",
+			"speed": 1.05,
+			"seconds": 2.16,
+			"peak_db": -2.9,
+			"rms_db": -18.7
+		},
+		"assets/audio/sfx/dog_bark_1.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 77984,
+			"takes": 6,
+			"ask": 2,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -48.2,
+					"events": 1,
+					"floor_db": -76.3,
+					"seconds": 0.32,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 77981,
+					"score": 0.039,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.04,
+						"floor": 0.0
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -34.3,
+					"events": 1,
+					"floor_db": -47.9,
+					"seconds": 0.92,
+					"gain_db": -5.6,
+					"lufs": null,
+					"seed": 77982,
+					"score": 0.159,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.09,
+						"floor": 0.07
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -53.6,
+					"events": 1,
+					"floor_db": -64.9,
+					"seconds": 0.42,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 77983,
+					"score": 0.038,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.02,
+						"floor": 0.02
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -59.9,
+					"events": 1,
+					"floor_db": -63.4,
+					"seconds": 0.53,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 77984,
+					"score": 0.022,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.0,
+						"floor": 0.02
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -30.2,
+					"events": 1,
+					"floor_db": -58.0,
+					"seconds": 0.57,
+					"gain_db": -3.0,
+					"lufs": null,
+					"seed": 77985,
+					"score": 0.139,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.1,
+						"floor": 0.04
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -56.5,
+					"events": 1,
+					"floor_db": -64.1,
+					"seconds": 0.45,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 77986,
+					"score": 0.031,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.01,
+						"floor": 0.02
+					}
+				}
+			],
+			"prompt": "a medium sized friendly dog barking once, indoors, close",
+			"seconds": 0.53,
+			"peak_db": -2.8,
+			"rms_db": -16.5
+		},
+		"assets/audio/sfx/dog_bark_2.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 44849,
+			"takes": 6,
+			"ask": 2,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -33.5,
+					"events": 1,
+					"floor_db": -54.1,
+					"seconds": 0.34,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 44845,
+					"score": 0.141,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.09,
+						"floor": 0.05
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -50.0,
+					"events": 1,
+					"floor_db": -64.7,
+					"seconds": 0.37,
+					"gain_db": -4.7,
+					"lufs": null,
+					"seed": 44846,
+					"score": 0.051,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.03,
+						"floor": 0.02
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -47.8,
+					"events": 1,
+					"floor_db": -65.4,
+					"seconds": 0.37,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 44847,
+					"score": 0.056,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.04,
+						"floor": 0.02
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -19.8,
+					"events": 1,
+					"floor_db": -54.3,
+					"seconds": 2.0,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 44848,
+					"score": 1.206,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 1.02,
+						"noise": 0.0,
+						"tail": 0.13,
+						"floor": 0.05
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -45.6,
+					"events": 1,
+					"floor_db": -57.4,
+					"seconds": 0.57,
+					"gain_db": -4.1,
+					"lufs": null,
+					"seed": 44849,
+					"score": 0.09,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.05,
+						"floor": 0.04
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -37.3,
+					"events": 1,
+					"floor_db": -61.3,
+					"seconds": 0.62,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 44850,
+					"score": 0.105,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.08,
+						"floor": 0.03
+					}
+				}
+			],
+			"prompt": "a dog giving one deep, longer bark, indoors",
+			"picked": "the lowest (about 450 Hz) and longest of the six barks",
+			"seconds": 0.57,
+			"peak_db": -3.0,
+			"rms_db": -19.6
+		},
+		"assets/audio/sfx/dog_bark_3.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 91710,
+			"takes": 6,
+			"ask": 2,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -32.0,
+					"events": 1,
+					"floor_db": -51.9,
+					"seconds": 0.38,
+					"gain_db": -5.8,
+					"lufs": null,
+					"seed": 91709,
+					"score": 0.154,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.09,
+						"floor": 0.06
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -48.9,
+					"events": 1,
+					"floor_db": -62.3,
+					"seconds": 0.42,
+					"gain_db": -5.9,
+					"lufs": null,
+					"seed": 91710,
+					"score": 0.063,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.04,
+						"floor": 0.03
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -45.9,
+					"events": 1,
+					"floor_db": -66.2,
+					"seconds": 0.33,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 91711,
+					"score": 0.06,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.05,
+						"floor": 0.01
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -35.9,
+					"events": 1,
+					"floor_db": -48.2,
+					"seconds": 1.19,
+					"gain_db": -5.3,
+					"lufs": null,
+					"seed": 91712,
+					"score": 0.153,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.08,
+						"floor": 0.07
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -26.4,
+					"events": 1,
+					"floor_db": -42.5,
+					"seconds": 0.44,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 91713,
+					"score": 0.814,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.36,
+						"noise": 0.25,
+						"tail": 0.11,
+						"floor": 0.09
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 1,
+					"end_db": -13.0,
+					"events": 1,
+					"floor_db": -27.8,
+					"seconds": 0.44,
+					"gain_db": 1.1,
+					"lufs": null,
+					"seed": 91714,
+					"score": 3.737,
+					"parts": {
+						"clipped": 0.02,
+						"events": 0.0,
+						"cut_off": 1.7,
+						"noise": 1.72,
+						"tail": 0.16,
+						"floor": 0.14
+					}
+				}
+			],
+			"prompt": "a small excited dog yapping once, short and high",
+			"picked": "the highest (about 850 Hz) and brightest of the six barks",
+			"seconds": 0.42,
+			"peak_db": -2.8,
+			"rms_db": -19.5
+		},
+		"assets/audio/sfx/dog_sniff.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 15120,
+			"takes": 6,
+			"ask": 2,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -18.9,
+					"events": 4,
+					"floor_db": -29.3,
+					"seconds": 1.59,
+					"gain_db": -4.2,
+					"lufs": null,
+					"seed": 15118,
+					"score": 2.953,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 1.11,
+						"noise": 1.57,
+						"tail": 0.14,
+						"floor": 0.14
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -18.4,
+					"events": 1,
+					"floor_db": -22.0,
+					"seconds": 0.9,
+					"gain_db": 2.5,
+					"lufs": null,
+					"seed": 15119,
+					"score": 5.259,
+					"parts": {
+						"events": 1.5,
+						"cut_off": 1.16,
+						"noise": 2.3,
+						"tail": 0.14,
+						"floor": 0.16
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -31.4,
+					"events": 4,
+					"floor_db": -39.1,
+					"seconds": 1.4,
+					"gain_db": -5.1,
+					"lufs": null,
+					"seed": 15120,
+					"score": 0.788,
+					"parts": {
+						"events": 0.0,
+						"cut_off": 0.0,
+						"noise": 0.59,
+						"tail": 0.1,
+						"floor": 0.1
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -5.4,
+					"events": 1,
+					"floor_db": -17.4,
+					"seconds": 2.0,
+					"gain_db": -4.9,
+					"lufs": null,
+					"seed": 15121,
+					"score": 7.077,
+					"parts": {
+						"events": 1.5,
+						"cut_off": 2.46,
+						"noise": 2.76,
+						"tail": 0.18,
+						"floor": 0.18
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -6.3,
+					"events": 1,
+					"floor_db": -21.1,
+					"seconds": 2.0,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 15122,
+					"score": 6.602,
+					"parts": {
+						"events": 1.5,
+						"cut_off": 2.37,
+						"noise": 2.39,
+						"tail": 0.18,
+						"floor": 0.16
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -18.1,
+					"events": 3,
+					"floor_db": -28.2,
+					"seconds": 1.6,
+					"gain_db": -2.0,
+					"lufs": null,
+					"seed": 15123,
+					"score": 3.649,
+					"parts": {
+						"events": 0.5,
+						"cut_off": 1.19,
+						"noise": 1.68,
+						"tail": 0.14,
+						"floor": 0.14
+					}
+				}
+			],
+			"prompt": "a dog sniffing the floor four times quickly",
+			"seconds": 1.4,
+			"peak_db": -3.1,
+			"rms_db": -24.6
+		},
+		"assets/audio/sfx/snore_loop.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 1090,
+			"takes": 6,
+			"ask": 10,
+			"quality": 7,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 9.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.99,
+						"end_s": 8.551,
+						"crossfade_s": 0.5,
+						"match": 0.3,
+						"beat_match": 0.36,
+						"seam_cost": 0.306
+					},
+					"spread_db": 4.2,
+					"seconds": 7.56,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 1085,
+					"score": 0.306,
+					"parts": {
+						"seam": 0.31
+					}
+				},
+				{
+					"raw_s": 9.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.95,
+						"end_s": 7.168,
+						"crossfade_s": 0.5,
+						"match": 0.29,
+						"beat_match": 0.32,
+						"seam_cost": 0.617
+					},
+					"spread_db": 4.8,
+					"seconds": 6.22,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 1086,
+					"score": 0.617,
+					"parts": {
+						"seam": 0.62
+					}
+				},
+				{
+					"raw_s": 9.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.75,
+						"end_s": 9.055,
+						"crossfade_s": 0.5,
+						"match": 0.81,
+						"beat_match": 0.72,
+						"seam_cost": 0.419
+					},
+					"spread_db": 4.9,
+					"seconds": 8.3,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 1087,
+					"score": 0.419,
+					"parts": {
+						"seam": 0.42
+					}
+				},
+				{
+					"raw_s": 9.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.79,
+						"end_s": 7.02,
+						"crossfade_s": 0.5,
+						"match": 0.2,
+						"beat_match": 0.09,
+						"seam_cost": 0.415
+					},
+					"spread_db": 3.1,
+					"seconds": 6.23,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 1088,
+					"score": 0.415,
+					"parts": {
+						"seam": 0.41
+					}
+				},
+				{
+					"raw_s": 9.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.79,
+						"end_s": 8.631,
+						"crossfade_s": 0.5,
+						"match": 0.06,
+						"beat_match": 0.26,
+						"seam_cost": 1.367
+					},
+					"spread_db": 2.3,
+					"seconds": 7.84,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 1089,
+					"score": 1.367,
+					"parts": {
+						"seam": 1.37
+					}
+				},
+				{
+					"raw_s": 9.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.99,
+						"end_s": 7.628,
+						"crossfade_s": 0.5,
+						"match": 0.2,
+						"beat_match": 0.39,
+						"seam_cost": 0.297
+					},
+					"spread_db": 9.3,
+					"seconds": 6.64,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 1090,
+					"score": 0.297,
+					"parts": {
+						"seam": 0.3
+					}
+				}
+			],
+			"prompt": "a dog snoring gently while asleep, steady breathing, loopable",
+			"loop": {
+				"start_s": 0.99,
+				"end_s": 7.628,
+				"crossfade_s": 0.5,
+				"match": 0.2,
+				"beat_match": 0.39,
+				"seam_cost": 0.297
+			},
+			"seconds": 6.64,
+			"peak_db": -3.1,
+			"rms_db": -21.6
+		},
+		"assets/audio/sfx/ambience_night_loop.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 27394,
+			"takes": 6,
+			"ask": 12,
+			"quality": 7,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 11.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.75,
+						"end_s": 10.37,
+						"crossfade_s": 0.5,
+						"match": 0.06,
+						"beat_match": 0.25,
+						"seam_cost": 0.744
+					},
+					"spread_db": 0.2,
+					"seconds": 9.62,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 27389,
+					"score": 0.744,
+					"parts": {
+						"seam": 0.74,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 11.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 1.14,
+						"end_s": 8.61,
+						"crossfade_s": 0.5,
+						"match": 0.03,
+						"beat_match": 0.16,
+						"seam_cost": 0.874
+					},
+					"spread_db": 0.7,
+					"seconds": 7.47,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 27390,
+					"score": 0.874,
+					"parts": {
+						"seam": 0.87,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 11.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 1.03,
+						"end_s": 11.01,
+						"crossfade_s": 0.5,
+						"match": 0.14,
+						"beat_match": 0.28,
+						"seam_cost": 1.041
+					},
+					"spread_db": 1.5,
+					"seconds": 9.98,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 27391,
+					"score": 1.041,
+					"parts": {
+						"seam": 1.04,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 11.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.99,
+						"end_s": 10.807,
+						"crossfade_s": 0.5,
+						"match": 0.05,
+						"beat_match": 0.24,
+						"seam_cost": 0.838
+					},
+					"spread_db": 0.3,
+					"seconds": 9.82,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 27392,
+					"score": 0.838,
+					"parts": {
+						"seam": 0.84,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 11.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 1.1,
+						"end_s": 9.547,
+						"crossfade_s": 0.5,
+						"match": 0.01,
+						"beat_match": 0.2,
+						"seam_cost": 0.8
+					},
+					"spread_db": 0.8,
+					"seconds": 8.45,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 27393,
+					"score": 0.8,
+					"parts": {
+						"seam": 0.8,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 11.98,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.83,
+						"end_s": 10.025,
+						"crossfade_s": 0.5,
+						"match": 0.17,
+						"beat_match": 0.28,
+						"seam_cost": 0.719
+					},
+					"spread_db": 0.5,
+					"seconds": 9.2,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 27394,
+					"score": 0.719,
+					"parts": {
+						"seam": 0.72,
+						"spread": 0.0
+					}
+				}
+			],
+			"prompt": "quiet suburban garden at night, crickets, a soft breeze in leaves, distant faint traffic, loopable",
+			"loop": {
+				"start_s": 0.83,
+				"end_s": 10.025,
+				"crossfade_s": 0.5,
+				"match": 0.17,
+				"beat_match": 0.28,
+				"seam_cost": 0.719
+			},
+			"seconds": 9.2,
+			"peak_db": -3.4,
+			"rms_db": -16.7
+		},
+		"assets/audio/sfx/fridge_hum_loop.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 42206,
+			"takes": 6,
+			"ask": 8,
+			"quality": 7,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 7.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.79,
+						"end_s": 7.002,
+						"crossfade_s": 0.5,
+						"match": 0.39,
+						"beat_match": 0.23,
+						"seam_cost": 0.684
+					},
+					"spread_db": 0.4,
+					"seconds": 6.21,
+					"gain_db": -5.4,
+					"lufs": null,
+					"seed": 42203,
+					"score": 0.684,
+					"parts": {
+						"seam": 0.68,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 7.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.78,
+						"end_s": 7.1,
+						"crossfade_s": 0.5,
+						"match": 0.0,
+						"beat_match": 0.32,
+						"seam_cost": 0.901
+					},
+					"spread_db": 0.4,
+					"seconds": 6.32,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 42204,
+					"score": 0.901,
+					"parts": {
+						"seam": 0.9,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 7.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.78,
+						"end_s": 6.876,
+						"crossfade_s": 0.5,
+						"match": 0.32,
+						"beat_match": 0.41,
+						"seam_cost": 0.778
+					},
+					"spread_db": 0.5,
+					"seconds": 6.1,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 42205,
+					"score": 0.778,
+					"parts": {
+						"seam": 0.78,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 7.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.75,
+						"end_s": 5.279,
+						"crossfade_s": 0.5,
+						"match": 0.39,
+						"beat_match": 0.2,
+						"seam_cost": 0.595
+					},
+					"spread_db": 0.3,
+					"seconds": 4.53,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 42206,
+					"score": 0.595,
+					"parts": {
+						"seam": 0.59,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 7.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.75,
+						"end_s": 6.242,
+						"crossfade_s": 0.5,
+						"match": 0.0,
+						"beat_match": 0.27,
+						"seam_cost": 0.698
+					},
+					"spread_db": 0.3,
+					"seconds": 5.49,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 42207,
+					"score": 0.698,
+					"parts": {
+						"seam": 0.7,
+						"spread": 0.0
+					}
+				},
+				{
+					"raw_s": 7.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.75,
+						"end_s": 5.694,
+						"crossfade_s": 0.5,
+						"match": 0.29,
+						"beat_match": 0.19,
+						"seam_cost": 0.813
+					},
+					"spread_db": 0.1,
+					"seconds": 4.94,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 42208,
+					"score": 0.813,
+					"parts": {
+						"seam": 0.81,
+						"spread": 0.0
+					}
+				}
+			],
+			"prompt": "a quiet kitchen fridge compressor humming, steady, loopable",
+			"loop": {
+				"start_s": 0.75,
+				"end_s": 5.279,
+				"crossfade_s": 0.5,
+				"match": 0.39,
+				"beat_match": 0.2,
+				"seam_cost": 0.595
+			},
+			"seconds": 4.53,
+			"peak_db": -2.9,
+			"rms_db": -15.6
+		},
+		"assets/audio/sfx/noisemaker_rattle_loop.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 88926,
+			"takes": 6,
+			"ask": 4,
+			"quality": 7,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 3.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.5,
+						"end_s": 3.247,
+						"crossfade_s": 0.5,
+						"match": 0.06,
+						"beat_match": 0.96,
+						"seam_cost": 0.995
+					},
+					"spread_db": 0.1,
+					"seconds": 2.75,
+					"gain_db": -5.1,
+					"lufs": null,
+					"seed": 88923,
+					"score": 0.995,
+					"parts": {
+						"seam": 0.99
+					}
+				},
+				{
+					"raw_s": 3.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.5,
+						"end_s": 3.293,
+						"crossfade_s": 0.5,
+						"match": 0.03,
+						"beat_match": 0.61,
+						"seam_cost": 0.934
+					},
+					"spread_db": 0.3,
+					"seconds": 2.79,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 88924,
+					"score": 0.934,
+					"parts": {
+						"seam": 0.93
+					}
+				},
+				{
+					"raw_s": 3.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.5,
+						"end_s": 2.817,
+						"crossfade_s": 0.5,
+						"match": 0.0,
+						"beat_match": 0.34,
+						"seam_cost": 0.81
+					},
+					"spread_db": 3.3,
+					"seconds": 2.32,
+					"gain_db": -2.3,
+					"lufs": null,
+					"seed": 88925,
+					"score": 0.81,
+					"parts": {
+						"seam": 0.81
+					}
+				},
+				{
+					"raw_s": 3.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.5,
+						"end_s": 3.191,
+						"crossfade_s": 0.5,
+						"match": 0.04,
+						"beat_match": 0.56,
+						"seam_cost": 0.434
+					},
+					"spread_db": 0.7,
+					"seconds": 2.69,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 88926,
+					"score": 0.434,
+					"parts": {
+						"seam": 0.43
+					}
+				},
+				{
+					"raw_s": 3.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.5,
+						"end_s": 2.995,
+						"crossfade_s": 0.5,
+						"match": 0.02,
+						"beat_match": 0.53,
+						"seam_cost": 0.867
+					},
+					"spread_db": 0.3,
+					"seconds": 2.5,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 88927,
+					"score": 0.867,
+					"parts": {
+						"seam": 0.87
+					}
+				},
+				{
+					"raw_s": 3.99,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 0.5,
+						"end_s": 3.152,
+						"crossfade_s": 0.5,
+						"match": 0.01,
+						"beat_match": 0.6,
+						"seam_cost": 0.451
+					},
+					"spread_db": 0.7,
+					"seconds": 2.65,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 88928,
+					"score": 0.451,
+					"parts": {
+						"seam": 0.45
+					}
+				}
+			],
+			"prompt": "a wind up clockwork tin toy clattering and rattling on a wooden floor, loopable",
+			"loop": {
+				"start_s": 0.5,
+				"end_s": 3.191,
+				"crossfade_s": 0.5,
+				"match": 0.04,
+				"beat_match": 0.56,
+				"seam_cost": 0.434
+			},
+			"seconds": 2.69,
+			"peak_db": -3.0,
+			"rms_db": -31.1
+		},
+		"assets/audio/sfx/noisemaker_wind.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 76001,
+			"takes": 6,
+			"ask": 2,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -19.3,
+					"events": 6,
+					"floor_db": -53.2,
+					"seconds": 1.93,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 76000,
+					"score": 1.262,
+					"parts": {
+						"cut_off": 1.07,
+						"noise": 0.0,
+						"tail": 0.14,
+						"floor": 0.06
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -27.1,
+					"events": 9,
+					"floor_db": -59.9,
+					"seconds": 1.96,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 76001,
+					"score": 0.433,
+					"parts": {
+						"cut_off": 0.29,
+						"noise": 0.0,
+						"tail": 0.11,
+						"floor": 0.03
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -1.7,
+					"events": 1,
+					"floor_db": -14.3,
+					"seconds": 2.0,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 76002,
+					"score": 6.28,
+					"parts": {
+						"cut_off": 2.83,
+						"noise": 3.07,
+						"tail": 0.19,
+						"floor": 0.19
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -1.3,
+					"events": 2,
+					"floor_db": -38.8,
+					"seconds": 1.69,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 76003,
+					"score": 3.79,
+					"parts": {
+						"cut_off": 2.87,
+						"noise": 0.62,
+						"tail": 0.2,
+						"floor": 0.1
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -1.1,
+					"events": 2,
+					"floor_db": -61.9,
+					"seconds": 1.85,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 76004,
+					"score": 3.113,
+					"parts": {
+						"cut_off": 2.89,
+						"noise": 0.0,
+						"tail": 0.2,
+						"floor": 0.03
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -3.7,
+					"events": 12,
+					"floor_db": -54.3,
+					"seconds": 2.0,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 76005,
+					"score": 2.87,
+					"parts": {
+						"cut_off": 2.63,
+						"noise": 0.0,
+						"tail": 0.19,
+						"floor": 0.05
+					}
+				}
+			],
+			"prompt": "winding the key of a small clockwork toy, ratchet clicks",
+			"seconds": 1.96,
+			"peak_db": -3.4,
+			"rms_db": -36.3
+		},
+		"assets/audio/sfx/lock_open.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 75580,
+			"takes": 6,
+			"ask": 2,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": 0.0,
+					"events": 3,
+					"floor_db": -38.1,
+					"seconds": 2.0,
+					"gain_db": 0.5,
+					"lufs": null,
+					"seed": 75576,
+					"score": 3.996,
+					"parts": {
+						"cut_off": 3.0,
+						"noise": 0.69,
+						"tail": 0.2,
+						"floor": 0.11
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": 0.0,
+					"events": 4,
+					"floor_db": -36.7,
+					"seconds": 2.0,
+					"gain_db": 1.3,
+					"lufs": null,
+					"seed": 75577,
+					"score": 4.141,
+					"parts": {
+						"cut_off": 3.0,
+						"noise": 0.83,
+						"tail": 0.2,
+						"floor": 0.11
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -40.7,
+					"events": 2,
+					"floor_db": -48.5,
+					"seconds": 1.45,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 75578,
+					"score": 0.136,
+					"parts": {
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.06,
+						"floor": 0.07
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -6.4,
+					"events": 1,
+					"floor_db": -51.5,
+					"seconds": 1.94,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 75579,
+					"score": 2.6,
+					"parts": {
+						"cut_off": 2.36,
+						"noise": 0.0,
+						"tail": 0.18,
+						"floor": 0.06
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -37.6,
+					"events": 2,
+					"floor_db": -53.5,
+					"seconds": 1.94,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 75580,
+					"score": 0.13,
+					"parts": {
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.07,
+						"floor": 0.06
+					}
+				},
+				{
+					"raw_s": 2.0,
+					"clipped_runs": 0,
+					"end_db": -14.0,
+					"events": 1,
+					"floor_db": -49.6,
+					"seconds": 2.0,
+					"gain_db": 1.3,
+					"lufs": null,
+					"seed": 75581,
+					"score": 1.821,
+					"parts": {
+						"cut_off": 1.6,
+						"noise": 0.0,
+						"tail": 0.15,
+						"floor": 0.07
+					}
+				}
+			],
+			"prompt": "a door lock cylinder turning and the bolt clacking open",
+			"seconds": 1.94,
+			"peak_db": -3.3,
+			"rms_db": -31.0
+		},
+		"assets/audio/sfx/breaker_off.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 86134,
+			"takes": 6,
+			"ask": 3,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -52.5,
+					"events": 1,
+					"floor_db": -58.2,
+					"seconds": 1.77,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 86134,
+					"score": 0.064,
+					"parts": {
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.03,
+						"floor": 0.04
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -41.8,
+					"events": 2,
+					"floor_db": -53.4,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 86135,
+					"score": 0.116,
+					"parts": {
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.06,
+						"floor": 0.06
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": 0.0,
+					"events": 1,
+					"floor_db": -41.4,
+					"seconds": 3.02,
+					"gain_db": -5.9,
+					"lufs": null,
+					"seed": 86136,
+					"score": 3.655,
+					"parts": {
+						"cut_off": 3.0,
+						"noise": 0.36,
+						"tail": 0.2,
+						"floor": 0.1
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -0.7,
+					"events": 4,
+					"floor_db": -46.6,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 86137,
+					"score": 3.206,
+					"parts": {
+						"cut_off": 2.93,
+						"noise": 0.0,
+						"tail": 0.2,
+						"floor": 0.08
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -1.0,
+					"events": 1,
+					"floor_db": -44.0,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 86138,
+					"score": 3.283,
+					"parts": {
+						"cut_off": 2.9,
+						"noise": 0.1,
+						"tail": 0.2,
+						"floor": 0.09
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -0.8,
+					"events": 1,
+					"floor_db": -38.4,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 86139,
+					"score": 3.883,
+					"parts": {
+						"cut_off": 2.92,
+						"noise": 0.66,
+						"tail": 0.2,
+						"floor": 0.11
+					}
+				}
+			],
+			"prompt": "flipping a fuse box breaker switch off with a heavy thunk, electrical hum dies",
+			"seconds": 1.77,
+			"peak_db": -3.8,
+			"rms_db": -33.6
+		},
+		"assets/audio/sfx/breaker_on.ogg": {
+			"kind": "sfx",
+			"model": "ThinkSound-SFX",
+			"seed": 57115,
+			"takes": 6,
+			"ask": 3,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": 0.0,
+					"events": 1,
+					"floor_db": -15.6,
+					"seconds": 3.02,
+					"gain_db": -5.6,
+					"lufs": null,
+					"seed": 57114,
+					"score": 6.321,
+					"parts": {
+						"cut_off": 3.0,
+						"noise": 2.94,
+						"tail": 0.2,
+						"floor": 0.18
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -31.5,
+					"events": 1,
+					"floor_db": -48.0,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 57115,
+					"score": 0.168,
+					"parts": {
+						"cut_off": 0.0,
+						"noise": 0.0,
+						"tail": 0.1,
+						"floor": 0.07
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -26.9,
+					"events": 1,
+					"floor_db": -35.2,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 57116,
+					"score": 1.516,
+					"parts": {
+						"cut_off": 0.31,
+						"noise": 0.98,
+						"tail": 0.11,
+						"floor": 0.12
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -22.8,
+					"events": 1,
+					"floor_db": -33.5,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 57117,
+					"score": 2.116,
+					"parts": {
+						"cut_off": 0.72,
+						"noise": 1.15,
+						"tail": 0.12,
+						"floor": 0.12
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -0.8,
+					"events": 1,
+					"floor_db": -49.3,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 57118,
+					"score": 3.186,
+					"parts": {
+						"cut_off": 2.92,
+						"noise": 0.0,
+						"tail": 0.2,
+						"floor": 0.07
+					}
+				},
+				{
+					"raw_s": 3.02,
+					"clipped_runs": 0,
+					"end_db": -1.3,
+					"events": 1,
+					"floor_db": -14.2,
+					"seconds": 3.02,
+					"gain_db": -6.0,
+					"lufs": null,
+					"seed": 57119,
+					"score": 6.332,
+					"parts": {
+						"cut_off": 2.87,
+						"noise": 3.08,
+						"tail": 0.2,
+						"floor": 0.19
+					}
+				}
+			],
+			"prompt": "flipping a fuse box breaker switch on with a thunk, electrical hum starts",
+			"seconds": 3.02,
+			"peak_db": -3.0,
+			"rms_db": -29.0
+		},
+		"assets/audio/music/title.ogg": {
+			"kind": "music",
+			"model": "ACE-Step-Music",
+			"seed": 60498,
+			"takes": 3,
+			"ask": 108.0,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 108.0,
+					"clipped_runs": 1,
+					"loop": {
+						"start_s": 8.31,
+						"end_s": 99.016,
+						"crossfade_s": 1.5,
+						"match": 0.01,
+						"beat_match": 0.59,
+						"seam_cost": 0.349
+					},
+					"spread_db": 5.3,
+					"seconds": 90.71,
+					"gain_db": -3.2,
+					"lufs": -16.1,
+					"seed": 60497,
+					"score": 0.735,
+					"parts": {
+						"clipped": 0.02,
+						"length": 0.02,
+						"seam": 0.35,
+						"spread": 0.32,
+						"loudness": 0.03
+					}
+				},
+				{
+					"raw_s": 108.0,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 10.6,
+						"end_s": 94.825,
+						"crossfade_s": 1.5,
+						"match": 0.04,
+						"beat_match": 0.18,
+						"seam_cost": 0.429
+					},
+					"spread_db": 1.7,
+					"seconds": 84.22,
+					"gain_db": -3.3,
+					"lufs": -15.5,
+					"seed": 60498,
+					"score": 0.682,
+					"parts": {
+						"length": 0.13,
+						"seam": 0.43,
+						"spread": 0.0,
+						"loudness": 0.12
+					}
+				},
+				{
+					"raw_s": 108.0,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 13.02,
+						"end_s": 103.892,
+						"crossfade_s": 1.5,
+						"match": 0.04,
+						"beat_match": 0.21,
+						"seam_cost": 0.392
+					},
+					"spread_db": 2.5,
+					"seconds": 90.87,
+					"gain_db": -3.2,
+					"lufs": -17.8,
+					"seed": 60499,
+					"score": 0.861,
+					"parts": {
+						"length": 0.02,
+						"seam": 0.39,
+						"spread": 0.0,
+						"loudness": 0.45
+					}
+				}
+			],
+			"prompt": "playful sneaky cat burglar caper theme, pizzicato strings, upright bass walking line, brushed jazz drums, muted trumpet melody, celesta, mischievous and warm, cartoon heist, 100 bpm, instrumental",
+			"loop": {
+				"start_s": 10.6,
+				"end_s": 94.825,
+				"crossfade_s": 1.5,
+				"match": 0.04,
+				"beat_match": 0.18,
+				"seam_cost": 0.429
+			},
+			"lufs": -15.5,
+			"seconds": 84.22,
+			"peak_db": -2.9,
+			"rms_db": -18.3
+		},
+		"assets/audio/music/night.ogg": {
+			"kind": "music",
+			"model": "ACE-Step-Music",
+			"seed": 97225,
+			"takes": 3,
+			"ask": 144.0,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 144.0,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 15.78,
+						"end_s": 134.43,
+						"crossfade_s": 1.5,
+						"match": 0.11,
+						"beat_match": 0.25,
+						"seam_cost": 0.208
+					},
+					"spread_db": 2.7,
+					"seconds": 118.65,
+					"gain_db": -3.0,
+					"lufs": -16.1,
+					"seed": 97225,
+					"score": 0.256,
+					"parts": {
+						"length": 0.02,
+						"seam": 0.21,
+						"spread": 0.0,
+						"loudness": 0.03
+					}
+				},
+				{
+					"raw_s": 144.0,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 11.81,
+						"end_s": 132.29,
+						"crossfade_s": 1.5,
+						"match": 0.0,
+						"beat_match": 0.18,
+						"seam_cost": 0.666
+					},
+					"spread_db": 2.4,
+					"seconds": 120.48,
+					"gain_db": -3.0,
+					"lufs": -18.3,
+					"seed": 97226,
+					"score": 1.249,
+					"parts": {
+						"length": 0.01,
+						"seam": 0.67,
+						"spread": 0.0,
+						"loudness": 0.58
+					}
+				},
+				{
+					"raw_s": 144.0,
+					"clipped_runs": 1,
+					"loop": {
+						"start_s": 17.55,
+						"end_s": 134.932,
+						"crossfade_s": 1.5,
+						"match": 0.0,
+						"beat_match": 0.3,
+						"seam_cost": 0.385
+					},
+					"spread_db": 3.1,
+					"seconds": 117.38,
+					"gain_db": -3.1,
+					"lufs": -17.7,
+					"seed": 97227,
+					"score": 0.874,
+					"parts": {
+						"clipped": 0.02,
+						"length": 0.04,
+						"seam": 0.39,
+						"spread": 0.0,
+						"loudness": 0.42
+					}
+				}
+			],
+			"prompt": "quiet tiptoe sneaking music at night, soft pizzicato strings, low upright bass, gentle brushed snare, light vibraphone, sparse and calm, suburban night, cartoon stealth, 80 bpm, instrumental, no drums fills, loopable",
+			"loop": {
+				"start_s": 15.78,
+				"end_s": 134.43,
+				"crossfade_s": 1.5,
+				"match": 0.11,
+				"beat_match": 0.25,
+				"seam_cost": 0.208
+			},
+			"lufs": -16.1,
+			"seconds": 118.65,
+			"peak_db": -2.8,
+			"rms_db": -18.0
+		},
+		"assets/audio/music/chase.ogg": {
+			"kind": "music",
+			"model": "ACE-Step-Music",
+			"seed": 41714,
+			"takes": 3,
+			"ask": 72.0,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 72.0,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 2.6,
+						"end_s": 61.058,
+						"crossfade_s": 1.5,
+						"match": 0.0,
+						"beat_match": 0.16,
+						"seam_cost": 0.742
+					},
+					"spread_db": 4.6,
+					"seconds": 58.46,
+					"gain_db": -3.1,
+					"lufs": -14.9,
+					"seed": 41712,
+					"score": 1.218,
+					"parts": {
+						"length": 0.05,
+						"seam": 0.74,
+						"spread": 0.15,
+						"loudness": 0.27
+					}
+				},
+				{
+					"raw_s": 72.0,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 4.7,
+						"end_s": 65.53,
+						"crossfade_s": 1.5,
+						"match": 0.0,
+						"beat_match": 0.17,
+						"seam_cost": 0.453
+					},
+					"spread_db": 3.2,
+					"seconds": 60.83,
+					"gain_db": -3.2,
+					"lufs": -12.8,
+					"seed": 41713,
+					"score": 1.281,
+					"parts": {
+						"length": 0.03,
+						"seam": 0.45,
+						"spread": 0.0,
+						"loudness": 0.8
+					}
+				},
+				{
+					"raw_s": 72.0,
+					"clipped_runs": 0,
+					"loop": {
+						"start_s": 6.7,
+						"end_s": 66.126,
+						"crossfade_s": 1.5,
+						"match": 0.05,
+						"beat_match": 0.28,
+						"seam_cost": 0.4
+					},
+					"spread_db": 3.2,
+					"seconds": 59.43,
+					"gain_db": -3.2,
+					"lufs": -15.8,
+					"seed": 41714,
+					"score": 0.469,
+					"parts": {
+						"length": 0.02,
+						"seam": 0.4,
+						"spread": 0.0,
+						"loudness": 0.05
+					}
+				}
+			],
+			"prompt": "frantic comedic chase music, fast pizzicato strings, staccato brass stabs, xylophone runs, driving brushed drums, slapstick cartoon pursuit, 150 bpm, instrumental, loopable",
+			"loop": {
+				"start_s": 6.7,
+				"end_s": 66.126,
+				"crossfade_s": 1.5,
+				"match": 0.05,
+				"beat_match": 0.28,
+				"seam_cost": 0.4
+			},
+			"lufs": -15.8,
+			"seconds": 59.43,
+			"peak_db": -2.6,
+			"rms_db": -18.8
+		},
+		"assets/audio/music/escaped.ogg": {
+			"kind": "music",
+			"model": "ACE-Step-Music",
+			"seed": 36137,
+			"takes": 3,
+			"ask": 15,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 15.04,
+					"clipped_runs": 0,
+					"end_db": -51.9,
+					"seconds": 13.05,
+					"gain_db": -3.1,
+					"lufs": -15.9,
+					"seed": 36137,
+					"score": 0.025,
+					"parts": {
+						"length": 0.0,
+						"ending": 0.0,
+						"loudness": 0.02
+					}
+				},
+				{
+					"raw_s": 15.04,
+					"clipped_runs": 0,
+					"end_db": -56.2,
+					"seconds": 12.18,
+					"gain_db": -3.3,
+					"lufs": -18.0,
+					"seed": 36138,
+					"score": 0.5,
+					"parts": {
+						"length": 0.0,
+						"ending": 0.0,
+						"loudness": 0.5
+					}
+				},
+				{
+					"raw_s": 15.04,
+					"clipped_runs": 0,
+					"end_db": -57.1,
+					"seconds": 13.14,
+					"gain_db": -3.0,
+					"lufs": -13.4,
+					"seed": 36139,
+					"score": 0.65,
+					"parts": {
+						"length": 0.0,
+						"ending": 0.0,
+						"loudness": 0.65
+					}
+				}
+			],
+			"prompt": "short triumphant cheeky jazz fanfare, muted trumpet, clarinet trill, upright bass, cymbal swell, cartoon heist success sting, instrumental",
+			"lufs": -15.9,
+			"seconds": 13.05,
+			"peak_db": -2.9,
+			"rms_db": -20.6
+		},
+		"assets/audio/music/night_over.ogg": {
+			"kind": "music",
+			"model": "ACE-Step-Music",
+			"seed": 17048,
+			"takes": 3,
+			"ask": 15,
+			"quality": 5,
+			"made": "2026-10-08",
+			"all_takes": [
+				{
+					"raw_s": 15.04,
+					"clipped_runs": 0,
+					"end_db": -48.1,
+					"seconds": 15.04,
+					"gain_db": -3.0,
+					"lufs": -18.0,
+					"seed": 17046,
+					"score": 0.505,
+					"parts": {
+						"length": 0.01,
+						"ending": 0.0,
+						"loudness": 0.5
+					}
+				},
+				{
+					"raw_s": 15.04,
+					"clipped_runs": 0,
+					"end_db": -54.6,
+					"seconds": 12.37,
+					"gain_db": -3.0,
+					"lufs": -24.0,
+					"seed": 17047,
+					"score": 2.0,
+					"parts": {
+						"length": 0.0,
+						"ending": 0.0,
+						"loudness": 2.0
+					}
+				},
+				{
+					"raw_s": 15.04,
+					"clipped_runs": 0,
+					"end_db": -51.5,
+					"seconds": 9.64,
+					"gain_db": -3.1,
+					"lufs": -16.2,
+					"seed": 17048,
+					"score": 0.05,
+					"parts": {
+						"length": 0.0,
+						"ending": 0.0,
+						"loudness": 0.05
+					}
+				}
+			],
+			"prompt": "short sad trombone and tuba comedic sting, deflated cartoon failure, gentle and funny, instrumental",
+			"lufs": -16.2,
+			"seconds": 9.64,
+			"peak_db": -2.7,
+			"rms_db": -19.9
+		}
+	},
+	"checkpoints": {
+		"kokoro-v1": "mikkoph/kokoro-onnx",
+		"ThinkSound-SFX": "ilintar/thinksound-gguf",
+		"ACE-Step-Music": "Serveurperso/ACE-Step-1.5-GGUF:acestep-v15-xl-sft-Q8_0.gguf"
+	}
+}

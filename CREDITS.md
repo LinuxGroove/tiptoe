@@ -32,6 +32,11 @@ Made for Tiptoe, all CC0 like the rest:
   and waking) on Kenney's characters (`tools/blender/clips.py`).
 - `assets/audio/sfx/`: sound effects synthesized by a script
   (`tools/sfx/make_sfx.py`); see the README there.
+- `assets/audio/music/`, `assets/audio/voice/` and twelve of the sound
+  effects: generated with [Lemonade](https://lemonade-server.ai) by
+  `tools/lemonade/generate.py`, the music with ACE-Step 1.5, Ted's and
+  Maggie's lines with Kokoro and the sounds with ThinkSound; see
+  `assets/audio/GENERATED.md`.
 
 ## Code
 

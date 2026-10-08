@@ -42,10 +42,12 @@
 			"low": {
 				"who": "Ted, a cheerful, slightly dozy dad in his fifties",
 				"kokoro_voice": "bm_george",
+				"speed": 1.0,
 				"lines": [
 					{
 						"text": "Hm?",
-						"file": "assets/audio/voice/low/hm.ogg"
+						"file": "assets/audio/voice/low/hm.ogg",
+						"say": "Hmm?"
 					},
 					{
 						"text": "What was that?",
@@ -57,7 +59,8 @@
 					},
 					{
 						"text": "Hm? Who's there?",
-						"file": "assets/audio/voice/low/hm_whos_there.ogg"
+						"file": "assets/audio/voice/low/hm_whos_there.ogg",
+						"say": "Hmm? Who's there?"
 					},
 					{
 						"text": "Biscuit? What is it?",
@@ -148,10 +151,12 @@
 			"high": {
 				"who": "Maggie, a brisk, sharp-eared mum in her fifties",
 				"kokoro_voice": "bf_emma",
+				"speed": 1.05,
 				"lines": [
 					{
 						"text": "Hm?",
-						"file": "assets/audio/voice/high/hm.ogg"
+						"file": "assets/audio/voice/high/hm.ogg",
+						"say": "Hmm?"
 					},
 					{
 						"text": "What was that?",
@@ -163,7 +168,8 @@
 					},
 					{
 						"text": "Hm? Who's there?",
-						"file": "assets/audio/voice/high/hm_whos_there.ogg"
+						"file": "assets/audio/voice/high/hm_whos_there.ogg",
+						"say": "Hmm? Who's there?"
 					},
 					{
 						"text": "Biscuit? What is it?",
@@ -242,59 +248,88 @@
 		"sounds": [
 			{
 				"file": "assets/audio/sfx/dog_bark_1.ogg",
-				"prompt": "a medium sized friendly dog barking once, indoors, close"
+				"prompt": "a medium sized friendly dog barking once, indoors, close",
+				"seconds": 2,
+				"events": 1
 			},
 			{
 				"file": "assets/audio/sfx/dog_bark_2.ogg",
-				"prompt": "a dog giving one deep, longer bark, indoors"
+				"prompt": "a dog giving one deep, longer bark, indoors",
+				"seconds": 2,
+				"events": 1,
+				"pick": 44849,
+				"why": "the lowest (about 450 Hz) and longest of the six barks"
 			},
 			{
 				"file": "assets/audio/sfx/dog_bark_3.ogg",
-				"prompt": "a small excited dog yapping once, short and high"
+				"prompt": "a small excited dog yapping once, short and high",
+				"seconds": 2,
+				"events": 1,
+				"pick": 91710,
+				"why": "the highest (about 850 Hz) and brightest of the six barks"
 			},
 			{
 				"file": "assets/audio/sfx/dog_whine.ogg",
-				"prompt": "a dog giving a short questioning whine that rises at the end"
+				"prompt": "a dog giving a short questioning whine that rises at the end",
+				"seconds": 2,
+				"events": 1,
+				"takes": 12,
+				"skip": "ThinkSound's whines were steady tones; none of 24 takes rose clearly at the end, which is what makes it sound like a question"
 			},
 			{
 				"file": "assets/audio/sfx/dog_sniff.ogg",
-				"prompt": "a dog sniffing the floor four times quickly"
+				"prompt": "a dog sniffing the floor four times quickly",
+				"seconds": 2,
+				"events": 4
 			},
 			{
 				"file": "assets/audio/sfx/snore_loop.ogg",
-				"prompt": "a dog snoring gently while asleep, steady breathing, loopable"
+				"prompt": "a dog snoring gently while asleep, steady breathing, loopable",
+				"seconds": 10
 			},
 			{
 				"file": "assets/audio/sfx/doorbell.ogg",
-				"prompt": "a classic two tone ding dong house doorbell chime"
+				"prompt": "a classic two tone ding dong house doorbell chime",
+				"seconds": 4,
+				"takes": 12,
+				"skip": "none of 24 takes (this prompt and a more explicit one) was a clean two-tone chime: most held one tone, or rang several, or began mid-note"
 			},
 			{
 				"file": "assets/audio/sfx/ambience_night_loop.ogg",
-				"prompt": "quiet suburban garden at night, crickets, a soft breeze in leaves, distant faint traffic, loopable"
+				"prompt": "quiet suburban garden at night, crickets, a soft breeze in leaves, distant faint traffic, loopable",
+				"seconds": 12,
+				"steady": true
 			},
 			{
 				"file": "assets/audio/sfx/fridge_hum_loop.ogg",
-				"prompt": "a quiet kitchen fridge compressor humming, steady, loopable"
+				"prompt": "a quiet kitchen fridge compressor humming, steady, loopable",
+				"seconds": 8,
+				"steady": true
 			},
 			{
 				"file": "assets/audio/sfx/noisemaker_rattle_loop.ogg",
-				"prompt": "a wind up clockwork tin toy clattering and rattling on a wooden floor, loopable"
+				"prompt": "a wind up clockwork tin toy clattering and rattling on a wooden floor, loopable",
+				"seconds": 4
 			},
 			{
 				"file": "assets/audio/sfx/noisemaker_wind.ogg",
-				"prompt": "winding the key of a small clockwork toy, ratchet clicks"
+				"prompt": "winding the key of a small clockwork toy, ratchet clicks",
+				"seconds": 2
 			},
 			{
 				"file": "assets/audio/sfx/lock_open.ogg",
-				"prompt": "a door lock cylinder turning and the bolt clacking open"
+				"prompt": "a door lock cylinder turning and the bolt clacking open",
+				"seconds": 2
 			},
 			{
 				"file": "assets/audio/sfx/breaker_off.ogg",
-				"prompt": "flipping a fuse box breaker switch off with a heavy thunk, electrical hum dies"
+				"prompt": "flipping a fuse box breaker switch off with a heavy thunk, electrical hum dies",
+				"seconds": 3
 			},
 			{
 				"file": "assets/audio/sfx/breaker_on.ogg",
-				"prompt": "flipping a fuse box breaker switch on with a thunk, electrical hum starts"
+				"prompt": "flipping a fuse box breaker switch on with a thunk, electrical hum starts",
+				"seconds": 3
 			}
 		]
 	}
