@@ -10,6 +10,7 @@ static func make() -> JobDef:
 	j.place = "the last job"
 	j.treasure = "The vault"
 	j.treasure_item = "vault"
+	j.treasure_model = "res://assets/kenney/pirate-kit/chest.glb"
 	j.music = "night_manor"
 	j.blurb = "The last job. Augustus Hoard's manor on the hill, where everything he ever took from Kettleford waits in the vault under the cellar. Hoard dines, reads and gloats before bed; Pell the butler locks up; two guards and Duke the dog walk the grounds. Cameras, lasers, an alarm and a fuse box: every trick at once. Open the vault and bring the town's treasures home."
 	j.scene = "res://game/jobs/manor/manor_level.gd"
