@@ -69,6 +69,12 @@
 				"seconds": 120,
 				"loop": true,
 				"prompt": "sneaky grand manor heist finale music, dark harpsichord, pizzicato strings, low brass, upright bass, tense but playful, cartoon heist, 90 bpm, instrumental, loopable"
+			},
+			{
+				"file": "assets/audio/sfx/quartet_loop.ogg",
+				"seconds": 60,
+				"loop": true,
+				"prompt": "polite string quartet playing light elegant background music at a fancy gala party, violin, viola, cello, gentle waltz, 90 bpm, instrumental, loopable"
 			}
 		]
 	},
@@ -264,6 +270,2468 @@
 						"file": "assets/audio/voice/high/lovely_trophy_shame_about_the_bakery.ogg"
 					}
 				]
+			},
+			"market_dev": {
+				"who": "Dev, the night clerk: a laid-back, chatty young man who talks to himself while he stacks shelves",
+				"kokoro_voice": "am_michael",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Hello? We're closed!",
+						"file": "assets/audio/voice/market_dev/hello_were_closed.ogg"
+					},
+					{
+						"text": "Is someone there?",
+						"file": "assets/audio/voice/market_dev/is_someone_there.ogg"
+					},
+					{
+						"text": "Was that a rat?",
+						"file": "assets/audio/voice/market_dev/was_that_a_rat.ogg"
+					},
+					{
+						"text": "Hm? Who's that?",
+						"file": "assets/audio/voice/market_dev/hm_whos_that.ogg"
+					},
+					{
+						"text": "Hey! We're closed!",
+						"file": "assets/audio/voice/market_dev/hey_were_closed.ogg"
+					},
+					{
+						"text": "Oi! Shoplifter!",
+						"file": "assets/audio/voice/market_dev/oi_shoplifter.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/market_dev/whats_going_on.ogg"
+					},
+					{
+						"text": "Where'd they go?",
+						"file": "assets/audio/voice/market_dev/whered_they_go.ogg"
+					},
+					{
+						"text": "Probably a rat. Hope it's a rat.",
+						"file": "assets/audio/voice/market_dev/probably_a_rat_hope_its_a_rat.ogg"
+					},
+					{
+						"text": "Just the freezers humming.",
+						"file": "assets/audio/voice/market_dev/just_the_freezers_humming.ogg"
+					},
+					{
+						"text": "Gotcha! Out you go, we're closed.",
+						"file": "assets/audio/voice/market_dev/gotcha_out_you_go_were_closed.ogg"
+					},
+					{
+						"text": "Delivery? At this hour?",
+						"file": "assets/audio/voice/market_dev/delivery_at_this_hour.ogg"
+					},
+					{
+						"text": "Nobody. Again.",
+						"file": "assets/audio/voice/market_dev/nobody_again.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/market_dev/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Wha...? Was I asleep on shift?",
+						"file": "assets/audio/voice/market_dev/wha_was_i_asleep_on_shift.ogg"
+					},
+					{
+						"text": "Peas. More peas. Why is it always peas?",
+						"file": "assets/audio/voice/market_dev/peas_more_peas_why_is_it_always_peas.ogg"
+					},
+					{
+						"text": "Right. Beans.",
+						"file": "assets/audio/voice/market_dev/right_beans.ogg"
+					},
+					{
+						"text": "Nobody ever buys the pickled eggs.",
+						"file": "assets/audio/voice/market_dev/nobody_ever_buys_the_pickled_eggs.ogg"
+					},
+					{
+						"text": "Who puts the soup in alphabetical order? Me. I do.",
+						"file": "assets/audio/voice/market_dev/who_puts_the_soup_in_alphabetical_order_me_i_do.ogg"
+					},
+					{
+						"text": "Office code's oh-four-one-two now. Who picks these?",
+						"file": "assets/audio/voice/market_dev/office_codes_oh_four_one_two_now_who_picks_these.ogg"
+					},
+					{
+						"text": "Bins. Living the dream.",
+						"file": "assets/audio/voice/market_dev/bins_living_the_dream.ogg"
+					},
+					{
+						"text": "Evening! Didn't know you were on tonight.",
+						"file": "assets/audio/voice/market_dev/evening_didnt_know_you_were_on_tonight.ogg"
+					},
+					{
+						"text": "Oh! The new starter? Come in, come in. Stock room's through there.",
+						"file": "assets/audio/voice/market_dev/oh_the_new_starter_come_in_come_in_stock_rooms_t.ogg"
+					},
+					{
+						"text": "Thank you for recycling. You're welcome, machine.",
+						"file": "assets/audio/voice/market_dev/thank_you_for_recycling_youre_welcome_machine.ogg"
+					}
+				]
+			},
+			"market_pruitt": {
+				"who": "Mrs Pruitt, Augustus Hoard's rent collector: prim, sharp and penny-pinching, in her fifties",
+				"kokoro_voice": "af_sarah",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Dev? Is that you?",
+						"file": "assets/audio/voice/market_pruitt/dev_is_that_you.ogg"
+					},
+					{
+						"text": "Who's there?",
+						"file": "assets/audio/voice/market_pruitt/whos_there.ogg"
+					},
+					{
+						"text": "Who's that?",
+						"file": "assets/audio/voice/market_pruitt/whos_that.ogg"
+					},
+					{
+						"text": "Thief! Stop right there!",
+						"file": "assets/audio/voice/market_pruitt/thief_stop_right_there.ogg"
+					},
+					{
+						"text": "I knew it! A burglar!",
+						"file": "assets/audio/voice/market_pruitt/i_knew_it_a_burglar.ogg"
+					},
+					{
+						"text": "Dev! What is going on?",
+						"file": "assets/audio/voice/market_pruitt/dev_what_is_going_on.ogg"
+					},
+					{
+						"text": "Where have they got to?",
+						"file": "assets/audio/voice/market_pruitt/where_have_they_got_to.ogg"
+					},
+					{
+						"text": "Hmph. Rats.",
+						"file": "assets/audio/voice/market_pruitt/hmph_rats.ogg"
+					},
+					{
+						"text": "Dev's been at the pickled eggs again.",
+						"file": "assets/audio/voice/market_pruitt/devs_been_at_the_pickled_eggs_again.ogg"
+					},
+					{
+						"text": "Caught you! Mr Hoard will hear about this.",
+						"file": "assets/audio/voice/market_pruitt/caught_you_mr_hoard_will_hear_about_this.ogg"
+					},
+					{
+						"text": "Not again! That breaker!",
+						"file": "assets/audio/voice/market_pruitt/not_again_that_breaker.ogg"
+					},
+					{
+						"text": "There. And stay on.",
+						"file": "assets/audio/voice/market_pruitt/there_and_stay_on.ogg"
+					},
+					{
+						"text": "The alarm! Someone's on camera!",
+						"file": "assets/audio/voice/market_pruitt/the_alarm_someones_on_camera.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/market_pruitt/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Hm? I was only resting my eyes.",
+						"file": "assets/audio/voice/market_pruitt/hm_i_was_only_resting_my_eyes.ogg"
+					},
+					{
+						"text": "Twenty, forty, sixty... Mr Hoard wants every penny.",
+						"file": "assets/audio/voice/market_pruitt/twenty_forty_sixty_mr_hoard_wants_every_penny.ogg"
+					},
+					{
+						"text": "Camera two's fuzzy again. Cheap things.",
+						"file": "assets/audio/voice/market_pruitt/camera_twos_fuzzy_again_cheap_things.ogg"
+					},
+					{
+						"text": "Short by fifty pence. Typical.",
+						"file": "assets/audio/voice/market_pruitt/short_by_fifty_pence_typical.ogg"
+					},
+					{
+						"text": "The bakery's rent goes up again. Lovely.",
+						"file": "assets/audio/voice/market_pruitt/the_bakerys_rent_goes_up_again_lovely.ogg"
+					},
+					{
+						"text": "Back door. Locked. Good.",
+						"file": "assets/audio/voice/market_pruitt/back_door_locked_good.ogg"
+					},
+					{
+						"text": "Who's that knocking?",
+						"file": "assets/audio/voice/market_pruitt/whos_that_knocking.ogg"
+					},
+					{
+						"text": "The till's short again? Honestly. I'll count it myself.",
+						"file": "assets/audio/voice/market_pruitt/the_tills_short_again_honestly_ill_count_it_myse.ogg"
+					},
+					{
+						"text": "Hm. Dev, if that's you, it isn't funny.",
+						"file": "assets/audio/voice/market_pruitt/hm_dev_if_thats_you_it_isnt_funny.ogg"
+					},
+					{
+						"text": "Who switched the cameras off? Honestly.",
+						"file": "assets/audio/voice/market_pruitt/who_switched_the_cameras_off_honestly.ogg"
+					}
+				]
+			},
+			"bottling_foreman": {
+				"who": "Mr Platt, the night foreman: a gruff, fussy Northern English man in his fifties, proud of his line",
+				"kokoro_voice": "bm_lewis",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Hm? Who's that?",
+						"file": "assets/audio/voice/bottling_foreman/hm_whos_that.ogg"
+					},
+					{
+						"text": "What's that racket?",
+						"file": "assets/audio/voice/bottling_foreman/whats_that_racket.ogg"
+					},
+					{
+						"text": "Who's down there?",
+						"file": "assets/audio/voice/bottling_foreman/whos_down_there.ogg"
+					},
+					{
+						"text": "Oi! You're not on my shift!",
+						"file": "assets/audio/voice/bottling_foreman/oi_youre_not_on_my_shift.ogg"
+					},
+					{
+						"text": "Burglar! On my floor!",
+						"file": "assets/audio/voice/bottling_foreman/burglar_on_my_floor.ogg"
+					},
+					{
+						"text": "What's going on down there?",
+						"file": "assets/audio/voice/bottling_foreman/whats_going_on_down_there.ogg"
+					},
+					{
+						"text": "Come out, I know you're here!",
+						"file": "assets/audio/voice/bottling_foreman/come_out_i_know_youre_here.ogg"
+					},
+					{
+						"text": "Nobody. Back to work.",
+						"file": "assets/audio/voice/bottling_foreman/nobody_back_to_work.ogg"
+					},
+					{
+						"text": "Must be the pipes.",
+						"file": "assets/audio/voice/bottling_foreman/must_be_the_pipes.ogg"
+					},
+					{
+						"text": "Out! And stay out!",
+						"file": "assets/audio/voice/bottling_foreman/out_and_stay_out.ogg"
+					},
+					{
+						"text": "Not the fuses again!",
+						"file": "assets/audio/voice/bottling_foreman/not_the_fuses_again.ogg"
+					},
+					{
+						"text": "Power's back. Get that line moving!",
+						"file": "assets/audio/voice/bottling_foreman/powers_back_get_that_line_moving.ogg"
+					},
+					{
+						"text": "Who's been at my line?",
+						"file": "assets/audio/voice/bottling_foreman/whos_been_at_my_line.ogg"
+					},
+					{
+						"text": "Wha...? I was checking my eyelids.",
+						"file": "assets/audio/voice/bottling_foreman/wha_i_was_checking_my_eyelids.ogg"
+					},
+					{
+						"text": "Yes, Mr Hoard. Ticking along nicely, Mr Hoard.",
+						"file": "assets/audio/voice/bottling_foreman/yes_mr_hoard_ticking_along_nicely_mr_hoard.ogg"
+					},
+					{
+						"text": "Keep it moving, Rosa.",
+						"file": "assets/audio/voice/bottling_foreman/keep_it_moving_rosa.ogg"
+					},
+					{
+						"text": "Lovely bit of brass, that.",
+						"file": "assets/audio/voice/bottling_foreman/lovely_bit_of_brass_that.ogg"
+					},
+					{
+						"text": "Mind those crates, Eddie.",
+						"file": "assets/audio/voice/bottling_foreman/mind_those_crates_eddie.ogg"
+					},
+					{
+						"text": "Nobody touches my lever.",
+						"file": "assets/audio/voice/bottling_foreman/nobody_touches_my_lever.ogg"
+					},
+					{
+						"text": "Tea? On my shift?",
+						"file": "assets/audio/voice/bottling_foreman/tea_on_my_shift.ogg"
+					},
+					{
+						"text": "Who stopped my line?",
+						"file": "assets/audio/voice/bottling_foreman/who_stopped_my_line.ogg"
+					},
+					{
+						"text": "There. Back to work, all of you.",
+						"file": "assets/audio/voice/bottling_foreman/there_back_to_work_all_of_you.ogg"
+					},
+					{
+						"text": "What was that crash?!",
+						"file": "assets/audio/voice/bottling_foreman/what_was_that_crash.ogg"
+					},
+					{
+						"text": "Who's been at my lever?",
+						"file": "assets/audio/voice/bottling_foreman/whos_been_at_my_lever.ogg"
+					},
+					{
+						"text": "The drive cog's gone! We've been robbed!",
+						"file": "assets/audio/voice/bottling_foreman/the_drive_cogs_gone_weve_been_robbed.ogg"
+					}
+				]
+			},
+			"bottling_rosa": {
+				"who": "Rosa, a line worker: quick, sensible and dry, in her thirties, fond of her tea",
+				"kokoro_voice": "af_nicole",
+				"speed": 1.05,
+				"lines": [
+					{
+						"text": "Eddie? Is that you?",
+						"file": "assets/audio/voice/bottling_rosa/eddie_is_that_you.ogg"
+					},
+					{
+						"text": "Hello?",
+						"file": "assets/audio/voice/bottling_rosa/hello.ogg"
+					},
+					{
+						"text": "Who's there?",
+						"file": "assets/audio/voice/bottling_rosa/whos_there.ogg"
+					},
+					{
+						"text": "Hey! Stop!",
+						"file": "assets/audio/voice/bottling_rosa/hey_stop.ogg"
+					},
+					{
+						"text": "Mr Platt! Burglar!",
+						"file": "assets/audio/voice/bottling_rosa/mr_platt_burglar.ogg"
+					},
+					{
+						"text": "What's happening?",
+						"file": "assets/audio/voice/bottling_rosa/whats_happening.ogg"
+					},
+					{
+						"text": "Where'd they go?",
+						"file": "assets/audio/voice/bottling_rosa/whered_they_go.ogg"
+					},
+					{
+						"text": "Just the machines.",
+						"file": "assets/audio/voice/bottling_rosa/just_the_machines.ogg"
+					},
+					{
+						"text": "I need a cup of tea.",
+						"file": "assets/audio/voice/bottling_rosa/i_need_a_cup_of_tea.ogg"
+					},
+					{
+						"text": "Got you! Off you go.",
+						"file": "assets/audio/voice/bottling_rosa/got_you_off_you_go.ogg"
+					},
+					{
+						"text": "That's the alarm!",
+						"file": "assets/audio/voice/bottling_rosa/thats_the_alarm.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/bottling_rosa/what_was_that.ogg"
+					},
+					{
+						"text": "Oh! I must have nodded off.",
+						"file": "assets/audio/voice/bottling_rosa/oh_i_must_have_nodded_off.ogg"
+					},
+					{
+						"text": "Filler's running hot again.",
+						"file": "assets/audio/voice/bottling_rosa/fillers_running_hot_again.ogg"
+					},
+					{
+						"text": "Kettle on, Eddie?",
+						"file": "assets/audio/voice/bottling_rosa/kettle_on_eddie.ogg"
+					},
+					{
+						"text": "Ooh, kettle's on!",
+						"file": "assets/audio/voice/bottling_rosa/ooh_kettles_on.ogg"
+					},
+					{
+						"text": "Line's stopped. I'll see to it.",
+						"file": "assets/audio/voice/bottling_rosa/lines_stopped_ill_see_to_it.ogg"
+					},
+					{
+						"text": "There she goes.",
+						"file": "assets/audio/voice/bottling_rosa/there_she_goes.ogg"
+					},
+					{
+						"text": "What on earth was that?",
+						"file": "assets/audio/voice/bottling_rosa/what_on_earth_was_that.ogg"
+					},
+					{
+						"text": "The drive cog's gone! We've been robbed!",
+						"file": "assets/audio/voice/bottling_rosa/the_drive_cogs_gone_weve_been_robbed.ogg"
+					}
+				]
+			},
+			"bottling_eddie": {
+				"who": "Eddie, a line worker: young, cheerful and a bit dozy",
+				"kokoro_voice": "am_eric",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Wassat?",
+						"file": "assets/audio/voice/bottling_eddie/wassat.ogg"
+					},
+					{
+						"text": "Rosa?",
+						"file": "assets/audio/voice/bottling_eddie/rosa.ogg"
+					},
+					{
+						"text": "Er... hello?",
+						"file": "assets/audio/voice/bottling_eddie/er_hello.ogg"
+					},
+					{
+						"text": "Oi! Who are you?",
+						"file": "assets/audio/voice/bottling_eddie/oi_who_are_you.ogg"
+					},
+					{
+						"text": "Burglar! Rosa!",
+						"file": "assets/audio/voice/bottling_eddie/burglar_rosa.ogg"
+					},
+					{
+						"text": "What's up?",
+						"file": "assets/audio/voice/bottling_eddie/whats_up.ogg"
+					},
+					{
+						"text": "They were just here...",
+						"file": "assets/audio/voice/bottling_eddie/they_were_just_here.ogg"
+					},
+					{
+						"text": "Probably a rat.",
+						"file": "assets/audio/voice/bottling_eddie/probably_a_rat.ogg"
+					},
+					{
+						"text": "Nothing. Nice.",
+						"file": "assets/audio/voice/bottling_eddie/nothing_nice.ogg"
+					},
+					{
+						"text": "Got you! Sorry. Out you go.",
+						"file": "assets/audio/voice/bottling_eddie/got_you_sorry_out_you_go.ogg"
+					},
+					{
+						"text": "Alarm! Alarm!",
+						"file": "assets/audio/voice/bottling_eddie/alarm_alarm.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/bottling_eddie/what_was_that.ogg"
+					},
+					{
+						"text": "Wha...? I wasn't asleep.",
+						"file": "assets/audio/voice/bottling_eddie/wha_i_wasnt_asleep.ogg"
+					},
+					{
+						"text": "Empties on. Empties on.",
+						"file": "assets/audio/voice/bottling_eddie/empties_on_empties_on.ogg"
+					},
+					{
+						"text": "Just resting my eyes.",
+						"file": "assets/audio/voice/bottling_eddie/just_resting_my_eyes.ogg"
+					},
+					{
+						"text": "Tea! Lovely.",
+						"file": "assets/audio/voice/bottling_eddie/tea_lovely.ogg"
+					},
+					{
+						"text": "Line's stopped! ...I'll do it then.",
+						"file": "assets/audio/voice/bottling_eddie/lines_stopped_ill_do_it_then.ogg"
+					},
+					{
+						"text": "And we're off.",
+						"file": "assets/audio/voice/bottling_eddie/and_were_off.ogg"
+					},
+					{
+						"text": "Was that the crane?!",
+						"file": "assets/audio/voice/bottling_eddie/was_that_the_crane.ogg"
+					},
+					{
+						"text": "The drive cog's gone! We've been robbed!",
+						"file": "assets/audio/voice/bottling_eddie/the_drive_cogs_gone_weve_been_robbed.ogg"
+					}
+				]
+			},
+			"town_hall_mayor": {
+				"who": "Mayor Prudence Plum: a brisk, decent, slightly frazzled woman in her fifties, chairing a rowdy meeting",
+				"kokoro_voice": "bf_isabella",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Hm? Who's that?",
+						"file": "assets/audio/voice/town_hall_mayor/hm_whos_that.ogg"
+					},
+					{
+						"text": "Is somebody there?",
+						"file": "assets/audio/voice/town_hall_mayor/is_somebody_there.ogg"
+					},
+					{
+						"text": "Excuse me? Can I help you?",
+						"file": "assets/audio/voice/town_hall_mayor/excuse_me_can_i_help_you.ogg"
+					},
+					{
+						"text": "You! Stop right there!",
+						"file": "assets/audio/voice/town_hall_mayor/you_stop_right_there.ogg"
+					},
+					{
+						"text": "Stop! Thief!",
+						"file": "assets/audio/voice/town_hall_mayor/stop_thief.ogg"
+					},
+					{
+						"text": "What's all the fuss?",
+						"file": "assets/audio/voice/town_hall_mayor/whats_all_the_fuss.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/town_hall_mayor/where_did_they_go.ogg"
+					},
+					{
+						"text": "Back to the meeting, then.",
+						"file": "assets/audio/voice/town_hall_mayor/back_to_the_meeting_then.ogg"
+					},
+					{
+						"text": "I'm seeing burglars everywhere tonight.",
+						"file": "assets/audio/voice/town_hall_mayor/im_seeing_burglars_everywhere_tonight.ogg"
+					},
+					{
+						"text": "Got you. Out you go, and don't come back.",
+						"file": "assets/audio/voice/town_hall_mayor/got_you_out_you_go_and_dont_come_back.ogg"
+					},
+					{
+						"text": "What on earth is that?",
+						"file": "assets/audio/voice/town_hall_mayor/what_on_earth_is_that.ogg"
+					},
+					{
+						"text": "Goodness. Did I nod off?",
+						"file": "assets/audio/voice/town_hall_mayor/goodness_did_i_nod_off.ogg"
+					},
+					{
+						"text": "Order, order! Let's hear Mr Hoard out.",
+						"file": "assets/audio/voice/town_hall_mayor/order_order_lets_hear_mr_hoard_out.ogg"
+					},
+					{
+						"text": "The vote is at ten o'clock. I'll fetch the charter myself.",
+						"file": "assets/audio/voice/town_hall_mayor/the_vote_is_at_ten_oclock_ill_fetch_the_charter.ogg"
+					},
+					{
+						"text": "Dobbs, remind me. My strongbox key's in my red coat, isn't it?",
+						"file": "assets/audio/voice/town_hall_mayor/dobbs_remind_me_my_strongbox_keys_in_my_red_coat.ogg"
+					},
+					{
+						"text": "Glasses, glasses... and there's my key, still in the pocket.",
+						"file": "assets/audio/voice/town_hall_mayor/glasses_glasses_and_theres_my_key_still_in_the_p.ogg"
+					},
+					{
+						"text": "Mrs Dunn, please sit down.",
+						"file": "assets/audio/voice/town_hall_mayor/mrs_dunn_please_sit_down.ogg"
+					},
+					{
+						"text": "Ten o'clock. I'll fetch the charter for the vote.",
+						"file": "assets/audio/voice/town_hall_mayor/ten_oclock_ill_fetch_the_charter_for_the_vote.ogg"
+					},
+					{
+						"text": "Now then. The charter.",
+						"file": "assets/audio/voice/town_hall_mayor/now_then_the_charter.ogg"
+					},
+					{
+						"text": "Here it is: the town charter. Let's vote.",
+						"file": "assets/audio/voice/town_hall_mayor/here_it_is_the_town_charter_lets_vote.ogg"
+					},
+					{
+						"text": "The charter! It's gone! Somebody's taken the charter!",
+						"file": "assets/audio/voice/town_hall_mayor/the_charter_its_gone_somebodys_taken_the_charter.ogg"
+					},
+					{
+						"text": "The vote's off, everyone. Somebody's pinched the charter.",
+						"file": "assets/audio/voice/town_hall_mayor/the_votes_off_everyone_somebodys_pinched_the_cha.ogg"
+					},
+					{
+						"text": "One minute to the vote, everyone.",
+						"file": "assets/audio/voice/town_hall_mayor/one_minute_to_the_vote_everyone.ogg"
+					},
+					{
+						"text": "Nobody panic! Stanley, the fuses!",
+						"file": "assets/audio/voice/town_hall_mayor/nobody_panic_stanley_the_fuses.ogg"
+					},
+					{
+						"text": "Who's ringing the bell? Stanley, go and look!",
+						"file": "assets/audio/voice/town_hall_mayor/whos_ringing_the_bell_stanley_go_and_look.ogg"
+					},
+					{
+						"text": "Vote no? Hm. Maybe I will.",
+						"file": "assets/audio/voice/town_hall_mayor/vote_no_hm_maybe_i_will.ogg"
+					},
+					{
+						"text": "Is that a mop? In my chamber?",
+						"file": "assets/audio/voice/town_hall_mayor/is_that_a_mop_in_my_chamber.ogg"
+					},
+					{
+						"text": "Point of order! Can we please just vote?",
+						"file": "assets/audio/voice/town_hall_mayor/point_of_order_can_we_please_just_vote.ogg"
+					},
+					{
+						"text": "Did you hear that?",
+						"file": "assets/audio/voice/town_hall_mayor/did_you_hear_that.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/town_hall_mayor/what_was_that.ogg"
+					},
+					{
+						"text": "I'm sorry, have we met?",
+						"file": "assets/audio/voice/town_hall_mayor/im_sorry_have_we_met.ogg"
+					},
+					{
+						"text": "Are you with the caterers?",
+						"file": "assets/audio/voice/town_hall_mayor/are_you_with_the_caterers.ogg"
+					},
+					{
+						"text": "A burglar! In a museum!",
+						"file": "assets/audio/voice/town_hall_mayor/a_burglar_in_a_museum.ogg"
+					},
+					{
+						"text": "Help! Thief!",
+						"file": "assets/audio/voice/town_hall_mayor/help_thief.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/town_hall_mayor/whats_going_on.ogg"
+					},
+					{
+						"text": "Probably a waiter.",
+						"file": "assets/audio/voice/town_hall_mayor/probably_a_waiter.ogg"
+					},
+					{
+						"text": "Must have been the Mayor.",
+						"file": "assets/audio/voice/town_hall_mayor/must_have_been_the_mayor.ogg"
+					},
+					{
+						"text": "Got you! Somebody fetch Ron!",
+						"file": "assets/audio/voice/town_hall_mayor/got_you_somebody_fetch_ron.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/town_hall_mayor/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! I must have nodded off. Lovely party.",
+						"file": "assets/audio/voice/town_hall_mayor/oh_i_must_have_nodded_off_lovely_party.ogg"
+					},
+					{
+						"text": "She'd lose her head if it wasn't on a plinth.",
+						"file": "assets/audio/voice/town_hall_mayor/shed_lose_her_head_if_it_wasnt_on_a_plinth.ogg"
+					},
+					{
+						"text": "Well, nobody comes in through the roof, do they?",
+						"file": "assets/audio/voice/town_hall_mayor/well_nobody_comes_in_through_the_roof_do_they.ogg"
+					},
+					{
+						"text": "Even the guard leaves his desk for it. Hoard wants him in the photo.",
+						"file": "assets/audio/voice/town_hall_mayor/even_the_guard_leaves_his_desk_for_it_hoard_want.ogg"
+					},
+					{
+						"text": "A drink? Don't mind if I do.",
+						"file": "assets/audio/voice/town_hall_mayor/a_drink_dont_mind_if_i_do.ogg"
+					},
+					{
+						"text": "Cheers! Don't tell Hoard I'm here.",
+						"file": "assets/audio/voice/town_hall_mayor/cheers_dont_tell_hoard_im_here.ogg"
+					},
+					{
+						"text": "Ooh! Is this part of the show?",
+						"file": "assets/audio/voice/town_hall_mayor/ooh_is_this_part_of_the_show.ogg"
+					}
+				]
+			},
+			"town_hall_clerk": {
+				"who": "Dennis Dobbs, clerk to the council: a fussy, forgetful, very proper young man",
+				"kokoro_voice": "bm_daniel",
+				"speed": 1.05,
+				"lines": [
+					{
+						"text": "Hello?",
+						"file": "assets/audio/voice/town_hall_clerk/hello.ogg"
+					},
+					{
+						"text": "Is that you, Stanley?",
+						"file": "assets/audio/voice/town_hall_clerk/is_that_you_stanley.ogg"
+					},
+					{
+						"text": "Sorry, are you meant to be back here?",
+						"file": "assets/audio/voice/town_hall_clerk/sorry_are_you_meant_to_be_back_here.ogg"
+					},
+					{
+						"text": "Hang on. I'm the only clerk here.",
+						"file": "assets/audio/voice/town_hall_clerk/hang_on_im_the_only_clerk_here.ogg"
+					},
+					{
+						"text": "Oi! That's council property!",
+						"file": "assets/audio/voice/town_hall_clerk/oi_thats_council_property.ogg"
+					},
+					{
+						"text": "Stop! Burglar!",
+						"file": "assets/audio/voice/town_hall_clerk/stop_burglar.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/town_hall_clerk/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did they go? I'll make a note.",
+						"file": "assets/audio/voice/town_hall_clerk/where_did_they_go_ill_make_a_note.ogg"
+					},
+					{
+						"text": "Must have been a draught.",
+						"file": "assets/audio/voice/town_hall_clerk/must_have_been_a_draught.ogg"
+					},
+					{
+						"text": "I'll put it in the minutes.",
+						"file": "assets/audio/voice/town_hall_clerk/ill_put_it_in_the_minutes.ogg"
+					},
+					{
+						"text": "Right. Out. And I'm writing this down.",
+						"file": "assets/audio/voice/town_hall_clerk/right_out_and_im_writing_this_down.ogg"
+					},
+					{
+						"text": "The charter! Somebody check the charter!",
+						"file": "assets/audio/voice/town_hall_clerk/the_charter_somebody_check_the_charter.ogg"
+					},
+					{
+						"text": "Wha...? I was resting my eyes.",
+						"file": "assets/audio/voice/town_hall_clerk/wha_i_was_resting_my_eyes.ogg"
+					},
+					{
+						"text": "Minute forty-three: Mr Hoard is still talking.",
+						"file": "assets/audio/voice/town_hall_clerk/minute_forty_three_mr_hoard_is_still_talking.ogg"
+					},
+					{
+						"text": "Now, where did I put the stapler?",
+						"file": "assets/audio/voice/town_hall_clerk/now_where_did_i_put_the_stapler.ogg"
+					},
+					{
+						"text": "Minutes from 1846... they're in here somewhere.",
+						"file": "assets/audio/voice/town_hall_clerk/minutes_from_1846_theyre_in_here_somewhere.ogg"
+					},
+					{
+						"text": "Who keeps borrowing the spare lanyard?",
+						"file": "assets/audio/voice/town_hall_clerk/who_keeps_borrowing_the_spare_lanyard.ogg"
+					}
+				]
+			},
+			"town_hall_caretaker": {
+				"who": "Stanley, the town hall caretaker: a slow, gruff, kindly old man who has seen it all",
+				"kokoro_voice": "am_adam",
+				"speed": 0.95,
+				"lines": [
+					{
+						"text": "Who's that?",
+						"file": "assets/audio/voice/town_hall_caretaker/whos_that.ogg"
+					},
+					{
+						"text": "Hello? Somebody there?",
+						"file": "assets/audio/voice/town_hall_caretaker/hello_somebody_there.ogg"
+					},
+					{
+						"text": "Oi. Who's that skulking about?",
+						"file": "assets/audio/voice/town_hall_caretaker/oi_whos_that_skulking_about.ogg"
+					},
+					{
+						"text": "Got a burglar! Stop!",
+						"file": "assets/audio/voice/town_hall_caretaker/got_a_burglar_stop.ogg"
+					},
+					{
+						"text": "Oi! You!",
+						"file": "assets/audio/voice/town_hall_caretaker/oi_you.ogg"
+					},
+					{
+						"text": "What's all the shouting?",
+						"file": "assets/audio/voice/town_hall_caretaker/whats_all_the_shouting.ogg"
+					},
+					{
+						"text": "Slippery one.",
+						"file": "assets/audio/voice/town_hall_caretaker/slippery_one.ogg"
+					},
+					{
+						"text": "Pigeons again.",
+						"file": "assets/audio/voice/town_hall_caretaker/pigeons_again.ogg"
+					},
+					{
+						"text": "Just the pipes.",
+						"file": "assets/audio/voice/town_hall_caretaker/just_the_pipes.ogg"
+					},
+					{
+						"text": "Gotcha. Out the front, sunshine.",
+						"file": "assets/audio/voice/town_hall_caretaker/gotcha_out_the_front_sunshine.ogg"
+					},
+					{
+						"text": "Not the fuses again!",
+						"file": "assets/audio/voice/town_hall_caretaker/not_the_fuses_again.ogg"
+					},
+					{
+						"text": "There. Let there be light.",
+						"file": "assets/audio/voice/town_hall_caretaker/there_let_there_be_light.ogg"
+					},
+					{
+						"text": "What's all that racket?",
+						"file": "assets/audio/voice/town_hall_caretaker/whats_all_that_racket.ogg"
+					},
+					{
+						"text": "Eh? Must've dropped off.",
+						"file": "assets/audio/voice/town_hall_caretaker/eh_mustve_dropped_off.ogg"
+					},
+					{
+						"text": "Right. Rounds.",
+						"file": "assets/audio/voice/town_hall_caretaker/right_rounds.ogg"
+					},
+					{
+						"text": "Who parks like that? Oh. Mr Hoard.",
+						"file": "assets/audio/voice/town_hall_caretaker/who_parks_like_that_oh_mr_hoard.ogg"
+					},
+					{
+						"text": "Nobody's touched the bell rope. Good.",
+						"file": "assets/audio/voice/town_hall_caretaker/nobodys_touched_the_bell_rope_good.ogg"
+					},
+					{
+						"text": "Mind the floor, it's just been mopped.",
+						"file": "assets/audio/voice/town_hall_caretaker/mind_the_floor_its_just_been_mopped.ogg"
+					},
+					{
+						"text": "Somebody's left the lights on again.",
+						"file": "assets/audio/voice/town_hall_caretaker/somebodys_left_the_lights_on_again.ogg"
+					},
+					{
+						"text": "Who's that at my bell?",
+						"file": "assets/audio/voice/town_hall_caretaker/whos_that_at_my_bell.ogg"
+					},
+					{
+						"text": "Where's my mop got to?",
+						"file": "assets/audio/voice/town_hall_caretaker/wheres_my_mop_got_to.ogg"
+					}
+				]
+			},
+			"hoard": {
+				"who": "Augustus Hoard: a pompous, oily rich man in his sixties, pleased with himself",
+				"kokoro_voice": "am_onyx",
+				"speed": 0.95,
+				"lines": [
+					{
+						"text": "Hm? Who's skulking there?",
+						"file": "assets/audio/voice/hoard/hm_whos_skulking_there.ogg"
+					},
+					{
+						"text": "You there! Do I know you?",
+						"file": "assets/audio/voice/hoard/you_there_do_i_know_you.ogg"
+					},
+					{
+						"text": "A thief! Somebody grab them!",
+						"file": "assets/audio/voice/hoard/a_thief_somebody_grab_them.ogg"
+					},
+					{
+						"text": "What's all this?",
+						"file": "assets/audio/voice/hoard/whats_all_this.ogg"
+					},
+					{
+						"text": "Slippery little...",
+						"file": "assets/audio/voice/hoard/slippery_little.ogg"
+					},
+					{
+						"text": "Nobody. Excellent. Where was I?",
+						"file": "assets/audio/voice/hoard/nobody_excellent_where_was_i.ogg"
+					},
+					{
+						"text": "Got you! Out, out!",
+						"file": "assets/audio/voice/hoard/got_you_out_out.ogg"
+					},
+					{
+						"text": "Who dares... oh. I dozed.",
+						"file": "assets/audio/voice/hoard/who_dares_oh_i_dozed.ogg"
+					},
+					{
+						"text": "Do get on with it, Prudence.",
+						"file": "assets/audio/voice/hoard/do_get_on_with_it_prudence.ogg"
+					},
+					{
+						"text": "Friends! Neighbours! Imagine a car park where that soggy green is now!",
+						"file": "assets/audio/voice/hoard/friends_neighbours_imagine_a_car_park_where_that.ogg"
+					},
+					{
+						"text": "Forty spaces! Forty! All of them reserved. For me.",
+						"file": "assets/audio/voice/hoard/forty_spaces_forty_all_of_them_reserved_for_me.ogg"
+					},
+					{
+						"text": "The charter says for ever. But what is for ever, really?",
+						"file": "assets/audio/voice/hoard/the_charter_says_for_ever_but_what_is_for_ever_r.ogg"
+					},
+					{
+						"text": "Two hundred grams of butter, two hundred grams of sugar... what?",
+						"file": "assets/audio/voice/hoard/two_hundred_grams_of_butter_two_hundred_grams_of.ogg"
+					},
+					{
+						"text": "Bake for twenty minutes until golden? Who gave me a recipe?",
+						"file": "assets/audio/voice/hoard/bake_for_twenty_minutes_until_golden_who_gave_me.ogg"
+					},
+					{
+						"text": "Jam in the middle. Not cream. This isn't my speech!",
+						"file": "assets/audio/voice/hoard/jam_in_the_middle_not_cream_this_isnt_my_speech.ogg"
+					},
+					{
+						"text": "At last. Let's get this over with.",
+						"file": "assets/audio/voice/hoard/at_last_lets_get_this_over_with.ogg"
+					},
+					{
+						"text": "Is this a joke? Who turned out the lights?",
+						"file": "assets/audio/voice/hoard/is_this_a_joke_who_turned_out_the_lights.ogg"
+					},
+					{
+						"text": "A bell? At this hour?",
+						"file": "assets/audio/voice/hoard/a_bell_at_this_hour.ogg"
+					},
+					{
+						"text": "Hm? Who's that?",
+						"file": "assets/audio/voice/hoard/hm_whos_that.ogg"
+					},
+					{
+						"text": "Who invited you?",
+						"file": "assets/audio/voice/hoard/who_invited_you.ogg"
+					},
+					{
+						"text": "Security! Ron! A burglar!",
+						"file": "assets/audio/voice/hoard/security_ron_a_burglar.ogg"
+					},
+					{
+						"text": "What's all the fuss?",
+						"file": "assets/audio/voice/hoard/whats_all_the_fuss.ogg"
+					},
+					{
+						"text": "Ron! Find them!",
+						"file": "assets/audio/voice/hoard/ron_find_them.ogg"
+					},
+					{
+						"text": "Probably the Mayor. She wanders.",
+						"file": "assets/audio/voice/hoard/probably_the_mayor_she_wanders.ogg"
+					},
+					{
+						"text": "Got you! Ron, show them out.",
+						"file": "assets/audio/voice/hoard/got_you_ron_show_them_out.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/hoard/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Wha...? Rich men need their rest.",
+						"file": "assets/audio/voice/hoard/wha_rich_men_need_their_rest.ogg"
+					},
+					{
+						"text": "Marvellous, isn't it? All mine.",
+						"file": "assets/audio/voice/hoard/marvellous_isnt_it_all_mine.ogg"
+					},
+					{
+						"text": "And there he is. The founder. Much happier here.",
+						"file": "assets/audio/voice/hoard/and_there_he_is_the_founder_much_happier_here.ogg"
+					},
+					{
+						"text": "Do try the vol-au-vents. I paid for them. Eventually.",
+						"file": "assets/audio/voice/hoard/do_try_the_vol_au_vents_i_paid_for_them_eventual.ogg"
+					},
+					{
+						"text": "That cannon was just lying on the beach. Finders keepers.",
+						"file": "assets/audio/voice/hoard/that_cannon_was_just_lying_on_the_beach_finders.ogg"
+					},
+					{
+						"text": "The castle's from the library. They had far too many books anyway.",
+						"file": "assets/audio/voice/hoard/the_castles_from_the_library_they_had_far_too_ma.ogg"
+					},
+					{
+						"text": "Friends! Neighbours! People who owe me money!",
+						"file": "assets/audio/voice/hoard/friends_neighbours_people_who_owe_me_money.ogg"
+					},
+					{
+						"text": "Welcome to the Hoard Museum of Local Heritage.",
+						"file": "assets/audio/voice/hoard/welcome_to_the_hoard_museum_of_local_heritage.ogg"
+					},
+					{
+						"text": "Everything you see was given freely. More or less.",
+						"file": "assets/audio/voice/hoard/everything_you_see_was_given_freely_more_or_less.ogg"
+					},
+					{
+						"text": "And through that arch, the founder himself. Safe at last.",
+						"file": "assets/audio/voice/hoard/and_through_that_arch_the_founder_himself_safe_a.ogg"
+					},
+					{
+						"text": "To Kettleford! And to me!",
+						"file": "assets/audio/voice/hoard/to_kettleford_and_to_me.ogg"
+					},
+					{
+						"text": "Everyone! Into the hall! Toast time!",
+						"file": "assets/audio/voice/hoard/everyone_into_the_hall_toast_time.ogg"
+					},
+					{
+						"text": "The gong! That's my cue!",
+						"file": "assets/audio/voice/hoard/the_gong_thats_my_cue.ogg"
+					},
+					{
+						"text": "Cheese!",
+						"file": "assets/audio/voice/hoard/cheese.ogg"
+					},
+					{
+						"text": "Champagne? Mine, I assume. Everything is.",
+						"file": "assets/audio/voice/hoard/champagne_mine_i_assume_everything_is.ogg"
+					},
+					{
+						"text": "Who turned the lights out? Ron!",
+						"file": "assets/audio/voice/hoard/who_turned_the_lights_out_ron.ogg"
+					},
+					{
+						"text": "Who's there?",
+						"file": "assets/audio/voice/hoard/whos_there.ogg"
+					},
+					{
+						"text": "Pell? Is that you?",
+						"file": "assets/audio/voice/hoard/pell_is_that_you.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/hoard/what_was_that.ogg"
+					},
+					{
+						"text": "A burglar! In MY house!",
+						"file": "assets/audio/voice/hoard/a_burglar_in_my_house.ogg"
+					},
+					{
+						"text": "Guards! Guards!",
+						"file": "assets/audio/voice/hoard/guards_guards.ogg"
+					},
+					{
+						"text": "Stop, thief!",
+						"file": "assets/audio/voice/hoard/stop_thief.ogg"
+					},
+					{
+						"text": "What's all this racket?",
+						"file": "assets/audio/voice/hoard/whats_all_this_racket.ogg"
+					},
+					{
+						"text": "Come out! I know you're here!",
+						"file": "assets/audio/voice/hoard/come_out_i_know_youre_here.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/hoard/where_did_they_go.ogg"
+					},
+					{
+						"text": "Hmph. Nerves.",
+						"file": "assets/audio/voice/hoard/hmph_nerves.ogg"
+					},
+					{
+						"text": "Pell's been at the brandy again.",
+						"file": "assets/audio/voice/hoard/pells_been_at_the_brandy_again.ogg"
+					},
+					{
+						"text": "Got you! Out! OUT!",
+						"file": "assets/audio/voice/hoard/got_you_out_out.ogg"
+					},
+					{
+						"text": "Duke! Hush!",
+						"file": "assets/audio/voice/hoard/duke_hush.ogg"
+					},
+					{
+						"text": "Wha...? I was resting my eyes.",
+						"file": "assets/audio/voice/hoard/wha_i_was_resting_my_eyes.ogg"
+					},
+					{
+						"text": "Pell! More pudding!",
+						"file": "assets/audio/voice/hoard/pell_more_pudding.ogg"
+					},
+					{
+						"text": "Other people's books. My favourite kind.",
+						"file": "assets/audio/voice/hoard/other_peoples_books_my_favourite_kind.ogg"
+					},
+					{
+						"text": "Hello, my lovelies. All mine.",
+						"file": "assets/audio/voice/hoard/hello_my_lovelies_all_mine.ogg"
+					},
+					{
+						"text": "Bedtime for the richest man in Kettleford.",
+						"file": "assets/audio/voice/hoard/bedtime_for_the_richest_man_in_kettleford.ogg"
+					},
+					{
+						"text": "Can't sleep. A midnight snack, I think.",
+						"file": "assets/audio/voice/hoard/cant_sleep_a_midnight_snack_i_think.ogg"
+					},
+					{
+						"text": "My key! Where's my key? PELL!",
+						"file": "assets/audio/voice/hoard/my_key_wheres_my_key_pell.ogg"
+					}
+				]
+			},
+			"museum_head_waiter": {
+				"who": "Mr Pring, the head waiter: prim, fussy and very proper",
+				"kokoro_voice": "bm_fable",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Was that a tray? Who dropped a tray?",
+						"file": "assets/audio/voice/museum_head_waiter/was_that_a_tray_who_dropped_a_tray.ogg"
+					},
+					{
+						"text": "And who might you be?",
+						"file": "assets/audio/voice/museum_head_waiter/and_who_might_you_be.ogg"
+					},
+					{
+						"text": "You're not one of mine! Ron!",
+						"file": "assets/audio/voice/museum_head_waiter/youre_not_one_of_mine_ron.ogg"
+					},
+					{
+						"text": "What's the commotion?",
+						"file": "assets/audio/voice/museum_head_waiter/whats_the_commotion.ogg"
+					},
+					{
+						"text": "Where's that scoundrel got to?",
+						"file": "assets/audio/voice/museum_head_waiter/wheres_that_scoundrel_got_to.ogg"
+					},
+					{
+						"text": "Back to work, everyone.",
+						"file": "assets/audio/voice/museum_head_waiter/back_to_work_everyone.ogg"
+					},
+					{
+						"text": "Out. Now. And give back the jacket.",
+						"file": "assets/audio/voice/museum_head_waiter/out_now_and_give_back_the_jacket.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_head_waiter/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "I'm awake! The canapés are fine!",
+						"file": "assets/audio/voice/museum_head_waiter/im_awake_the_canap_s_are_fine.ogg"
+					},
+					{
+						"text": "Trays up, chins up.",
+						"file": "assets/audio/voice/museum_head_waiter/trays_up_chins_up.ogg"
+					},
+					{
+						"text": "Mind the trebuchet with that tray.",
+						"file": "assets/audio/voice/museum_head_waiter/mind_the_trebuchet_with_that_tray.ogg"
+					},
+					{
+						"text": "Who's been at the vol-au-vents?",
+						"file": "assets/audio/voice/museum_head_waiter/whos_been_at_the_vol_au_vents.ogg"
+					},
+					{
+						"text": "You there! Where's your tray?",
+						"file": "assets/audio/voice/museum_head_waiter/you_there_wheres_your_tray.ogg"
+					},
+					{
+						"text": "Idle hands! Get a tray from the kitchen.",
+						"file": "assets/audio/voice/museum_head_waiter/idle_hands_get_a_tray_from_the_kitchen.ogg"
+					}
+				]
+			},
+			"museum_curator": {
+				"who": "Miss Finch, the curator: clever, flustered and quietly ashamed of her boss",
+				"kokoro_voice": "bf_alice",
+				"speed": 1.05,
+				"lines": [
+					{
+						"text": "Did something just fall over?",
+						"file": "assets/audio/voice/museum_curator/did_something_just_fall_over.ogg"
+					},
+					{
+						"text": "Excuse me, can I help you?",
+						"file": "assets/audio/voice/museum_curator/excuse_me_can_i_help_you.ogg"
+					},
+					{
+						"text": "Thief! Someone call Ron!",
+						"file": "assets/audio/voice/museum_curator/thief_someone_call_ron.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_curator/whats_going_on.ogg"
+					},
+					{
+						"text": "They went that way! I think.",
+						"file": "assets/audio/voice/museum_curator/they_went_that_way_i_think.ogg"
+					},
+					{
+						"text": "I need a sit down.",
+						"file": "assets/audio/voice/museum_curator/i_need_a_sit_down.ogg"
+					},
+					{
+						"text": "Caught you! Out you go.",
+						"file": "assets/audio/voice/museum_curator/caught_you_out_you_go.ogg"
+					},
+					{
+						"text": "The alarm! My exhibits!",
+						"file": "assets/audio/voice/museum_curator/the_alarm_my_exhibits.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_curator/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! Was I asleep? How embarrassing.",
+						"file": "assets/audio/voice/museum_curator/oh_was_i_asleep_how_embarrassing.ogg"
+					},
+					{
+						"text": "Please don't touch the trebuchet.",
+						"file": "assets/audio/voice/museum_curator/please_dont_touch_the_trebuchet.ogg"
+					},
+					{
+						"text": "The founder. On loan. Indefinitely.",
+						"file": "assets/audio/voice/museum_curator/the_founder_on_loan_indefinitely.ogg"
+					},
+					{
+						"text": "The Stone Head. From the village green. Don't ask.",
+						"file": "assets/audio/voice/museum_curator/the_stone_head_from_the_village_green_dont_ask.ogg"
+					},
+					{
+						"text": "Now where did I put my keys?",
+						"file": "assets/audio/voice/museum_curator/now_where_did_i_put_my_keys.ogg"
+					},
+					{
+						"text": "Oh, thank you. I need this.",
+						"file": "assets/audio/voice/museum_curator/oh_thank_you_i_need_this.ogg"
+					}
+				]
+			},
+			"museum_guard": {
+				"who": "Ron, the museum guard: big, kind and fond of sausage rolls",
+				"kokoro_voice": "am_liam",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/museum_guard/what_was_that.ogg"
+					},
+					{
+						"text": "Hello? Who's that?",
+						"file": "assets/audio/voice/museum_guard/hello_whos_that.ogg"
+					},
+					{
+						"text": "Oi! Stop! Museum security!",
+						"file": "assets/audio/voice/museum_guard/oi_stop_museum_security.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_guard/whats_going_on.ogg"
+					},
+					{
+						"text": "Come out, I know you're here.",
+						"file": "assets/audio/voice/museum_guard/come_out_i_know_youre_here.ogg"
+					},
+					{
+						"text": "Must've been a guest. They all look the same in a bow tie.",
+						"file": "assets/audio/voice/museum_guard/mustve_been_a_guest_they_all_look_the_same_in_a.ogg"
+					},
+					{
+						"text": "Got you! Out you go, sunshine.",
+						"file": "assets/audio/voice/museum_guard/got_you_out_you_go_sunshine.ogg"
+					},
+					{
+						"text": "Not the fuses again!",
+						"file": "assets/audio/voice/museum_guard/not_the_fuses_again.ogg"
+					},
+					{
+						"text": "There. Lights!",
+						"file": "assets/audio/voice/museum_guard/there_lights.ogg"
+					},
+					{
+						"text": "The alarm! The statue!",
+						"file": "assets/audio/voice/museum_guard/the_alarm_the_statue.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_guard/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Wha...? I was just resting my eyes.",
+						"file": "assets/audio/voice/museum_guard/wha_i_was_just_resting_my_eyes.ogg"
+					},
+					{
+						"text": "Quiet night. Lovely.",
+						"file": "assets/audio/voice/museum_guard/quiet_night_lovely.ogg"
+					},
+					{
+						"text": "Still there. Good.",
+						"file": "assets/audio/voice/museum_guard/still_there_good.ogg"
+					},
+					{
+						"text": "Any sausage rolls going spare?",
+						"file": "assets/audio/voice/museum_guard/any_sausage_rolls_going_spare.ogg"
+					}
+				]
+			},
+			"museum_guest_a": {
+				"who": "Mrs Fairweather, a guest: a bright, chatty gossip who knows everything",
+				"kokoro_voice": "af_bella",
+				"speed": 1.05,
+				"lines": [
+					{
+						"text": "Did you hear that?",
+						"file": "assets/audio/voice/museum_guest_a/did_you_hear_that.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/museum_guest_a/what_was_that.ogg"
+					},
+					{
+						"text": "I'm sorry, have we met?",
+						"file": "assets/audio/voice/museum_guest_a/im_sorry_have_we_met.ogg"
+					},
+					{
+						"text": "Are you with the caterers?",
+						"file": "assets/audio/voice/museum_guest_a/are_you_with_the_caterers.ogg"
+					},
+					{
+						"text": "A burglar! In a museum!",
+						"file": "assets/audio/voice/museum_guest_a/a_burglar_in_a_museum.ogg"
+					},
+					{
+						"text": "Help! Thief!",
+						"file": "assets/audio/voice/museum_guest_a/help_thief.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_guest_a/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/museum_guest_a/where_did_they_go.ogg"
+					},
+					{
+						"text": "Probably a waiter.",
+						"file": "assets/audio/voice/museum_guest_a/probably_a_waiter.ogg"
+					},
+					{
+						"text": "Must have been the Mayor.",
+						"file": "assets/audio/voice/museum_guest_a/must_have_been_the_mayor.ogg"
+					},
+					{
+						"text": "Got you! Somebody fetch Ron!",
+						"file": "assets/audio/voice/museum_guest_a/got_you_somebody_fetch_ron.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_guest_a/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! I must have nodded off. Lovely party.",
+						"file": "assets/audio/voice/museum_guest_a/oh_i_must_have_nodded_off_lovely_party.ogg"
+					},
+					{
+						"text": "Did you see the guard tap in his door code? Oh nine one two.",
+						"file": "assets/audio/voice/museum_guest_a/did_you_see_the_guard_tap_in_his_door_code_oh_ni.ogg"
+					},
+					{
+						"text": "I haven't seen a waiter in ages. I'm parched.",
+						"file": "assets/audio/voice/museum_guest_a/i_havent_seen_a_waiter_in_ages_im_parched.ogg"
+					},
+					{
+						"text": "Hoard showed me the cameras. The pirate gallery one's been broken for weeks.",
+						"file": "assets/audio/voice/museum_guest_a/hoard_showed_me_the_cameras_the_pirate_gallery_o.ogg"
+					},
+					{
+						"text": "Ooh, waiter! Over here!",
+						"file": "assets/audio/voice/museum_guest_a/ooh_waiter_over_here.ogg"
+					},
+					{
+						"text": "Oh, lovely. Thank you!",
+						"file": "assets/audio/voice/museum_guest_a/oh_lovely_thank_you.ogg"
+					},
+					{
+						"text": "Ooh! Is this part of the show?",
+						"file": "assets/audio/voice/museum_guest_a/ooh_is_this_part_of_the_show.ogg"
+					}
+				]
+			},
+			"museum_guest_b": {
+				"who": "Mr Ashby, a guest: a dry, amused old gentleman",
+				"kokoro_voice": "am_echo",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Did you hear that?",
+						"file": "assets/audio/voice/museum_guest_b/did_you_hear_that.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/museum_guest_b/what_was_that.ogg"
+					},
+					{
+						"text": "I'm sorry, have we met?",
+						"file": "assets/audio/voice/museum_guest_b/im_sorry_have_we_met.ogg"
+					},
+					{
+						"text": "Are you with the caterers?",
+						"file": "assets/audio/voice/museum_guest_b/are_you_with_the_caterers.ogg"
+					},
+					{
+						"text": "A burglar! In a museum!",
+						"file": "assets/audio/voice/museum_guest_b/a_burglar_in_a_museum.ogg"
+					},
+					{
+						"text": "Help! Thief!",
+						"file": "assets/audio/voice/museum_guest_b/help_thief.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_guest_b/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/museum_guest_b/where_did_they_go.ogg"
+					},
+					{
+						"text": "Probably a waiter.",
+						"file": "assets/audio/voice/museum_guest_b/probably_a_waiter.ogg"
+					},
+					{
+						"text": "Must have been the Mayor.",
+						"file": "assets/audio/voice/museum_guest_b/must_have_been_the_mayor.ogg"
+					},
+					{
+						"text": "Got you! Somebody fetch Ron!",
+						"file": "assets/audio/voice/museum_guest_b/got_you_somebody_fetch_ron.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_guest_b/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! I must have nodded off. Lovely party.",
+						"file": "assets/audio/voice/museum_guest_b/oh_i_must_have_nodded_off_lovely_party.ogg"
+					},
+					{
+						"text": "His birthday, he told me. Ninth of December. Bless him.",
+						"file": "assets/audio/voice/museum_guest_b/his_birthday_he_told_me_ninth_of_december_bless.ogg"
+					},
+					{
+						"text": "The caterer's two short tonight. Anyone in a jacket with a tray would do.",
+						"file": "assets/audio/voice/museum_guest_b/the_caterers_two_short_tonight_anyone_in_a_jacke.ogg"
+					},
+					{
+						"text": "And he won't pay to fix it. Typical.",
+						"file": "assets/audio/voice/museum_guest_b/and_he_wont_pay_to_fix_it_typical.ogg"
+					},
+					{
+						"text": "Is that champagne? Splendid.",
+						"file": "assets/audio/voice/museum_guest_b/is_that_champagne_splendid.ogg"
+					},
+					{
+						"text": "Much obliged.",
+						"file": "assets/audio/voice/museum_guest_b/much_obliged.ogg"
+					},
+					{
+						"text": "Ooh! Is this part of the show?",
+						"file": "assets/audio/voice/museum_guest_b/ooh_is_this_part_of_the_show.ogg"
+					}
+				]
+			},
+			"museum_crumb": {
+				"who": "Lady Crumb, a guest: grand, nosy and delighted by scandal",
+				"kokoro_voice": "af_heart",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Did you hear that?",
+						"file": "assets/audio/voice/museum_crumb/did_you_hear_that.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/museum_crumb/what_was_that.ogg"
+					},
+					{
+						"text": "I'm sorry, have we met?",
+						"file": "assets/audio/voice/museum_crumb/im_sorry_have_we_met.ogg"
+					},
+					{
+						"text": "Are you with the caterers?",
+						"file": "assets/audio/voice/museum_crumb/are_you_with_the_caterers.ogg"
+					},
+					{
+						"text": "A burglar! In a museum!",
+						"file": "assets/audio/voice/museum_crumb/a_burglar_in_a_museum.ogg"
+					},
+					{
+						"text": "Help! Thief!",
+						"file": "assets/audio/voice/museum_crumb/help_thief.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_crumb/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/museum_crumb/where_did_they_go.ogg"
+					},
+					{
+						"text": "Probably a waiter.",
+						"file": "assets/audio/voice/museum_crumb/probably_a_waiter.ogg"
+					},
+					{
+						"text": "Must have been the Mayor.",
+						"file": "assets/audio/voice/museum_crumb/must_have_been_the_mayor.ogg"
+					},
+					{
+						"text": "Got you! Somebody fetch Ron!",
+						"file": "assets/audio/voice/museum_crumb/got_you_somebody_fetch_ron.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_crumb/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! I must have nodded off. Lovely party.",
+						"file": "assets/audio/voice/museum_crumb/oh_i_must_have_nodded_off_lovely_party.ogg"
+					},
+					{
+						"text": "The curator left her handbag in the cloakroom. Keys and all!",
+						"file": "assets/audio/voice/museum_crumb/the_curator_left_her_handbag_in_the_cloakroom_ke.ogg"
+					},
+					{
+						"text": "They say the skylight over the statue doesn't even lock.",
+						"file": "assets/audio/voice/museum_crumb/they_say_the_skylight_over_the_statue_doesnt_eve.ogg"
+					},
+					{
+						"text": "Hoard's toast is the big moment. Everyone has to be in the hall.",
+						"file": "assets/audio/voice/museum_crumb/hoards_toast_is_the_big_moment_everyone_has_to_b.ogg"
+					},
+					{
+						"text": "Waiter! Bring that tray here at once.",
+						"file": "assets/audio/voice/museum_crumb/waiter_bring_that_tray_here_at_once.ogg"
+					},
+					{
+						"text": "How kind. Thank you.",
+						"file": "assets/audio/voice/museum_crumb/how_kind_thank_you.ogg"
+					},
+					{
+						"text": "Ooh! Is this part of the show?",
+						"file": "assets/audio/voice/museum_crumb/ooh_is_this_part_of_the_show.ogg"
+					}
+				]
+			},
+			"museum_snapper": {
+				"who": "Snapper, the photographer: upbeat and bossy with a camera",
+				"kokoro_voice": "am_puck",
+				"speed": 1.1,
+				"lines": [
+					{
+						"text": "Did you hear that?",
+						"file": "assets/audio/voice/museum_snapper/did_you_hear_that.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/museum_snapper/what_was_that.ogg"
+					},
+					{
+						"text": "I'm sorry, have we met?",
+						"file": "assets/audio/voice/museum_snapper/im_sorry_have_we_met.ogg"
+					},
+					{
+						"text": "Are you with the caterers?",
+						"file": "assets/audio/voice/museum_snapper/are_you_with_the_caterers.ogg"
+					},
+					{
+						"text": "A burglar! In a museum!",
+						"file": "assets/audio/voice/museum_snapper/a_burglar_in_a_museum.ogg"
+					},
+					{
+						"text": "Help! Thief!",
+						"file": "assets/audio/voice/museum_snapper/help_thief.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_snapper/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/museum_snapper/where_did_they_go.ogg"
+					},
+					{
+						"text": "Probably a waiter.",
+						"file": "assets/audio/voice/museum_snapper/probably_a_waiter.ogg"
+					},
+					{
+						"text": "Must have been the Mayor.",
+						"file": "assets/audio/voice/museum_snapper/must_have_been_the_mayor.ogg"
+					},
+					{
+						"text": "Got you! Somebody fetch Ron!",
+						"file": "assets/audio/voice/museum_snapper/got_you_somebody_fetch_ron.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_snapper/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! I must have nodded off. Lovely party.",
+						"file": "assets/audio/voice/museum_snapper/oh_i_must_have_nodded_off_lovely_party.ogg"
+					},
+					{
+						"text": "Smile, everyone!",
+						"file": "assets/audio/voice/museum_snapper/smile_everyone.ogg"
+					},
+					{
+						"text": "Lovely. One more.",
+						"file": "assets/audio/voice/museum_snapper/lovely_one_more.ogg"
+					},
+					{
+						"text": "Say cheese!",
+						"file": "assets/audio/voice/museum_snapper/say_cheese.ogg"
+					},
+					{
+						"text": "Everybody look up at Mr Hoard!",
+						"file": "assets/audio/voice/museum_snapper/everybody_look_up_at_mr_hoard.ogg"
+					},
+					{
+						"text": "Over here, waiter!",
+						"file": "assets/audio/voice/museum_snapper/over_here_waiter.ogg"
+					},
+					{
+						"text": "Ta very much.",
+						"file": "assets/audio/voice/museum_snapper/ta_very_much.ogg"
+					},
+					{
+						"text": "Ooh! Is this part of the show?",
+						"file": "assets/audio/voice/museum_snapper/ooh_is_this_part_of_the_show.ogg"
+					}
+				]
+			},
+			"museum_violinist": {
+				"who": "The violinist in the string quartet: polite and a bit bored",
+				"kokoro_voice": "af_sky",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Did you hear that?",
+						"file": "assets/audio/voice/museum_violinist/did_you_hear_that.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/museum_violinist/what_was_that.ogg"
+					},
+					{
+						"text": "I'm sorry, have we met?",
+						"file": "assets/audio/voice/museum_violinist/im_sorry_have_we_met.ogg"
+					},
+					{
+						"text": "Are you with the caterers?",
+						"file": "assets/audio/voice/museum_violinist/are_you_with_the_caterers.ogg"
+					},
+					{
+						"text": "A burglar! In a museum!",
+						"file": "assets/audio/voice/museum_violinist/a_burglar_in_a_museum.ogg"
+					},
+					{
+						"text": "Help! Thief!",
+						"file": "assets/audio/voice/museum_violinist/help_thief.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_violinist/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/museum_violinist/where_did_they_go.ogg"
+					},
+					{
+						"text": "Probably a waiter.",
+						"file": "assets/audio/voice/museum_violinist/probably_a_waiter.ogg"
+					},
+					{
+						"text": "Must have been the Mayor.",
+						"file": "assets/audio/voice/museum_violinist/must_have_been_the_mayor.ogg"
+					},
+					{
+						"text": "Got you! Somebody fetch Ron!",
+						"file": "assets/audio/voice/museum_violinist/got_you_somebody_fetch_ron.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_violinist/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! I must have nodded off. Lovely party.",
+						"file": "assets/audio/voice/museum_violinist/oh_i_must_have_nodded_off_lovely_party.ogg"
+					},
+					{
+						"text": "A sea shanty? At a gala?",
+						"file": "assets/audio/voice/museum_violinist/a_sea_shanty_at_a_gala.ogg"
+					}
+				]
+			},
+			"museum_cellist": {
+				"who": "The cellist in the string quartet: cheerful, secretly loves sea shanties",
+				"kokoro_voice": "bm_lewis",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Did you hear that?",
+						"file": "assets/audio/voice/museum_cellist/did_you_hear_that.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/museum_cellist/what_was_that.ogg"
+					},
+					{
+						"text": "I'm sorry, have we met?",
+						"file": "assets/audio/voice/museum_cellist/im_sorry_have_we_met.ogg"
+					},
+					{
+						"text": "Are you with the caterers?",
+						"file": "assets/audio/voice/museum_cellist/are_you_with_the_caterers.ogg"
+					},
+					{
+						"text": "A burglar! In a museum!",
+						"file": "assets/audio/voice/museum_cellist/a_burglar_in_a_museum.ogg"
+					},
+					{
+						"text": "Help! Thief!",
+						"file": "assets/audio/voice/museum_cellist/help_thief.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_cellist/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/museum_cellist/where_did_they_go.ogg"
+					},
+					{
+						"text": "Probably a waiter.",
+						"file": "assets/audio/voice/museum_cellist/probably_a_waiter.ogg"
+					},
+					{
+						"text": "Must have been the Mayor.",
+						"file": "assets/audio/voice/museum_cellist/must_have_been_the_mayor.ogg"
+					},
+					{
+						"text": "Got you! Somebody fetch Ron!",
+						"file": "assets/audio/voice/museum_cellist/got_you_somebody_fetch_ron.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_cellist/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! I must have nodded off. Lovely party.",
+						"file": "assets/audio/voice/museum_cellist/oh_i_must_have_nodded_off_lovely_party.ogg"
+					},
+					{
+						"text": "Ooh, I love this one!",
+						"file": "assets/audio/voice/museum_cellist/ooh_i_love_this_one.ogg"
+					}
+				]
+			},
+			"museum_cook": {
+				"who": "The cook: harassed, run off her feet, dreaming of a break",
+				"kokoro_voice": "af_nicole",
+				"speed": 1.05,
+				"lines": [
+					{
+						"text": "Who's banging about?",
+						"file": "assets/audio/voice/museum_cook/whos_banging_about.ogg"
+					},
+					{
+						"text": "Oi! No guests in my kitchen!",
+						"file": "assets/audio/voice/museum_cook/oi_no_guests_in_my_kitchen.ogg"
+					},
+					{
+						"text": "Out of my kitchen! Thief!",
+						"file": "assets/audio/voice/museum_cook/out_of_my_kitchen_thief.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/museum_cook/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/museum_cook/where_did_they_go.ogg"
+					},
+					{
+						"text": "I know you're here!",
+						"file": "assets/audio/voice/museum_cook/i_know_youre_here.ogg"
+					},
+					{
+						"text": "Back to the vol-au-vents.",
+						"file": "assets/audio/voice/museum_cook/back_to_the_vol_au_vents.ogg"
+					},
+					{
+						"text": "Got you! Out you go.",
+						"file": "assets/audio/voice/museum_cook/got_you_out_you_go.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/museum_cook/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Wha...? Must have dozed off.",
+						"file": "assets/audio/voice/museum_cook/wha_must_have_dozed_off.ogg"
+					},
+					{
+						"text": "Who wants more vol-au-vents?",
+						"file": "assets/audio/voice/museum_cook/who_wants_more_vol_au_vents.ogg"
+					},
+					{
+						"text": "Five minutes. Just five minutes.",
+						"file": "assets/audio/voice/museum_cook/five_minutes_just_five_minutes.ogg"
+					}
+				]
+			},
+			"labs_guard_a": {
+				"who": "Briggs, a cheerful, chatty night guard in his thirties who loves a quiet night",
+				"kokoro_voice": "am_puck",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Hm?",
+						"file": "assets/audio/voice/labs_guard_a/hm.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/labs_guard_a/what_was_that.ogg"
+					},
+					{
+						"text": "Hello?",
+						"file": "assets/audio/voice/labs_guard_a/hello.ogg"
+					},
+					{
+						"text": "Hm? Who's there?",
+						"file": "assets/audio/voice/labs_guard_a/hm_whos_there.ogg"
+					},
+					{
+						"text": "Oi! The lab's closed!",
+						"file": "assets/audio/voice/labs_guard_a/oi_the_labs_closed.ogg"
+					},
+					{
+						"text": "Stop right there!",
+						"file": "assets/audio/voice/labs_guard_a/stop_right_there.ogg"
+					},
+					{
+						"text": "Intruder!",
+						"file": "assets/audio/voice/labs_guard_a/intruder.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/labs_guard_a/whats_going_on.ogg"
+					},
+					{
+						"text": "Where'd they go?",
+						"file": "assets/audio/voice/labs_guard_a/whered_they_go.ogg"
+					},
+					{
+						"text": "I know you're in here.",
+						"file": "assets/audio/voice/labs_guard_a/i_know_youre_in_here.ogg"
+					},
+					{
+						"text": "Must be the air con.",
+						"file": "assets/audio/voice/labs_guard_a/must_be_the_air_con.ogg"
+					},
+					{
+						"text": "Just the building settling.",
+						"file": "assets/audio/voice/labs_guard_a/just_the_building_settling.ogg"
+					},
+					{
+						"text": "Pigeons, probably.",
+						"file": "assets/audio/voice/labs_guard_a/pigeons_probably.ogg"
+					},
+					{
+						"text": "Out you go. Visiting hours are over.",
+						"file": "assets/audio/voice/labs_guard_a/out_you_go_visiting_hours_are_over.ogg"
+					},
+					{
+						"text": "Lights! Hang on, I'll get the breaker.",
+						"file": "assets/audio/voice/labs_guard_a/lights_hang_on_ill_get_the_breaker.ogg"
+					},
+					{
+						"text": "There. Let there be light.",
+						"file": "assets/audio/voice/labs_guard_a/there_let_there_be_light.ogg"
+					},
+					{
+						"text": "The alarm! I'm on it!",
+						"file": "assets/audio/voice/labs_guard_a/the_alarm_im_on_it.ogg"
+					},
+					{
+						"text": "Someone's in!",
+						"file": "assets/audio/voice/labs_guard_a/someones_in.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/labs_guard_a/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Wha...? Was I asleep? Don't tell Marsh.",
+						"file": "assets/audio/voice/labs_guard_a/wha_was_i_asleep_dont_tell_marsh.ogg"
+					},
+					{
+						"text": "Quiet night. Love a quiet night.",
+						"file": "assets/audio/voice/labs_guard_a/quiet_night_love_a_quiet_night.ogg"
+					},
+					{
+						"text": "Still there. Still a rocket.",
+						"file": "assets/audio/voice/labs_guard_a/still_there_still_a_rocket.ogg"
+					},
+					{
+						"text": "Anything on the cameras, Marsh?",
+						"file": "assets/audio/voice/labs_guard_a/anything_on_the_cameras_marsh.ogg"
+					},
+					{
+						"text": "Ooh, someone made coffee. Don't mind if I do.",
+						"file": "assets/audio/voice/labs_guard_a/ooh_someone_made_coffee_dont_mind_if_i_do.ogg"
+					}
+				]
+			},
+			"labs_guard_b": {
+				"who": "Rook, a dry, bored night guard in her forties who has seen it all",
+				"kokoro_voice": "af_river",
+				"speed": 0.95,
+				"lines": [
+					{
+						"text": "Hm?",
+						"file": "assets/audio/voice/labs_guard_b/hm.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/labs_guard_b/what_was_that.ogg"
+					},
+					{
+						"text": "Hello?",
+						"file": "assets/audio/voice/labs_guard_b/hello.ogg"
+					},
+					{
+						"text": "Hm? Who's there?",
+						"file": "assets/audio/voice/labs_guard_b/hm_whos_there.ogg"
+					},
+					{
+						"text": "Hey! You!",
+						"file": "assets/audio/voice/labs_guard_b/hey_you.ogg"
+					},
+					{
+						"text": "Oh, for... stop!",
+						"file": "assets/audio/voice/labs_guard_b/oh_for_stop.ogg"
+					},
+					{
+						"text": "Intruder!",
+						"file": "assets/audio/voice/labs_guard_b/intruder.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/labs_guard_b/whats_going_on.ogg"
+					},
+					{
+						"text": "Where'd they go?",
+						"file": "assets/audio/voice/labs_guard_b/whered_they_go.ogg"
+					},
+					{
+						"text": "I know you're in here.",
+						"file": "assets/audio/voice/labs_guard_b/i_know_youre_in_here.ogg"
+					},
+					{
+						"text": "Must be the air con.",
+						"file": "assets/audio/voice/labs_guard_b/must_be_the_air_con.ogg"
+					},
+					{
+						"text": "Just the building settling.",
+						"file": "assets/audio/voice/labs_guard_b/just_the_building_settling.ogg"
+					},
+					{
+						"text": "Pigeons, probably.",
+						"file": "assets/audio/voice/labs_guard_b/pigeons_probably.ogg"
+					},
+					{
+						"text": "Out you go. Visiting hours are over.",
+						"file": "assets/audio/voice/labs_guard_b/out_you_go_visiting_hours_are_over.ogg"
+					},
+					{
+						"text": "The alarm! I'm on it!",
+						"file": "assets/audio/voice/labs_guard_b/the_alarm_im_on_it.ogg"
+					},
+					{
+						"text": "Someone's in!",
+						"file": "assets/audio/voice/labs_guard_b/someones_in.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/labs_guard_b/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Mm? I was resting my eyes.",
+						"file": "assets/audio/voice/labs_guard_b/mm_i_was_resting_my_eyes.ogg"
+					},
+					{
+						"text": "Car park's empty. Like my social life.",
+						"file": "assets/audio/voice/labs_guard_b/car_parks_empty_like_my_social_life.ogg"
+					},
+					{
+						"text": "Goods in. Goods still in.",
+						"file": "assets/audio/voice/labs_guard_b/goods_in_goods_still_in.ogg"
+					},
+					{
+						"text": "Pigeons again?",
+						"file": "assets/audio/voice/labs_guard_b/pigeons_again.ogg"
+					}
+				]
+			},
+			"labs_scientist": {
+				"who": "Dr Lily Fenwick, a brilliant, scatterbrained scientist working late, who talks to herself",
+				"kokoro_voice": "bf_lily",
+				"speed": 1.05,
+				"lines": [
+					{
+						"text": "Hello? Briggs, is that you?",
+						"file": "assets/audio/voice/labs_scientist/hello_briggs_is_that_you.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/labs_scientist/what_was_that.ogg"
+					},
+					{
+						"text": "Hm?",
+						"file": "assets/audio/voice/labs_scientist/hm.ogg"
+					},
+					{
+						"text": "Who's that? You're not on my team.",
+						"file": "assets/audio/voice/labs_scientist/whos_that_youre_not_on_my_team.ogg"
+					},
+					{
+						"text": "Security! Someone's in the labs!",
+						"file": "assets/audio/voice/labs_scientist/security_someones_in_the_labs.ogg"
+					},
+					{
+						"text": "Who are you?",
+						"file": "assets/audio/voice/labs_scientist/who_are_you.ogg"
+					},
+					{
+						"text": "What's all the fuss?",
+						"file": "assets/audio/voice/labs_scientist/whats_all_the_fuss.ogg"
+					},
+					{
+						"text": "Where did they go?",
+						"file": "assets/audio/voice/labs_scientist/where_did_they_go.ogg"
+					},
+					{
+						"text": "I'm imagining things. Too much coffee.",
+						"file": "assets/audio/voice/labs_scientist/im_imagining_things_too_much_coffee.ogg"
+					},
+					{
+						"text": "Probably the centrifuge.",
+						"file": "assets/audio/voice/labs_scientist/probably_the_centrifuge.ogg"
+					},
+					{
+						"text": "Right. Out. This is a laboratory.",
+						"file": "assets/audio/voice/labs_scientist/right_out_this_is_a_laboratory.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/labs_scientist/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Oh! Did I fall asleep in the lab again?",
+						"file": "assets/audio/voice/labs_scientist/oh_did_i_fall_asleep_in_the_lab_again.ogg"
+					},
+					{
+						"text": "If Mr Hoard says \"improve\" one more time...",
+						"file": "assets/audio/voice/labs_scientist/if_mr_hoard_says_improve_one_more_time.ogg"
+					},
+					{
+						"text": "One, nine, five, seven. Sputnik year. Server room. Don't forget, Lily.",
+						"file": "assets/audio/voice/labs_scientist/one_nine_five_seven_sputnik_year_server_room_don.ogg"
+					},
+					{
+						"text": "Coffee. Then science. Then more coffee.",
+						"file": "assets/audio/voice/labs_scientist/coffee_then_science_then_more_coffee.ogg"
+					},
+					{
+						"text": "Clean room's clean. Good clean room.",
+						"file": "assets/audio/voice/labs_scientist/clean_rooms_clean_good_clean_room.ogg"
+					},
+					{
+						"text": "Ooh, someone made coffee. Don't mind if I do.",
+						"file": "assets/audio/voice/labs_scientist/ooh_someone_made_coffee_dont_mind_if_i_do.ogg"
+					}
+				]
+			},
+			"labs_officer": {
+				"who": "Officer Marsh, a sharp, no-nonsense security officer who loves her tea break",
+				"kokoro_voice": "af_sky",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Hm? Who's there?",
+						"file": "assets/audio/voice/labs_officer/hm_whos_there.ogg"
+					},
+					{
+						"text": "What was that?",
+						"file": "assets/audio/voice/labs_officer/what_was_that.ogg"
+					},
+					{
+						"text": "Is someone out there?",
+						"file": "assets/audio/voice/labs_officer/is_someone_out_there.ogg"
+					},
+					{
+						"text": "Intruder! Briggs! Rook!",
+						"file": "assets/audio/voice/labs_officer/intruder_briggs_rook.ogg"
+					},
+					{
+						"text": "I can see you, you know!",
+						"file": "assets/audio/voice/labs_officer/i_can_see_you_you_know.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/labs_officer/whats_going_on.ogg"
+					},
+					{
+						"text": "They've gone off camera.",
+						"file": "assets/audio/voice/labs_officer/theyve_gone_off_camera.ogg"
+					},
+					{
+						"text": "Nothing on the monitors.",
+						"file": "assets/audio/voice/labs_officer/nothing_on_the_monitors.ogg"
+					},
+					{
+						"text": "Back to the screens, then.",
+						"file": "assets/audio/voice/labs_officer/back_to_the_screens_then.ogg"
+					},
+					{
+						"text": "Gotcha. Out you go.",
+						"file": "assets/audio/voice/labs_officer/gotcha_out_you_go.ogg"
+					},
+					{
+						"text": "What's that dog barking at?",
+						"file": "assets/audio/voice/labs_officer/whats_that_dog_barking_at.ogg"
+					},
+					{
+						"text": "Huh? I wasn't asleep. I was monitoring.",
+						"file": "assets/audio/voice/labs_officer/huh_i_wasnt_asleep_i_was_monitoring.ogg"
+					},
+					{
+						"text": "Right. Where was I?",
+						"file": "assets/audio/voice/labs_officer/right_where_was_i.ogg"
+					},
+					{
+						"text": "Tea time. The cameras can watch themselves for five minutes.",
+						"file": "assets/audio/voice/labs_officer/tea_time_the_cameras_can_watch_themselves_for_fi.ogg"
+					},
+					{
+						"text": "Who's been fiddling with my switches?",
+						"file": "assets/audio/voice/labs_officer/whos_been_fiddling_with_my_switches.ogg"
+					},
+					{
+						"text": "Got you on camera three! Briggs! Rook!",
+						"file": "assets/audio/voice/labs_officer/got_you_on_camera_three_briggs_rook.ogg"
+					},
+					{
+						"text": "Ooh, someone made coffee. Don't mind if I do.",
+						"file": "assets/audio/voice/labs_officer/ooh_someone_made_coffee_dont_mind_if_i_do.ogg"
+					}
+				]
+			},
+			"manor_pell": {
+				"who": "Pell, Hoard's butler: a dry, weary, very proper old manservant",
+				"kokoro_voice": "am_fenrir",
+				"speed": 0.95,
+				"lines": [
+					{
+						"text": "Hm?",
+						"file": "assets/audio/voice/manor_pell/hm.ogg"
+					},
+					{
+						"text": "Is someone there?",
+						"file": "assets/audio/voice/manor_pell/is_someone_there.ogg"
+					},
+					{
+						"text": "Sir?",
+						"file": "assets/audio/voice/manor_pell/sir.ogg"
+					},
+					{
+						"text": "And who might you be?",
+						"file": "assets/audio/voice/manor_pell/and_who_might_you_be.ogg"
+					},
+					{
+						"text": "Intruder! Guards!",
+						"file": "assets/audio/voice/manor_pell/intruder_guards.ogg"
+					},
+					{
+						"text": "I think not. Stop right there.",
+						"file": "assets/audio/voice/manor_pell/i_think_not_stop_right_there.ogg"
+					},
+					{
+						"text": "What is it now?",
+						"file": "assets/audio/voice/manor_pell/what_is_it_now.ogg"
+					},
+					{
+						"text": "I'll find you. I find everything in this house.",
+						"file": "assets/audio/voice/manor_pell/ill_find_you_i_find_everything_in_this_house.ogg"
+					},
+					{
+						"text": "Mice. Very large mice.",
+						"file": "assets/audio/voice/manor_pell/mice_very_large_mice.ogg"
+					},
+					{
+						"text": "Nothing. As usual.",
+						"file": "assets/audio/voice/manor_pell/nothing_as_usual.ogg"
+					},
+					{
+						"text": "This way out, if you please.",
+						"file": "assets/audio/voice/manor_pell/this_way_out_if_you_please.ogg"
+					},
+					{
+						"text": "Coming.",
+						"file": "assets/audio/voice/manor_pell/coming.ogg"
+					},
+					{
+						"text": "At this hour?",
+						"file": "assets/audio/voice/manor_pell/at_this_hour.ogg"
+					},
+					{
+						"text": "Nobody. How tiresome.",
+						"file": "assets/audio/voice/manor_pell/nobody_how_tiresome.ogg"
+					},
+					{
+						"text": "Hello? ...Hm.",
+						"file": "assets/audio/voice/manor_pell/hello_hm.ogg"
+					},
+					{
+						"text": "Not the fuse again.",
+						"file": "assets/audio/voice/manor_pell/not_the_fuse_again.ogg"
+					},
+					{
+						"text": "Oh, splendid.",
+						"file": "assets/audio/voice/manor_pell/oh_splendid.ogg"
+					},
+					{
+						"text": "Light. You're welcome, everyone.",
+						"file": "assets/audio/voice/manor_pell/light_youre_welcome_everyone.ogg"
+					},
+					{
+						"text": "The alarm! Coming, sir!",
+						"file": "assets/audio/voice/manor_pell/the_alarm_coming_sir.ogg"
+					},
+					{
+						"text": "Duke, really.",
+						"file": "assets/audio/voice/manor_pell/duke_really.ogg"
+					},
+					{
+						"text": "I was merely resting my eyes.",
+						"file": "assets/audio/voice/manor_pell/i_was_merely_resting_my_eyes.ogg"
+					},
+					{
+						"text": "More gravy, sir?",
+						"file": "assets/audio/voice/manor_pell/more_gravy_sir.ogg"
+					},
+					{
+						"text": "Washing up. Again.",
+						"file": "assets/audio/voice/manor_pell/washing_up_again.ogg"
+					},
+					{
+						"text": "Silver polished. Alarm on.",
+						"file": "assets/audio/voice/manor_pell/silver_polished_alarm_on.ogg"
+					},
+					{
+						"text": "Back door, locked.",
+						"file": "assets/audio/voice/manor_pell/back_door_locked.ogg"
+					},
+					{
+						"text": "Front door, locked.",
+						"file": "assets/audio/voice/manor_pell/front_door_locked.ogg"
+					},
+					{
+						"text": "Someone has moved the poetry.",
+						"file": "assets/audio/voice/manor_pell/someone_has_moved_the_poetry.ogg"
+					},
+					{
+						"text": "Cellar, locked.",
+						"file": "assets/audio/voice/manor_pell/cellar_locked.ogg"
+					},
+					{
+						"text": "Feet up. Five minutes.",
+						"file": "assets/audio/voice/manor_pell/feet_up_five_minutes.ogg"
+					},
+					{
+						"text": "Who turned the alarm off?",
+						"file": "assets/audio/voice/manor_pell/who_turned_the_alarm_off.ogg"
+					},
+					{
+						"text": "Night shift? Come in. Wipe your boots.",
+						"file": "assets/audio/voice/manor_pell/night_shift_come_in_wipe_your_boots.ogg"
+					},
+					{
+						"text": "There is only one butler here, and it is me.",
+						"file": "assets/audio/voice/manor_pell/there_is_only_one_butler_here_and_it_is_me.ogg"
+					}
+				]
+			},
+			"manor_guard_a": {
+				"who": "Ogden, a night guard at the manor: big, slow, friendly and easily bored",
+				"kokoro_voice": "am_adam",
+				"speed": 1.0,
+				"lines": [
+					{
+						"text": "Who goes there?",
+						"file": "assets/audio/voice/manor_guard_a/who_goes_there.ogg"
+					},
+					{
+						"text": "Hello?",
+						"file": "assets/audio/voice/manor_guard_a/hello.ogg"
+					},
+					{
+						"text": "Duke, was that you?",
+						"file": "assets/audio/voice/manor_guard_a/duke_was_that_you.ogg"
+					},
+					{
+						"text": "Oi. Who's that?",
+						"file": "assets/audio/voice/manor_guard_a/oi_whos_that.ogg"
+					},
+					{
+						"text": "Stop right there!",
+						"file": "assets/audio/voice/manor_guard_a/stop_right_there.ogg"
+					},
+					{
+						"text": "Intruder! Over here!",
+						"file": "assets/audio/voice/manor_guard_a/intruder_over_here.ogg"
+					},
+					{
+						"text": "What's up?",
+						"file": "assets/audio/voice/manor_guard_a/whats_up.ogg"
+					},
+					{
+						"text": "Lost them.",
+						"file": "assets/audio/voice/manor_guard_a/lost_them.ogg"
+					},
+					{
+						"text": "Come on out, I won't bite.",
+						"file": "assets/audio/voice/manor_guard_a/come_on_out_i_wont_bite.ogg"
+					},
+					{
+						"text": "Probably a fox.",
+						"file": "assets/audio/voice/manor_guard_a/probably_a_fox.ogg"
+					},
+					{
+						"text": "Seeing things again.",
+						"file": "assets/audio/voice/manor_guard_a/seeing_things_again.ogg"
+					},
+					{
+						"text": "Got you. Off you go.",
+						"file": "assets/audio/voice/manor_guard_a/got_you_off_you_go.ogg"
+					},
+					{
+						"text": "Alarm! On my way!",
+						"file": "assets/audio/voice/manor_guard_a/alarm_on_my_way.ogg"
+					},
+					{
+						"text": "What's Duke barking at?",
+						"file": "assets/audio/voice/manor_guard_a/whats_duke_barking_at.ogg"
+					},
+					{
+						"text": "Huh? Was I asleep? Don't tell Hoard.",
+						"file": "assets/audio/voice/manor_guard_a/huh_was_i_asleep_dont_tell_hoard.ogg"
+					},
+					{
+						"text": "Gate's quiet.",
+						"file": "assets/audio/voice/manor_guard_a/gates_quiet.ogg"
+					},
+					{
+						"text": "Pell says Hoard leaves his vault key on the bedside table. Then snores.",
+						"file": "assets/audio/voice/manor_guard_a/pell_says_hoard_leaves_his_vault_key_on_the_beds.ogg"
+					},
+					{
+						"text": "Good boy, Duke. Stay.",
+						"file": "assets/audio/voice/manor_guard_a/good_boy_duke_stay.ogg"
+					}
+				]
+			},
+			"manor_guard_b": {
+				"who": "Hattie, a night guard at the manor: brisk, chatty and a little nosy",
+				"kokoro_voice": "af_kore",
+				"speed": 1.05,
+				"lines": [
+					{
+						"text": "Who's there?",
+						"file": "assets/audio/voice/manor_guard_b/whos_there.ogg"
+					},
+					{
+						"text": "Hello-o?",
+						"file": "assets/audio/voice/manor_guard_b/hello_o.ogg"
+					},
+					{
+						"text": "Ogden, is that you?",
+						"file": "assets/audio/voice/manor_guard_b/ogden_is_that_you.ogg"
+					},
+					{
+						"text": "Hang on. Who's that?",
+						"file": "assets/audio/voice/manor_guard_b/hang_on_whos_that.ogg"
+					},
+					{
+						"text": "Oi! Stop!",
+						"file": "assets/audio/voice/manor_guard_b/oi_stop.ogg"
+					},
+					{
+						"text": "Intruder! Ogden!",
+						"file": "assets/audio/voice/manor_guard_b/intruder_ogden.ogg"
+					},
+					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/manor_guard_b/whats_going_on.ogg"
+					},
+					{
+						"text": "Where did you go?",
+						"file": "assets/audio/voice/manor_guard_b/where_did_you_go.ogg"
+					},
+					{
+						"text": "I saw you!",
+						"file": "assets/audio/voice/manor_guard_b/i_saw_you.ogg"
+					},
+					{
+						"text": "Hedgehog. Definitely a hedgehog.",
+						"file": "assets/audio/voice/manor_guard_b/hedgehog_definitely_a_hedgehog.ogg"
+					},
+					{
+						"text": "Must be the wind.",
+						"file": "assets/audio/voice/manor_guard_b/must_be_the_wind.ogg"
+					},
+					{
+						"text": "Gotcha! Out you go.",
+						"file": "assets/audio/voice/manor_guard_b/gotcha_out_you_go.ogg"
+					},
+					{
+						"text": "Fuse again! I'm on it.",
+						"file": "assets/audio/voice/manor_guard_b/fuse_again_im_on_it.ogg"
+					},
+					{
+						"text": "And there was light!",
+						"file": "assets/audio/voice/manor_guard_b/and_there_was_light.ogg"
+					},
+					{
+						"text": "Alarm! Coming!",
+						"file": "assets/audio/voice/manor_guard_b/alarm_coming.ogg"
+					},
+					{
+						"text": "Duke! What is it?",
+						"file": "assets/audio/voice/manor_guard_b/duke_what_is_it.ogg"
+					},
+					{
+						"text": "Ow. Who threw that?",
+						"file": "assets/audio/voice/manor_guard_b/ow_who_threw_that.ogg"
+					},
+					{
+						"text": "Bins. Thrilling.",
+						"file": "assets/audio/voice/manor_guard_b/bins_thrilling.ogg"
+					},
+					{
+						"text": "Lovely night for it. For what, though?",
+						"file": "assets/audio/voice/manor_guard_b/lovely_night_for_it_for_what_though.ogg"
+					},
+					{
+						"text": "Hoard's prize marrows. Don't touch.",
+						"file": "assets/audio/voice/manor_guard_b/hoards_prize_marrows_dont_touch.ogg"
+					}
+				]
 			}
 		}
 	},
@@ -354,6 +2822,102 @@
 				"file": "assets/audio/sfx/breaker_on.ogg",
 				"prompt": "flipping a fuse box breaker switch on with a thunk, electrical hum starts",
 				"seconds": 3
+			},
+			{
+				"file": "assets/audio/sfx/shop_bell.ogg",
+				"prompt": "a brass bell on a spring above a shop door jangling as the door opens",
+				"seconds": 3,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/till_ding.ogg",
+				"prompt": "an old cash register drawer opening with a ding and a slide",
+				"seconds": 2,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/bottle_machine.ogg",
+				"prompt": "a supermarket bottle return machine whirring and clattering empty bottles into a bin",
+				"seconds": 4
+			},
+			{
+				"file": "assets/audio/sfx/cart_rattle.ogg",
+				"prompt": "a metal shopping cart pushed and nesting into a line of carts with a clattering clank",
+				"seconds": 2,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/vent_crawl.ogg",
+				"prompt": "someone shuffling and crawling through a thin tin air duct, hollow metal bumps",
+				"seconds": 3
+			},
+			{
+				"file": "assets/audio/sfx/hatch_creak.ogg",
+				"prompt": "a heavy metal roof hatch creaking open on rusty hinges",
+				"seconds": 3,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/line_start.ogg",
+				"prompt": "a factory bottling line motors spinning up and conveyors starting to rattle",
+				"seconds": 4
+			},
+			{
+				"file": "assets/audio/sfx/line_stop.ogg",
+				"prompt": "factory machinery winding down to a stop, motors slowing, a last clunk",
+				"seconds": 4
+			},
+			{
+				"file": "assets/audio/sfx/crate_crash.ogg",
+				"prompt": "a wooden crate full of glass bottles falling and smashing on a concrete floor",
+				"seconds": 3,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/crane_motor_loop.ogg",
+				"prompt": "an overhead factory gantry crane electric motor whining steadily as it moves, loopable",
+				"seconds": 6,
+				"steady": true
+			},
+			{
+				"file": "assets/audio/sfx/kettle_whistle.ogg",
+				"prompt": "a kettle on a stove coming to the boil and whistling",
+				"seconds": 4
+			},
+			{
+				"file": "assets/audio/sfx/town_hall_bell.ogg",
+				"prompt": "a single deep bronze church bell toll from a tower, long ringing decay",
+				"seconds": 5,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/coffee_machine.ogg",
+				"prompt": "an office coffee machine grinding beans then hissing and dripping coffee into a cup",
+				"seconds": 4
+			},
+			{
+				"file": "assets/audio/sfx/confetti_pop.ogg",
+				"prompt": "a big party popper confetti cannon bang followed by paper confetti fluttering down",
+				"seconds": 3,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/gong.ogg",
+				"prompt": "a large gong struck once with a soft mallet, shimmering decay",
+				"seconds": 4,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/glass_clink.ogg",
+				"prompt": "two champagne glasses clinking together in a toast",
+				"seconds": 2,
+				"events": 1
+			},
+			{
+				"file": "assets/audio/sfx/photo_flash.ogg",
+				"prompt": "an old camera shutter click with a flash bulb pop and whine",
+				"seconds": 2,
+				"events": 1
 			}
 		]
 	}

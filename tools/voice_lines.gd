@@ -12,7 +12,7 @@ const MANIFEST := "res://tools/lemonade/audio.json"
 
 
 func _ready() -> void:
-	var m := update(read_manifest())
+	var m := update(read_manifest(), self)
 	var f := FileAccess.open(MANIFEST, FileAccess.WRITE)
 	f.store_string(JSON.stringify(whole_numbers(m), "\t", false) + "\n")
 	f.close()
@@ -28,12 +28,17 @@ static func read_manifest() -> Dictionary:
 
 
 ## Every voice in the built jobs: voice -> {info: {...}, lines: [text]}.
-static func collect() -> Dictionary:
+## Levels are built under `parent` when given, for the ones that need the
+## tree while they build.
+static func collect(parent: Node = null) -> Dictionary:
 	var out := {}
 	for job in Jobs.all():
 		if not job.playable:
 			continue
 		var level: JobLevel = load(job.scene).new()
+		if parent:
+			level.set_physics_process(false)
+			parent.add_child(level)
 		level.build()
 		var run := JobRun.new()
 		run.setup(job)
@@ -53,10 +58,10 @@ static func collect() -> Dictionary:
 
 
 ## The manifest with its voices brought up to date.
-static func update(m: Dictionary) -> Dictionary:
+static func update(m: Dictionary, parent: Node = null) -> Dictionary:
 	var old: Dictionary = m.voices.voices
 	var voices := {}
-	var found := collect()
+	var found := collect(parent)
 	for v in found:
 		var was: Dictionary = old.get(v, {})
 		var info: Dictionary = found[v].info
