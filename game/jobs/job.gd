@@ -9,8 +9,9 @@ const SKY := "res://assets/kenney/skyboxes/skybox-night.png"
 const MUSIC := "res://assets/kenney/audio/music/mishief_stroll.ogg"
 ## How long the chase music keeps going after the last chase ends.
 const CHASE_HOLD := 4.0
-## Starting bag for each gadget.
-const GADGET_COUNTS := {"treats": 3}
+## How many of each gadget the bag starts with (a gadget's own "count" in
+## the job's data wins).
+const GADGET_COUNTS := {"treats": 3, "darts": 6, "snooze_darts": 2, "noisemaker": 2}
 
 var job: JobDef
 var start_id := ""
@@ -20,6 +21,7 @@ var player: Moth
 var hud: JobHud
 var pause: TiptoePause
 var results: ResultsPanel
+var keypad_panel: KeypadPanel
 var people: Array = []
 var gadgets: Gadgets
 var _last_exit := "door"
@@ -49,6 +51,8 @@ func _ready() -> void:
 	ui.add_child(hud)
 	pause = TiptoePause.new()
 	ui.add_child(pause)
+	keypad_panel = KeypadPanel.new()
+	ui.add_child(keypad_panel)
 	results = ResultsPanel.new()
 	ui.add_child(results)
 	_fade = ColorRect.new()
@@ -63,11 +67,12 @@ func _ready() -> void:
 	player.light_probe.indoors_test = level.indoors
 	var mastery := Progress.mastery(job.id)
 	for g in job.open_gadgets(mastery):
-		player.add_item(g.id, GADGET_COUNTS.get(g.id, 1))
+		player.add_item(g.id, g.get("count", GADGET_COUNTS.get(g.id, 1)))
 	hud.setup(run, player)
 	gadgets = Gadgets.new()
 	gadgets.player = player
 	add_child(gadgets)
+	hud.watch_gadgets(gadgets)
 	people = level.add_people(run)
 	for p in people:
 		if p is Person:
@@ -77,13 +82,14 @@ func _ready() -> void:
 	level.left_house.connect(_on_left_house)
 	level.entered_area.connect(_on_entered_area)
 	level.at_way_out.connect(_on_way_out)
+	level.alarm_changed.connect(hud.show_alarm)
 	pause.give_up.connect(_on_give_up)
 	pause.quit_to_title.connect(_on_quit)
 	run.finished.connect(_on_finished)
 	results.again.connect(_on_again)
 	results.board.connect(_on_quit)
 	level.bake_navigation()
-	LGAudio.play_music(Sfx.music("night", MUSIC), -14.0)
+	LGAudio.play_music(_night_music(), -14.0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -100,7 +106,12 @@ func _process(delta: float) -> void:
 		LGAudio.play_music(Sfx.music("chase", MUSIC), -12.0)
 	elif _chase_music and _calm_t > CHASE_HOLD:
 		_chase_music = false
-		LGAudio.play_music(Sfx.music("night", MUSIC), -14.0)
+		LGAudio.play_music(_night_music(), -14.0)
+
+
+## The job's own night music, else the shared night loop, else Kenney's.
+func _night_music() -> String:
+	return Sfx.music(job.music, Sfx.music("night", MUSIC)) if job.music != "" else Sfx.music("night", MUSIC)
 
 
 func _build_night() -> void:
@@ -150,11 +161,11 @@ func _on_entered_area(area: String) -> void:
 func _on_way_out(_id: String) -> void:
 	if not run.running:
 		return
-	if player.has_item("trophy"):
+	if player.has_item(job.treasure_item):
 		run.has_treasure = true
 		run.escape(_last_exit)
 	elif run.has("entered_house"):
-		hud.toast("Come back here with the trophy to get away.")
+		hud.toast("Come back here with the treasure to get away.")
 
 
 ## Caught: marched back out to where the player came in, without the trophy.
@@ -166,13 +177,16 @@ func _on_caught(_by: Person) -> void:
 	var t := create_tween()
 	t.tween_property(_fade, "color:a", 1.0, 0.5)
 	await t.finished
-	if player.take_item("trophy"):
+	if player.hiding != null:
+		player.leave_hiding()
+	keypad_panel.close()
+	if player.take_item(job.treasure_item):
 		run.drop_treasure()
 		level.return_treasure()
 	player.global_transform = level.start_transform(start_id)
 	player.velocity = Vector3.ZERO
 	player.is_movement_paused = false
-	hud.toast("Caught! Marched out of the garden.", Color(1.0, 0.5, 0.4))
+	hud.toast("Caught! Marched back outside.", Color(1.0, 0.5, 0.4))
 	var back := create_tween()
 	back.tween_property(_fade, "color:a", 0.0, 0.6)
 

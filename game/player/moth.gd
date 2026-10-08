@@ -29,6 +29,8 @@ var disguise := ""
 var bag := {}
 ## Tiptoe's pause menu, set by the job before the player enters the tree.
 var tiptoe_pause: Node
+## The spot the player is hiding in, or null.
+var hiding: HideSpot = null
 var light_probe: LightProbe
 var _lean := 0.0
 var _mantle_tween: Tween
@@ -88,12 +90,57 @@ func _reload_options():
 
 
 func _physics_process(delta):
+	if hiding != null:
+		velocity = Vector3.ZERO
+		return
 	if _mantle_tween and _mantle_tween.is_running():
 		return
 	if not is_movement_paused and not is_showing_ui and Input.is_action_just_pressed("jump") and _try_mantle():
 		return
 	super(delta)
 	_update_lean(delta)
+
+
+func _input(event):
+	if hiding != null and not is_movement_paused:
+		if event.is_action_pressed("interact") or event.is_action_pressed("jump") or event.is_action_pressed("crouch"):
+			get_viewport().set_input_as_handled()
+			leave_hiding()
+			return
+	super(event)
+
+
+## Steps into a hiding spot, looking out of it.
+func hide_in(spot: HideSpot) -> void:
+	if hiding != null:
+		return
+	hiding = spot
+	velocity = Vector3.ZERO
+	main_velocity = Vector3.ZERO
+	standing_collision_shape.disabled = true
+	crouching_collision_shape.disabled = true
+	player_interaction_component.process_mode = Node.PROCESS_MODE_DISABLED
+	var eye_offset := camera.global_position - global_position
+	global_position = spot.global_transform * spot.eye - eye_offset
+	body.global_rotation.y = spot.global_rotation.y + PI
+	head.rotation.x = 0.0
+	visibility = 0.0
+	Sfx.at(self, "kenney:cloth2", spot.global_position, -10.0)
+	get_tree().call_group("people", "on_player_hid", spot)
+	if JobRun.current:
+		JobRun.current.record("hid")
+
+
+func leave_hiding() -> void:
+	if hiding == null:
+		return
+	var spot := hiding
+	hiding = null
+	global_position = spot.global_transform * spot.exit + Vector3(0, -_feet_offset + 0.05, 0)
+	standing_collision_shape.disabled = is_crouching
+	crouching_collision_shape.disabled = not is_crouching
+	player_interaction_component.process_mode = Node.PROCESS_MODE_INHERIT
+	Sfx.at(self, "kenney:cloth2", spot.global_position, -10.0)
 
 
 ## Where people look for the player: the eyes, wherever a lean puts them.

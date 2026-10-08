@@ -50,6 +50,9 @@ func loudness_at(world: Node3D, ear: Vector3) -> float:
 	if d >= radius:
 		return 0.0
 	var r := radius
+	# Loud machinery drowns out everything but alarms, bells and barks.
+	if JobLevel.current and not kind in ["bell", "alarm", "bark"]:
+		r *= 1.0 - maxf(JobLevel.current.masking_at(position), JobLevel.current.masking_at(ear))
 	var walls := count_walls(world, position + Vector3(0, 0.3, 0), ear)
 	for i in walls:
 		r *= 0.5

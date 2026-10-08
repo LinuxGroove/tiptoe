@@ -1,9 +1,11 @@
 class_name HouseDoor
 extends UsableBody
-## A hinged door. It sits at its hinge and swings 90 degrees. It can be
-## locked, opened with a key from the bag, or picked with lockpicks (slowly,
-## with ticks people nearby can hear). Opening it makes a noise; crouching
-## opens it gently and quietly. People open doors as they walk through.
+## A hinged door. It sits at its hinge and swings 90 degrees (or, with
+## `slide`, slides sideways into the wall, like the labs' doors). It can be
+## locked, opened with a key from the bag (or a keycard), or picked with
+## lockpicks (slowly, with ticks people nearby can hear). Opening it makes a
+## noise; crouching opens it gently and quietly. People open doors as they
+## walk through, unless `people_open` is off (a vault).
 
 signal opened(by: Node)
 signal closed(by: Node)
@@ -28,6 +30,13 @@ var pick_time := 6.0
 ## +1 or -1: which way it swings open.
 var swing := 1
 var closed_yaw := 0.0
+## Slides open along its width instead of swinging.
+var slide := false
+## People open it as they walk through (and unlock it: they have keys).
+var people_open := true
+## The prompt for unlocking it with `key_item` ("Swipe the keycard").
+var key_verb := ""
+var _closed_pos := Vector3.ZERO
 var _tween: Tween
 var _pick_left := 0.0
 var _picker: Node = null
@@ -51,8 +60,12 @@ static func make(p_id: String, model_path: String) -> HouseDoor:
 
 func _ready() -> void:
 	closed_yaw = rotation.y
+	_closed_pos = position
 	if is_open:
-		rotation.y = _open_yaw()
+		if slide:
+			position = _open_pos()
+		else:
+			rotation.y = _open_yaw()
 	_update_text()
 
 
@@ -131,9 +144,13 @@ func _set_open(open: bool, by: Node, gentle: bool) -> void:
 		_tween.kill()
 	_tween = create_tween()
 	var t := 1.1 if gentle else 0.45
-	_tween.tween_property(self, "rotation:y", _open_yaw() if open else closed_yaw, t).set_trans(Tween.TRANS_SINE)
 	var vol := -14.0 if gentle else -4.0
-	Sfx.at(self, "kenney:doorOpen_1" if open else "kenney:doorClose_4", _lock_pos(), vol)
+	if slide:
+		_tween.tween_property(self, "position", _open_pos() if open else _closed_pos, 0.6).set_trans(Tween.TRANS_SINE)
+		Sfx.at(self, "slide_door", _lock_pos(), -6.0)
+	else:
+		_tween.tween_property(self, "rotation:y", _open_yaw() if open else closed_yaw, t).set_trans(Tween.TRANS_SINE)
+		Sfx.at(self, "kenney:doorOpen_1" if open else "kenney:doorClose_4", _lock_pos(), vol)
 	if by and by.is_in_group("moth"):
 		StealthNoise.make(self, _lock_pos(), GENTLE_NOISE if gentle else OPEN_NOISE, "door", by)
 		if open:
@@ -149,17 +166,26 @@ func _open_yaw() -> float:
 	return closed_yaw + deg_to_rad(SWING) * swing
 
 
+func _open_pos() -> Vector3:
+	return _closed_pos + Basis(Vector3.UP, closed_yaw) * Vector3(0, 0, -WIDTH * 0.95)
+
+
 func _lock_pos() -> Vector3:
 	return global_transform * Vector3(0, 1.0, WIDTH * 0.85)
 
 
 func _update_text() -> void:
 	if locked:
-		set_action_text("interact", "Try the door")
+		set_action_text("interact", key_verb if key_verb != "" and _player_has_key() else "Try the door")
 		set_action_text("interact2", "Pick the lock" if pickable else "")
 	else:
 		set_action_text("interact", "Close" if is_open else "Open")
 		set_action_text("interact2", "")
+
+
+func _player_has_key() -> bool:
+	var p := get_tree().get_first_node_in_group("moth") if is_inside_tree() else null
+	return p != null and key_item != "" and p.has_item(key_item)
 
 
 func _record(event: String) -> void:

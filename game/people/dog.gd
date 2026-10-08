@@ -34,6 +34,8 @@ var _target := Vector3.ZERO
 var _speed := WALK_SPEED
 var _moving := false
 var _bubble: Label3D
+## A snooze dart: sound asleep, deaf to noise, for this long.
+var _deep_t := 0.0
 
 
 func setup(p_level: JobLevel, p_run: JobRun, bed: Vector3) -> void:
@@ -80,6 +82,8 @@ func hear(noise: StealthNoise) -> void:
 	if loud <= 0.0:
 		return
 	if state == State.SLEEP:
+		if _deep_t > 0.0:
+			return
 		drowsy += loud * (1.6 if noise.kind in ["bell", "rattle", "pry", "door"] else 0.9)
 		if drowsy >= WAKE_AT:
 			_wake()
@@ -89,6 +93,7 @@ func hear(noise: StealthNoise) -> void:
 
 func _physics_process(delta: float) -> void:
 	_state_t += delta
+	_deep_t = maxf(0.0, _deep_t - delta)
 	match state:
 		State.SLEEP:
 			drowsy = maxf(0.0, drowsy - DROWSE * delta)
@@ -143,6 +148,18 @@ func _wake() -> void:
 	_say("?")
 
 
+## Hit by a snooze dart.
+func snooze() -> void:
+	_sleep()
+	_deep_t = Person.SNOOZE_TIME
+	_say("Zzz")
+	run.record("snoozed")
+
+
+func is_asleep() -> bool:
+	return state == State.SLEEP
+
+
 func _sleep() -> void:
 	_set_state(State.SLEEP)
 	drowsy = 0.0
@@ -174,6 +191,8 @@ func _sees_player() -> bool:
 
 ## Treats on the floor nearby pull him over (and wake him, if he's close).
 func _smell_treat() -> bool:
+	if _deep_t > 0.0:
+		return false
 	for t in get_tree().get_nodes_in_group("treats"):
 		var d: float = global_position.distance_to(t.global_position)
 		if d < (2.5 if state == State.SLEEP else SMELL) and absf(t.global_position.y - global_position.y) < 1.5:

@@ -13,6 +13,9 @@ var player: Node
 var _gem: Control
 var _gem_label: Label
 var _bag: Label
+var _gadget: Label
+var _alarm: Label
+var _gadgets: Gadgets
 var _lead: Label
 var _toasts: VBoxContainer
 var _note: PanelContainer
@@ -47,6 +50,20 @@ func _init() -> void:
 	_bag = _label("", 18)
 	_bag.position = Vector2(24, 20)
 	add_child(_bag)
+	_gadget = _label("", 20)
+	_gadget.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	_gadget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_gadget.custom_minimum_size = Vector2(420, 0)
+	_gadget.position += Vector2(-444, -64)
+	add_child(_gadget)
+	_alarm = _label("ALARM", 30)
+	_alarm.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+	_alarm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_alarm.custom_minimum_size = Vector2(300, 0)
+	_alarm.position += Vector2(-150, 70)
+	_alarm.add_theme_color_override("font_color", Color(1.0, 0.3, 0.25))
+	_alarm.visible = false
+	add_child(_alarm)
 	_lead = _label("", 20)
 	_lead.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
 	_lead.position += Vector2(24, -64)
@@ -181,6 +198,29 @@ func _on_lead_step(lead: LeadDef, text: String) -> void:
 		Sfx.at(player, "lead_hint", player.global_position, -10.0)
 
 
+## Shows the gadget in hand (and how many are left) from now on.
+func watch_gadgets(g: Gadgets) -> void:
+	_gadgets = g
+	g.selected_changed.connect(_on_gadget_changed)
+	_update_gadget()
+
+
+func _on_gadget_changed(_g: String) -> void:
+	_update_gadget()
+
+
+func _update_gadget() -> void:
+	if _gadgets == null or _gadgets.selected == "":
+		_gadget.text = ""
+		return
+	var g := _gadgets.selected
+	_gadget.text = "%s x%d" % [Gadgets.TITLES.get(g, g.capitalize()), int(player.bag.get(g, 0))]
+
+
+func show_alarm(ringing: bool) -> void:
+	_alarm.visible = ringing
+
+
 func _update_bag() -> void:
 	var names := []
 	for item in player.bag:
@@ -188,6 +228,7 @@ func _update_bag() -> void:
 		var title := String(item).capitalize()
 		names.append(title if n == 1 else "%s x%d" % [title, n])
 	_bag.text = ("Bag: " + ", ".join(names)) if not names.is_empty() else ""
+	_update_gadget()
 
 
 func _toggle_capers() -> void:

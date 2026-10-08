@@ -53,11 +53,12 @@ Get it looked at.
 var trophy_stand: UsableBody
 var _trophy: Node3D
 var _cupcake_left := false
-var _breaker_off := false
-var _lights_before := {}
+## Until when the pizza delivery is welcome downstairs (run time).
+var let_in_until := 0.0
 
 
 func build() -> void:
+	circuit = HOUSE_CIRCUIT
 	_grounds()
 	_ground_floor()
 	_upstairs()
@@ -372,13 +373,7 @@ func _things() -> void:
 	add_child(trophy_stand)
 	pickup("cupcake", "Take a cupcake", Kit.FOOD + "cupcake.glb", Vector3(-2.6, 0.66, -2.3), 0.35)
 	# The fuse box in the garage.
-	var fuse := UsableBody.new()
-	fuse.name = "FuseBox"
-	fuse.position = Vector3(10.5, 1.2, -4.9)
-	fuse.add_child(Kit.scene(Kit.PROPS + "fuse_box.glb").instantiate())
-	fuse.add_box(Vector3(0, 0.25, 0.08), Vector3(0.4, 0.5, 0.16))
-	fuse.add_action("interact", "Flip the main breaker", _flip_breaker)
-	add_child(fuse)
+	fuse_box(Vector3(10.5, 1.2, -4.9))
 
 
 func _marks() -> void:
@@ -458,27 +453,37 @@ func _update_stand(player: Node) -> void:
 	trophy_stand.set_action_text("interact", "Leave the cupcake" if can_leave else "")
 
 
-func _flip_breaker(pic: PlayerInteractionComponent) -> void:
-	StealthNoise.make(self, Vector3(10.5, 1.4, -4.9), 3.0, "breaker", pic.get_parent())
-	set_power(_breaker_off)
-
-
-## Turns the house's power on or off at the fuse box (people fix it too).
+## The fuse box takes the porch light with it.
 func set_power(on: bool) -> void:
-	if on != _breaker_off:
-		return
-	_breaker_off = not on
-	Sfx.at(self, "breaker_on" if on else "breaker_off", Vector3(10.5, 1.4, -4.9), -2.0)
-	if not on:
-		for r in HOUSE_CIRCUIT:
-			_lights_before[r] = lights_on(r)
-			set_lights(r, false)
-		_record("lights_out")
+	var was_off := power_off()
+	super(on)
+	if not on and not was_off:
 		_record("porch_light_off")
-		get_tree().call_group("people", "lights_went_out")
-	else:
-		for r in HOUSE_CIRCUIT:
-			set_lights(r, _lights_before.get(r, false))
+
+
+## The pizza delivery is welcome at the door, and in the hall and kitchen
+## just after Ted lets them in.
+func expects(_person: Person, p: Moth) -> bool:
+	if p.disguise != "pizza":
+		return false
+	if not in_house(p.global_position):
+		return true
+	return JobRun.current != null and JobRun.current.time < let_in_until and p.global_position.y < 1.0
+
+
+## Ted at the door: the pizza delivery with a pizza gets let in.
+func at_front_door(person: Person, p: Moth) -> bool:
+	if p.disguise != "pizza":
+		return false
+	if not p.take_item("pizza"):
+		person.say("Where's the pizza, then?")
+		person.hold(2.0)
+		return true
+	person.say("Pizza! Come in, come in, I'll find my wallet.")
+	_record("let_in_as_pizza")
+	let_in_until = JobRun.current.time + 45.0 if JobRun.current else 45.0
+	person.wait_at("kitchen", 18.0)
+	return true
 
 
 ## The trophy goes back on its stand (the player was caught with it).
@@ -492,9 +497,11 @@ func return_treasure() -> void:
 	trophy_stand.set_action_text("interact", "Take the trophy")
 
 
-## Is the power off at the fuse box?
-func power_off() -> bool:
-	return _breaker_off
+func voice_info() -> Dictionary:
+	return {
+		"low": {"who": "Ted, a cheerful, slightly dozy dad in his fifties", "kokoro": "bm_george", "speed": 1.0},
+		"high": {"who": "Maggie, a brisk, sharp-eared mum in her fifties", "kokoro": "bf_emma", "speed": 1.05},
+	}
 
 
 func add_people(p_run: JobRun) -> Array:
@@ -506,7 +513,11 @@ func add_people(p_run: JobRun) -> Array:
 		{"at": "sofa", "face": Vector3(-1, 0, 0), "clip": "sit-watch", "time": 60.0, "room": "living", "sit": Vector3(0.5, 0.0, 0)},
 		{"at": "dining", "clip": "phone-call", "time": 14.0, "room": "dining", "say": "Hello, Dave? About the fuse box..."},
 		{"at": "hall", "time": 3.0},
-	], "low")
+	], "low", {
+		"answers_door": true, "fixes_power": true, "accepts": ["pizza"],
+		"lines": {"bark": ["Biscuit? What is it?"]},
+		"extra_lines": ["Where's the pizza, then?", "Pizza! Come in, come in, I'll find my wallet."],
+	})
 	ted.position = points["sofa"]
 	add_child(ted)
 	var maggie := Person.new()
@@ -516,7 +527,7 @@ func add_people(p_run: JobRun) -> Array:
 		{"at": "corridor", "time": 2.0},
 		{"at": "study", "clip": "look-around", "time": 10.0, "room": "study", "leave_dark": true, "say": "Lovely trophy. Shame about the bakery."},
 		{"at": "bedroom", "time": 25.0, "room": "master"},
-	], "high")
+	], "high", {"accepts": ["pizza"], "lines": {"bark": ["Biscuit? What is it?"]}})
 	maggie.position = points["bed"]
 	add_child(maggie)
 	var dog := Dog.new()

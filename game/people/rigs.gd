@@ -17,9 +17,11 @@ const DOG_SCALE := 0.4
 static var _source: Dictionary = {}
 
 
-## A person in one of the Mini Character looks ("male-a", "female-b"...).
+## A person in one of the Mini Character looks ("male-a", "female-b"...), or
+## another model on the same rig by its res:// path (the market's employee).
 static func person(look: String) -> RigCharacter:
-	var rc := RigCharacter.create(load(CHARACTERS % look), PERSON_SCALE)
+	var path := look if look.begins_with("res://") else CHARACTERS % look
+	var rc := RigCharacter.create(load(path), PERSON_SCALE)
 	_copy_clips(rc, CLIPS_PERSON, "character-male-a/Skeleton3D", PERSON_CLIPS)
 	for c in PERSON_LOOPS:
 		rc.set_looping(c)

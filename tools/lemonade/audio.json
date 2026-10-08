@@ -63,14 +63,6 @@
 						"say": "Hmm? Who's there?"
 					},
 					{
-						"text": "Biscuit? What is it?",
-						"file": "assets/audio/voice/low/biscuit_what_is_it.ogg"
-					},
-					{
-						"text": "What's going on?",
-						"file": "assets/audio/voice/low/whats_going_on.ogg"
-					},
-					{
 						"text": "Hey! You!",
 						"file": "assets/audio/voice/low/hey_you.ogg"
 					},
@@ -83,16 +75,16 @@
 						"file": "assets/audio/voice/low/burglar.ogg"
 					},
 					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/low/whats_going_on.ogg"
+					},
+					{
 						"text": "Where did they go?",
 						"file": "assets/audio/voice/low/where_did_they_go.ogg"
 					},
 					{
 						"text": "I know you're here!",
 						"file": "assets/audio/voice/low/i_know_youre_here.ogg"
-					},
-					{
-						"text": "There. Light!",
-						"file": "assets/audio/voice/low/there_light.ogg"
 					},
 					{
 						"text": "Must be the wind.",
@@ -131,6 +123,18 @@
 						"file": "assets/audio/voice/low/not_again.ogg"
 					},
 					{
+						"text": "There. Light!",
+						"file": "assets/audio/voice/low/there_light.ogg"
+					},
+					{
+						"text": "Biscuit? What is it?",
+						"file": "assets/audio/voice/low/biscuit_what_is_it.ogg"
+					},
+					{
+						"text": "Wha...? Must have dozed off.",
+						"file": "assets/audio/voice/low/wha_must_have_dozed_off.ogg"
+					},
+					{
 						"text": "Where's the cheese?",
 						"file": "assets/audio/voice/low/wheres_the_cheese.ogg"
 					},
@@ -139,12 +143,12 @@
 						"file": "assets/audio/voice/low/hello_dave_about_the_fuse_box.ogg"
 					},
 					{
-						"text": "Pizza! Come in, come in, I'll find my wallet.",
-						"file": "assets/audio/voice/low/pizza_come_in_come_in_ill_find_my_wallet.ogg"
-					},
-					{
 						"text": "Where's the pizza, then?",
 						"file": "assets/audio/voice/low/wheres_the_pizza_then.ogg"
+					},
+					{
+						"text": "Pizza! Come in, come in, I'll find my wallet.",
+						"file": "assets/audio/voice/low/pizza_come_in_come_in_ill_find_my_wallet.ogg"
 					}
 				]
 			},
@@ -172,14 +176,6 @@
 						"say": "Hmm? Who's there?"
 					},
 					{
-						"text": "Biscuit? What is it?",
-						"file": "assets/audio/voice/high/biscuit_what_is_it.ogg"
-					},
-					{
-						"text": "What's going on?",
-						"file": "assets/audio/voice/high/whats_going_on.ogg"
-					},
-					{
 						"text": "Hey! You!",
 						"file": "assets/audio/voice/high/hey_you.ogg"
 					},
@@ -192,16 +188,16 @@
 						"file": "assets/audio/voice/high/burglar.ogg"
 					},
 					{
+						"text": "What's going on?",
+						"file": "assets/audio/voice/high/whats_going_on.ogg"
+					},
+					{
 						"text": "Where did they go?",
 						"file": "assets/audio/voice/high/where_did_they_go.ogg"
 					},
 					{
 						"text": "I know you're here!",
 						"file": "assets/audio/voice/high/i_know_youre_here.ogg"
-					},
-					{
-						"text": "There. Light!",
-						"file": "assets/audio/voice/high/there_light.ogg"
 					},
 					{
 						"text": "Must be the wind.",
@@ -220,20 +216,12 @@
 						"file": "assets/audio/voice/high/got_you_out_you_go.ogg"
 					},
 					{
-						"text": "Coming!",
-						"file": "assets/audio/voice/high/coming.ogg"
+						"text": "Biscuit? What is it?",
+						"file": "assets/audio/voice/high/biscuit_what_is_it.ogg"
 					},
 					{
-						"text": "Who's that at this hour?",
-						"file": "assets/audio/voice/high/whos_that_at_this_hour.ogg"
-					},
-					{
-						"text": "Hello? ...Kids.",
-						"file": "assets/audio/voice/high/hello_kids.ogg"
-					},
-					{
-						"text": "Nobody there. Odd.",
-						"file": "assets/audio/voice/high/nobody_there_odd.ogg"
+						"text": "Wha...? Must have dozed off.",
+						"file": "assets/audio/voice/high/wha_must_have_dozed_off.ogg"
 					},
 					{
 						"text": "Lovely trophy. Shame about the bakery.",

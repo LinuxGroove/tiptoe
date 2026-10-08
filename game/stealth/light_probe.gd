@@ -21,6 +21,9 @@ func _physics_process(delta: float) -> void:
 	if _t > 0.0 or player == null:
 		return
 	_t = INTERVAL
+	if player.get("hiding") != null:
+		player.visibility = 0.0
+		return
 	var at: Vector3 = player.chest_position()
 	var v := light_at(player, at, [player.get_rid()])
 	if player.get("is_crouching") == true:

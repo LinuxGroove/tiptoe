@@ -732,6 +732,137 @@ def fridge_hum_loop(rng):
 
 
 # ---------------------------------------------------------------------------
+# Security, machines and crowds (the later jobs)
+
+def alarm_loop(rng):
+    """A burglar alarm: a hard two-tone electronic siren over a bell rattle (1 s loop)."""
+    t = timeline(1.0)
+    hi = (t % 0.5) < 0.25
+    f = np.where(hi, 960.0, 760.0)
+    f = smooth(f, 0.004)
+    ph = phase_of(f)
+    square = sum(np.sin(k * ph) / k for k in (1, 3, 5, 7))
+    bell = np.zeros_like(t)
+    for i in range(25):
+        bell += modes(t, [2350, 3150, 4600], [0.5, 0.35, 0.2], [0.03, 0.02, 0.012], i * 0.04)
+    return 0.8 * square + 0.25 * bell
+
+
+def slide_door(rng):
+    """A sliding door: a pneumatic hiss and a motor whirr as it runs, then a soft stop."""
+    t = timeline(0.9)
+    run = curve(t, [0, 0.05, 0.6, 0.7, 0.9], [0, 1, 1, 0.2, 0])
+    hiss = bandpass(rng.standard_normal(len(t)), 3500, 0.8) * curve(t, [0, 0.03, 0.25, 0.5], [0, 1, 0.3, 0])
+    whirr_f = curve(t, [0, 0.15, 0.6, 0.7], [180, 320, 320, 200])
+    ph = phase_of(whirr_f)
+    whirr = (np.sin(ph) + 0.4 * np.sin(2 * ph) + 0.2 * np.sin(3 * ph)) * run
+    rumble = lowpass(rng.standard_normal(len(t)), 250) * run * 2.0
+    stop = modes(t, [140, 310, 720], [1.0, 0.5, 0.25], [0.06, 0.04, 0.02], 0.66)
+    return 0.6 * hiss + 0.35 * whirr + 0.4 * rumble + 0.7 * stop
+
+
+def _beep(t, f, start, length):
+    u = t - start
+    gate = np.clip(u / 0.002, 0, 1) * np.clip((length - u) / 0.004, 0, 1) * (u >= 0) * (u <= length)
+    return (np.sin(TAU * f * np.maximum(u, 0)) + 0.25 * np.sin(TAU * 3 * f * np.maximum(u, 0))) * gate
+
+
+def keypad_beep(rng):
+    """One key pressed on a keypad: a click and a short beep."""
+    t = timeline(0.12)
+    return _beep(t, 1760, 0.004, 0.07) + 0.5 * click(rng, t, 0.0, 0.002, 2500)
+
+
+def keypad_ok(rng):
+    """The right code: two rising beeps, then the lock clacks open."""
+    t = timeline(0.55)
+    beeps = _beep(t, 1568, 0.0, 0.08) + _beep(t, 2093, 0.1, 0.12)
+    clack = modes(t, [900, 1900, 3400], [1.0, 0.6, 0.3], [0.03, 0.02, 0.01], 0.32) + click(rng, t, 0.32, 0.004, 1500)
+    return 0.7 * beeps + 0.8 * clack
+
+
+def keypad_wrong(rng):
+    """A wrong code: a low, buzzy double honk."""
+    t = timeline(0.45)
+    out = np.zeros_like(t)
+    for start in (0.0, 0.2):
+        u = t - start
+        gate = np.clip(u / 0.004, 0, 1) * np.clip((0.15 - u) / 0.01, 0, 1) * (u >= 0)
+        ph = TAU * 220 * np.maximum(u, 0)
+        out += sum(np.sin(k * ph) / k for k in range(1, 12)) * gate
+    return lowpass(out, 3000)
+
+
+def laser_hum_loop(rng):
+    """A laser gate: a thin electric buzz with a slow shimmer (1 s loop)."""
+    t = timeline(1.0)
+    buzz = sum(w * np.sin(TAU * f * t) for f, w in ((120, 0.4), (240, 0.3), (360, 0.15), (1200, 0.12), (2400, 0.08)))
+    shimmer = 1 + 0.25 * np.sin(TAU * 3 * t) + 0.1 * np.sin(TAU * 7 * t + 1.0)
+    fizz = 0.05 * loop_noise(rng, len(t), lambda f: hp_mag(f, 4000, 2) * lp_mag(f, 9000, 2))
+    return buzz * shimmer + fizz
+
+
+def machine_hum_loop(rng):
+    """A bottling line: a motor drone, a rhythmic clank and bottles chinking (2 s loop)."""
+    t = timeline(2.0)
+    n = len(t)
+    drone = sum(w * np.sin(TAU * f * t + rng.uniform(0, TAU)) for f, w in ((50, 0.5), (100, 0.6), (150, 0.25), (200, 0.2), (400, 0.06)))
+    drone *= 1 + 0.08 * np.sin(TAU * 2 * t)
+    air = 0.12 * loop_noise(rng, n, lambda f: hp_mag(f, 100) * lp_mag(f, 1500, 2) / np.sqrt(np.maximum(f, 20)))
+    hits = np.zeros(n)
+    for i in range(4):
+        hit = modes(timeline(0.4), [180, 410, 870, 1640], [1.0, 0.6, 0.3, 0.15], [0.08, 0.05, 0.03, 0.02])
+        hit += 0.4 * click(rng, timeline(0.4), 0.0, 0.003, 1200)
+        place(hits, hit * (1.0 if i % 2 == 0 else 0.6), i * 0.5, wrap=True)
+    for i in range(10):
+        f = rng.uniform(2800, 4200)
+        chink = modes(timeline(0.25), [f, f * 1.51, f * 2.3], [1.0, 0.5, 0.3], [0.05, 0.03, 0.02])
+        place(hits, 0.15 * chink, rng.uniform(0, 2.0), wrap=True)
+    return 0.5 * drone + air + 0.55 * hits
+
+
+def conveyor_loop(rng):
+    """A conveyor belt: rollers rattling and the belt hissing along (1 s loop)."""
+    t = timeline(1.0)
+    n = len(t)
+    belt = 0.15 * loop_noise(rng, n, lambda f: hp_mag(f, 200) * lp_mag(f, 2500, 2))
+    rattle = np.zeros(n)
+    for i in range(16):
+        tick = modes(timeline(0.05), [700, 1500], [1.0, 0.4], [0.01, 0.006])
+        place(rattle, tick * rng.uniform(0.3, 0.6), i / 16, wrap=True)
+    motor = 0.25 * np.sin(TAU * 90 * t) + 0.1 * np.sin(TAU * 180 * t)
+    return belt + 0.5 * rattle + motor
+
+
+def crowd_murmur_loop(rng):
+    """A room full of people chatting, too far off to make out (8 s loop)."""
+    n = secs(8.0)
+    out = np.zeros(n)
+    texts = list(MUMBLES.values())
+    for i in range(46):
+        voice, text, intonation = texts[rng.integers(len(texts))]
+        words = text.split()
+        rng.shuffle(words)
+        b = babble(rng, voice, " ".join(words), intonation)
+        place(out, b * rng.uniform(0.15, 0.45), rng.uniform(0, 8.0), wrap=True)
+    room = 0.03 * loop_noise(rng, n, lambda f: hp_mag(f, 150) * lp_mag(f, 1200, 2))
+    return lowpass(out, 2400, circular=True) + room
+
+
+def server_hum_loop(rng):
+    """A lab full of computers: fans, a faint coil whine and soft relay ticks (2 s loop)."""
+    t = timeline(2.0)
+    n = len(t)
+    fans = 0.25 * loop_noise(rng, n, lambda f: hp_mag(f, 120) * lp_mag(f, 2000, 2) / np.sqrt(np.maximum(f, 20)))
+    blade = 0.12 * np.sin(TAU * 230 * t) * (1 + 0.3 * np.sin(TAU * 1 * t))
+    whine = 0.02 * np.sin(TAU * 7500 * t)
+    ticks = np.zeros(n)
+    for i in range(5):
+        place(ticks, 0.1 * click(rng, timeline(0.05), 0.0, 0.002, 2000), rng.uniform(0, 2.0), wrap=True)
+    return fans + blade + whine + ticks
+
+
+# ---------------------------------------------------------------------------
 # The catalogue: name -> (builder, loops?)
 
 def catalogue():
@@ -759,6 +890,16 @@ def catalogue():
         "dog_sniff": (dog_sniff, False),
         "ambience_night_loop": (ambience_night_loop, True),
         "fridge_hum_loop": (fridge_hum_loop, True),
+        "alarm_loop": (alarm_loop, True),
+        "slide_door": (slide_door, False),
+        "keypad_beep": (keypad_beep, False),
+        "keypad_ok": (keypad_ok, False),
+        "keypad_wrong": (keypad_wrong, False),
+        "laser_hum_loop": (laser_hum_loop, True),
+        "machine_hum_loop": (machine_hum_loop, True),
+        "conveyor_loop": (conveyor_loop, True),
+        "crowd_murmur_loop": (crowd_murmur_loop, True),
+        "server_hum_loop": (server_hum_loop, True),
     }
     for i in range(4):
         sounds[f"lockpick_tick_{i + 1}"] = (lambda rng, i=i: lockpick_tick(rng, i), False)

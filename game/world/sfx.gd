@@ -19,6 +19,10 @@ static func stream(name: String) -> AudioStream:
 			path = COGITO + name.trim_prefix("kenney:") + ".ogg"
 		elif not name.begins_with("res://"):
 			path = DIR + name + ".ogg"
+		if not ResourceLoader.exists(path):
+			push_warning("Sfx: no sound %s" % path)
+			_streams[name] = null
+			return null
 		var s: AudioStream = load(path)
 		if s is AudioStreamOggVorbis and name.ends_with("_loop"):
 			s.loop = true

@@ -7,6 +7,11 @@ extends Resource
 @export var title := ""
 @export var place := ""
 @export var treasure := ""
+## The treasure's item in the bag ("trophy"): getting out with it wins.
+@export var treasure_item := ""
+## Our night music for this job (assets/audio/music/<music>.ogg), or "" for
+## the shared night loop.
+@export var music := ""
 ## A paragraph for the briefing.
 @export var blurb := ""
 @export var scene := ""

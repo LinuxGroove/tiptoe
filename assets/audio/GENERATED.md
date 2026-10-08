@@ -65,15 +65,10 @@ Model `kokoro-v1` (`mikkoph/kokoro-onnx`). One take each (Kokoro has no seed; th
 | `assets/audio/voice/high/burglar.ogg` | Burglar! | `bf_emma` | 0.9 s |
 | `assets/audio/voice/high/where_did_they_go.ogg` | Where did they go? | `bf_emma` | 1.2 s |
 | `assets/audio/voice/high/i_know_youre_here.ogg` | I know you're here! | `bf_emma` | 1.1 s |
-| `assets/audio/voice/high/there_light.ogg` | There. Light! | `bf_emma` | 0.9 s |
 | `assets/audio/voice/high/must_be_the_wind.ogg` | Must be the wind. | `bf_emma` | 1.1 s |
 | `assets/audio/voice/high/just_the_house_settling.ogg` | Just the house settling. | `bf_emma` | 1.4 s |
 | `assets/audio/voice/high/im_hearing_things.ogg` | I'm hearing things. | `bf_emma` | 1.2 s |
 | `assets/audio/voice/high/got_you_out_you_go.ogg` | Got you! Out you go. | `bf_emma` | 1.3 s |
-| `assets/audio/voice/high/coming.ogg` | Coming! | `bf_emma` | 1.0 s |
-| `assets/audio/voice/high/whos_that_at_this_hour.ogg` | Who's that at this hour? | `bf_emma` | 1.4 s |
-| `assets/audio/voice/high/hello_kids.ogg` | Hello? ...Kids. | `bf_emma` | 1.1 s |
-| `assets/audio/voice/high/nobody_there_odd.ogg` | Nobody there. Odd. | `bf_emma` | 1.3 s |
 | `assets/audio/voice/high/lovely_trophy_shame_about_the_bakery.ogg` | Lovely trophy. Shame about the bakery. | `bf_emma` | 2.2 s |
 
 ## Sound effects

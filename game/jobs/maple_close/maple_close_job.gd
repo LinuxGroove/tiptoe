@@ -9,6 +9,7 @@ static func make() -> JobDef:
 	j.title = "Maple Close"
 	j.place = "a family home"
 	j.treasure = "The bakery's prize trophy"
+	j.treasure_item = "trophy"
 	j.blurb = "Augustus Hoard \"lent\" the bakery's prize trophy to his cousins, the Pembertons. It sits in their upstairs study. Ted Pemberton watches TV until late, Maggie potters about, and Biscuit the dog sleeps by the back door. Bring the trophy home."
 	j.scene = "res://game/jobs/maple_close/maple_close_level.gd"
 	j.par_time = 300.0
@@ -21,7 +22,8 @@ static func make() -> JobDef:
 		{"id": "lockpicks", "title": "Lockpicks", "mastery": 0},
 		{"id": "pry_bar", "title": "Pry bar", "mastery": 0},
 		{"id": "treats", "title": "Dog treats", "mastery": 0},
-		{"id": "noisemaker", "title": "Noisemaker", "mastery": 2},
+		{"id": "darts", "title": "Foam dart blaster", "mastery": 1},
+		{"id": "noisemaker", "title": "Noisemaker", "mastery": 2, "count": 1},
 	]
 	j.capers = [
 		CaperDef.make("no_key", "Get in without a key",
