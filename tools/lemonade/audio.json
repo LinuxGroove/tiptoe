@@ -33,6 +33,42 @@
 				"seconds": 15,
 				"loop": false,
 				"prompt": "short sad trombone and tuba comedic sting, deflated cartoon failure, gentle and funny, instrumental"
+			},
+			{
+				"file": "assets/audio/music/night_market.ogg",
+				"seconds": 120,
+				"loop": true,
+				"prompt": "sneaky late night corner shop music, muzak gone quiet, soft electric piano, pizzicato strings, walking upright bass, brushed snare, fluorescent hum mood, cartoon stealth, 85 bpm, instrumental, loopable"
+			},
+			{
+				"file": "assets/audio/music/night_bottling.ogg",
+				"seconds": 120,
+				"loop": true,
+				"prompt": "sneaky industrial factory night music, plucked bass, mallet percussion like clinking bottles, soft clockwork ticks, muted trumpet, steady machine rhythm, cartoon stealth, 95 bpm, instrumental, loopable"
+			},
+			{
+				"file": "assets/audio/music/night_town_hall.ogg",
+				"seconds": 120,
+				"loop": true,
+				"prompt": "sneaky small town council meeting music, pizzicato strings, bassoon and clarinet melody, gentle snare brushes, a little pompous brass, cartoon stealth, 85 bpm, instrumental, loopable"
+			},
+			{
+				"file": "assets/audio/music/night_museum.ogg",
+				"seconds": 120,
+				"loop": true,
+				"prompt": "sneaky gala party heist music, elegant string quartet waltz played on tiptoe, harp, soft vibraphone, upright bass, cartoon stealth, 90 bpm, instrumental, loopable"
+			},
+			{
+				"file": "assets/audio/music/night_labs.ogg",
+				"seconds": 120,
+				"loop": true,
+				"prompt": "sneaky science laboratory night music, soft analog synth arpeggios, theremin hints, pizzicato strings, upright bass, light electronic beat, cartoon spy, 95 bpm, instrumental, loopable"
+			},
+			{
+				"file": "assets/audio/music/night_manor.ogg",
+				"seconds": 120,
+				"loop": true,
+				"prompt": "sneaky grand manor heist finale music, dark harpsichord, pizzicato strings, low brass, upright bass, tense but playful, cartoon heist, 90 bpm, instrumental, loopable"
 			}
 		]
 	},
