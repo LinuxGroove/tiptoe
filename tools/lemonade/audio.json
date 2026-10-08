@@ -290,7 +290,8 @@
 					},
 					{
 						"text": "Hm? Who's that?",
-						"file": "assets/audio/voice/market_dev/hm_whos_that.ogg"
+						"file": "assets/audio/voice/market_dev/hm_whos_that.ogg",
+						"say": "Hmm? Who's that?"
 					},
 					{
 						"text": "Hey! We're closed!",
@@ -409,7 +410,8 @@
 					},
 					{
 						"text": "Hmph. Rats.",
-						"file": "assets/audio/voice/market_pruitt/hmph_rats.ogg"
+						"file": "assets/audio/voice/market_pruitt/hmph_rats.ogg",
+						"say": "Humph. Rats."
 					},
 					{
 						"text": "Dev's been at the pickled eggs again.",
@@ -437,7 +439,8 @@
 					},
 					{
 						"text": "Hm? I was only resting my eyes.",
-						"file": "assets/audio/voice/market_pruitt/hm_i_was_only_resting_my_eyes.ogg"
+						"file": "assets/audio/voice/market_pruitt/hm_i_was_only_resting_my_eyes.ogg",
+						"say": "Hmm? I was only resting my eyes."
 					},
 					{
 						"text": "Twenty, forty, sixty... Mr Hoard wants every penny.",
@@ -469,7 +472,8 @@
 					},
 					{
 						"text": "Hm. Dev, if that's you, it isn't funny.",
-						"file": "assets/audio/voice/market_pruitt/hm_dev_if_thats_you_it_isnt_funny.ogg"
+						"file": "assets/audio/voice/market_pruitt/hm_dev_if_thats_you_it_isnt_funny.ogg",
+						"say": "Hmm. Dev, if that's you, it isn't funny."
 					},
 					{
 						"text": "Who switched the cameras off? Honestly.",
@@ -484,7 +488,8 @@
 				"lines": [
 					{
 						"text": "Hm? Who's that?",
-						"file": "assets/audio/voice/bottling_foreman/hm_whos_that.ogg"
+						"file": "assets/audio/voice/bottling_foreman/hm_whos_that.ogg",
+						"say": "Hmm? Who's that?"
 					},
 					{
 						"text": "What's that racket?",
@@ -765,7 +770,8 @@
 				"lines": [
 					{
 						"text": "Hm? Who's that?",
-						"file": "assets/audio/voice/town_hall_mayor/hm_whos_that.ogg"
+						"file": "assets/audio/voice/town_hall_mayor/hm_whos_that.ogg",
+						"say": "Hmm? Who's that?"
 					},
 					{
 						"text": "Is somebody there?",
@@ -865,7 +871,8 @@
 					},
 					{
 						"text": "Vote no? Hm. Maybe I will.",
-						"file": "assets/audio/voice/town_hall_mayor/vote_no_hm_maybe_i_will.ogg"
+						"file": "assets/audio/voice/town_hall_mayor/vote_no_hm_maybe_i_will.ogg",
+						"say": "Vote no? Hmm. Maybe I will."
 					},
 					{
 						"text": "Is that a mop? In my chamber?",
@@ -1122,7 +1129,8 @@
 				"lines": [
 					{
 						"text": "Hm? Who's skulking there?",
-						"file": "assets/audio/voice/hoard/hm_whos_skulking_there.ogg"
+						"file": "assets/audio/voice/hoard/hm_whos_skulking_there.ogg",
+						"say": "Hmm? Who's skulking there?"
 					},
 					{
 						"text": "You there! Do I know you?",
@@ -1194,7 +1202,8 @@
 					},
 					{
 						"text": "Hm? Who's that?",
-						"file": "assets/audio/voice/hoard/hm_whos_that.ogg"
+						"file": "assets/audio/voice/hoard/hm_whos_that.ogg",
+						"say": "Hmm? Who's that?"
 					},
 					{
 						"text": "Who invited you?",
@@ -1326,7 +1335,8 @@
 					},
 					{
 						"text": "Hmph. Nerves.",
-						"file": "assets/audio/voice/hoard/hmph_nerves.ogg"
+						"file": "assets/audio/voice/hoard/hmph_nerves.ogg",
+						"say": "Humph. Nerves."
 					},
 					{
 						"text": "Pell's been at the brandy again.",
@@ -2091,7 +2101,8 @@
 				"lines": [
 					{
 						"text": "Hm?",
-						"file": "assets/audio/voice/labs_guard_a/hm.ogg"
+						"file": "assets/audio/voice/labs_guard_a/hm.ogg",
+						"say": "Hmm?"
 					},
 					{
 						"text": "What was that?",
@@ -2103,7 +2114,8 @@
 					},
 					{
 						"text": "Hm? Who's there?",
-						"file": "assets/audio/voice/labs_guard_a/hm_whos_there.ogg"
+						"file": "assets/audio/voice/labs_guard_a/hm_whos_there.ogg",
+						"say": "Hmm? Who's there?"
 					},
 					{
 						"text": "Oi! The lab's closed!",
@@ -2194,7 +2206,8 @@
 				"lines": [
 					{
 						"text": "Hm?",
-						"file": "assets/audio/voice/labs_guard_b/hm.ogg"
+						"file": "assets/audio/voice/labs_guard_b/hm.ogg",
+						"say": "Hmm?"
 					},
 					{
 						"text": "What was that?",
@@ -2206,7 +2219,8 @@
 					},
 					{
 						"text": "Hm? Who's there?",
-						"file": "assets/audio/voice/labs_guard_b/hm_whos_there.ogg"
+						"file": "assets/audio/voice/labs_guard_b/hm_whos_there.ogg",
+						"say": "Hmm? Who's there?"
 					},
 					{
 						"text": "Hey! You!",
@@ -2293,7 +2307,8 @@
 					},
 					{
 						"text": "Hm?",
-						"file": "assets/audio/voice/labs_scientist/hm.ogg"
+						"file": "assets/audio/voice/labs_scientist/hm.ogg",
+						"say": "Hmm?"
 					},
 					{
 						"text": "Who's that? You're not on my team.",
@@ -2364,7 +2379,8 @@
 				"lines": [
 					{
 						"text": "Hm? Who's there?",
-						"file": "assets/audio/voice/labs_officer/hm_whos_there.ogg"
+						"file": "assets/audio/voice/labs_officer/hm_whos_there.ogg",
+						"say": "Hmm? Who's there?"
 					},
 					{
 						"text": "What was that?",
@@ -2439,7 +2455,8 @@
 				"lines": [
 					{
 						"text": "Hm?",
-						"file": "assets/audio/voice/manor_pell/hm.ogg"
+						"file": "assets/audio/voice/manor_pell/hm.ogg",
+						"say": "Hmm?"
 					},
 					{
 						"text": "Is someone there?",
@@ -2495,7 +2512,8 @@
 					},
 					{
 						"text": "Hello? ...Hm.",
-						"file": "assets/audio/voice/manor_pell/hello_hm.ogg"
+						"file": "assets/audio/voice/manor_pell/hello_hm.ogg",
+						"say": "Hello? ...Hmm."
 					},
 					{
 						"text": "Not the fuse again.",
@@ -2838,7 +2856,8 @@
 			{
 				"file": "assets/audio/sfx/bottle_machine.ogg",
 				"prompt": "a supermarket bottle return machine whirring and clattering empty bottles into a bin",
-				"seconds": 4
+				"seconds": 4,
+				"fade_out": 0.5
 			},
 			{
 				"file": "assets/audio/sfx/cart_rattle.ogg",
@@ -2860,12 +2879,17 @@
 			{
 				"file": "assets/audio/sfx/line_start.ogg",
 				"prompt": "a factory bottling line motors spinning up and conveyors starting to rattle",
-				"seconds": 4
+				"seconds": 4,
+				"fade_out": 0.5
 			},
 			{
 				"file": "assets/audio/sfx/line_stop.ogg",
 				"prompt": "factory machinery winding down to a stop, motors slowing, a last clunk",
-				"seconds": 4
+				"seconds": 6,
+				"takes": 12,
+				"wind_down": 2.5,
+				"pick": 33219,
+				"why": "every take kept running at full speed, so a steady one is slowed to a stop"
 			},
 			{
 				"file": "assets/audio/sfx/crate_crash.ogg",
@@ -2882,13 +2906,15 @@
 			{
 				"file": "assets/audio/sfx/kettle_whistle.ogg",
 				"prompt": "a kettle on a stove coming to the boil and whistling",
-				"seconds": 4
+				"seconds": 4,
+				"fade_out": 0.5
 			},
 			{
 				"file": "assets/audio/sfx/town_hall_bell.ogg",
 				"prompt": "a single deep bronze church bell toll from a tower, long ringing decay",
-				"seconds": 5,
-				"events": 1
+				"seconds": 6,
+				"events": 1,
+				"takes": 12
 			},
 			{
 				"file": "assets/audio/sfx/coffee_machine.ogg",
@@ -2904,8 +2930,9 @@
 			{
 				"file": "assets/audio/sfx/gong.ogg",
 				"prompt": "a large gong struck once with a soft mallet, shimmering decay",
-				"seconds": 4,
-				"events": 1
+				"seconds": 6,
+				"events": 1,
+				"takes": 12
 			},
 			{
 				"file": "assets/audio/sfx/glass_clink.ogg",

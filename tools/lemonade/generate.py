@@ -32,6 +32,9 @@ Optional fields an entry can carry besides those the game needs:
   seed       first seed (default: from the file name, so runs repeat)
   steps, cfg passed to the model as they are
   events     sfx one-shots: how many separate sounds to keep from a take
+  fade_out   sfx one-shots: seconds to fade at the end, for sounds still going
+             when the take stops (machines, a kettle)
+  wind_down  sfx one-shots: seconds over which the take slows to a stop
   steady     sfx loops: keep the take whose level varies least
   crossfade  loops: crossfade length in seconds
   lufs       music: the loudness to aim for after peak normalisation
@@ -251,6 +254,29 @@ def trim(x, channels, below_db, head_ms, tail_ms):
         f = min(int(tail_ms * SR / 1000), n)
         fade(y, channels, n - f, f, False)
     return y, end_db
+
+
+def wind_down(x, channels, seconds, lead=0.6):
+    """Plays x at full speed for `lead` seconds, then slows it to a stop over
+    `seconds` (pitch and level falling together, like a machine coasting to a
+    halt): for machines ThinkSound only ever makes running."""
+    n = len(x) // channels
+    out = array.array("f")
+    pos = 0.0
+    total = int((lead + seconds) * SR)
+    start = int(lead * SR)
+    for i in range(total):
+        rate = 1.0 if i < start else (1.0 - (i - start) / (total - start)) ** 1.5
+        j = int(pos)
+        if j + 1 >= n or rate < 0.005:
+            break
+        f = pos - j
+        level = 1.0 if i < start else rate ** 0.5
+        for c in range(channels):
+            out.append((x[j * channels + c] * (1 - f) + x[(j + 1) * channels + c] * f) * level)
+        pos += rate
+    fade(out, channels, len(out) // channels - 441, 441, False)
+    return out
 
 
 def segments(lv, below_db=18, gap_ms=60):
@@ -488,6 +514,12 @@ def process(job, raw_path):
         if "events" in job:
             x = pick_events(x, ch, job["events"])
         y, info["end_db"] = trim(x, ch, 45, 5, 80)
+        if "wind_down" in job:
+            y = wind_down(y, ch, job["wind_down"])
+        if "fade_out" in job:  # a sound that runs on past the take, faded rather than cut
+            n = len(y) // ch
+            f = min(int(job["fade_out"] * SR), n // 2)
+            fade(y, ch, n - f, f, False)
         info["events"] = len(segments(frame_levels(y, ch)))
         info["floor_db"] = round(floor_db(y, ch), 1)
     p = peak(y)
@@ -624,6 +656,10 @@ def render(record, manifest, version):
             set_ += "; loop %.2f to %.2f s of the take, %.2f s crossfade" % (lp["start_s"], lp["end_s"], lp["crossfade_s"])
         if snd.get("events"):
             set_ += "; kept %d sound%s of the take" % (snd["events"], "s" if snd["events"] > 1 else "")
+        if snd.get("fade_out"):
+            set_ += "; last %g s faded out" % snd["fade_out"]
+        if snd.get("wind_down"):
+            set_ += "; slowed to a stop over %g s by the script (ThinkSound's takes kept running)" % snd["wind_down"]
         if e.get("picked"):
             set_ += "; take picked by hand: %s" % e["picked"]
         lines.append("| `%s` | %s | %d | %d | %.2f s | %s |" % (
