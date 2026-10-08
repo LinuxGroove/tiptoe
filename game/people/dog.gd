@@ -39,6 +39,7 @@ var _deep_t := 0.0
 
 
 func setup(p_level: JobLevel, p_run: JobRun, bed: Vector3) -> void:
+	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
 	name = "Biscuit"
 	level = p_level
 	run = p_run
@@ -89,6 +90,10 @@ func hear(noise: StealthNoise) -> void:
 			_wake()
 	elif state == State.AWAKE and noise.kind != "bark":
 		_go(noise.position, WALK_SPEED)
+
+
+func _ready() -> void:
+	reset_physics_interpolation()
 
 
 func _physics_process(delta: float) -> void:

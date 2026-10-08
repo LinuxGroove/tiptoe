@@ -111,6 +111,7 @@ var _snooze_t := 0.0
 ##   torch: bool, a torch that lights up whoever it points at
 ##   sight: metres they can see; lines: {moment: [lines]}; extra_lines: [lines]
 func setup(p_name: String, look: String, p_level: JobLevel, p_run: JobRun, p_routine: Array, p_voice := "low", opts := {}) -> void:
+	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
 	display_name = p_name
 	name = p_name
 	level = p_level
@@ -204,6 +205,10 @@ func _on_navigation_ready() -> void:
 	_nav_ready = true
 	if state == State.ROUTINE:
 		_start_step()
+
+
+func _ready() -> void:
+	reset_physics_interpolation()
 
 
 func _physics_process(delta: float) -> void:

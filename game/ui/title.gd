@@ -132,6 +132,7 @@ func _show_settings() -> void:
 	_col.add_child(LGCycler.make("Leads", SettingsPanel.ON_OFF, LGSettings.get_value("play", "leads"), _set_play.bind("leads"), 440))
 	_col.add_child(LGCycler.make("Noise rings", SettingsPanel.ON_OFF, LGSettings.get_value("play", "noise_rings"), _set_play.bind("noise_rings"), 440))
 	_col.add_child(LGCycler.make("Invert look", SettingsPanel.ON_OFF, LGSettings.get_value("play", "invert_look"), _set_play.bind("invert_look"), 440))
+	TiptoePause.add_comfort(_col, _set_play)
 	_col.add_child(LGUi.button("Back", _show_main))
 	LGUi.focus_first(_col)
 

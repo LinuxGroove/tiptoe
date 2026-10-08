@@ -24,7 +24,11 @@ const SETTING_DEFAULTS := {
 		"invert_look": false,
 		"mouse_sensitivity": 0.25,
 		"stick_sensitivity": 2.0,
-		"head_bob": 0.7,
+		# Comfort: head bob (0 to 1), the view rolling as you lean, and the
+		# field of view. Calm by default, for players prone to motion sickness.
+		"bob": 0.0,
+		"tilt": false,
+		"fov": 75.0,
 		"toggle_crouch": true,
 	},
 }

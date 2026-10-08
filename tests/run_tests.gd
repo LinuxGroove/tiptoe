@@ -388,6 +388,18 @@ func _test_level() -> void:
 	LGSettings.set_value("play", "invert_look", false, false)
 	job.player._reload_options()
 	head.rotation.x = 0.0
+	# Comfort: no head bob or tilt by default, and the settings change them.
+	var moth: Moth = job.player
+	check(moth.WIGGLE_ON_CROUCHING_INTENSITY == 0.0 and moth.WIGGLE_ON_WALKING_INTENSITY == 0.0, "no head bob by default")
+	check(moth.physics_interpolation_mode == Node.PHYSICS_INTERPOLATION_MODE_ON and moth.body.physics_interpolation_mode == Node.PHYSICS_INTERPOLATION_MODE_OFF, "the player moves smoothly and turns at once")
+	LGSettings.set_value("play", "bob", 1.0, false)
+	LGSettings.set_value("play", "fov", 90.0, false)
+	moth._reload_options()
+	check(moth.WIGGLE_ON_WALKING_INTENSITY > 0.0 and moth.WIGGLE_ON_CROUCHING_INTENSITY > 0.0, "head bob can be turned on, crouching too")
+	check(is_equal_approx(moth.camera.fov, 90.0), "the field of view can be widened")
+	LGSettings.set_value("play", "bob", 0.0, false)
+	LGSettings.set_value("play", "fov", 75.0, false)
+	moth._reload_options()
 	# Escape opens the pause menu, and again closes it.
 	var esc := InputEventKey.new()
 	esc.keycode = KEY_ESCAPE

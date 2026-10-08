@@ -42,6 +42,9 @@ func _ready() -> void:
 	_build_night()
 	level = load(job.scene).new()
 	level.name = "Level"
+	# Smooth motion between physics ticks is for what moves every tick: the
+	# player and the people (see Moth). The rest of the level stays as built.
+	level.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	level.build()
 	add_child(level)
 	var ui := CanvasLayer.new()
@@ -64,6 +67,7 @@ func _ready() -> void:
 	player.tiptoe_pause = pause
 	add_child(player)
 	player.global_transform = level.start_transform(start_id)
+	player.reset_physics_interpolation()
 	player.light_probe.indoors_test = level.indoors
 	var mastery := Progress.mastery(job.id)
 	for g in job.open_gadgets(mastery):
@@ -185,6 +189,7 @@ func _on_caught(_by: Person) -> void:
 		run.drop_treasure()
 		level.return_treasure()
 	player.global_transform = level.start_transform(start_id)
+	player.reset_physics_interpolation()
 	player.velocity = Vector3.ZERO
 	player.is_movement_paused = false
 	hud.toast("Caught! Marched back outside.", Color(1.0, 0.5, 0.4))

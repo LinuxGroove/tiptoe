@@ -7,6 +7,9 @@ signal resume
 signal give_up
 signal quit_to_title
 
+const BOB := [[0.0, "Off"], [0.5, "Gentle"], [1.0, "Full"]]
+const FOV := [[65.0, "Narrow"], [75.0, "Normal"], [90.0, "Wide"]]
+
 var _col: VBoxContainer
 var _panel: PanelContainer
 
@@ -35,10 +38,19 @@ func _init() -> void:
 	_col.add_child(LGCycler.make("Noise rings", SettingsPanel.ON_OFF, LGSettings.get_value("play", "noise_rings"), _set_play.bind("noise_rings"), 440))
 	_col.add_child(LGCycler.make("Invert look", SettingsPanel.ON_OFF, LGSettings.get_value("play", "invert_look"), _set_play.bind("invert_look"), 440))
 	_col.add_child(LGCycler.make("Hold to crouch", [[false, "On"], [true, "Off"]], LGSettings.get_value("play", "toggle_crouch"), _set_play.bind("toggle_crouch"), 440))
+	add_comfort(_col, _set_play)
 	var quit := LGUi.button("Call it a night", _give_up, 440)
 	quit.theme_type_variation = "DangerButton"
 	_col.add_child(quit)
 	_col.add_child(LGUi.button("Back to the title", _quit, 440))
+
+
+## The settings that make the view calmer for players prone to motion
+## sickness: head bob, the view tilting as you lean, and the field of view.
+static func add_comfort(col: Container, set_play: Callable) -> void:
+	col.add_child(LGCycler.make("Head bob", BOB, LGSettings.get_value("play", "bob"), set_play.bind("bob"), 440))
+	col.add_child(LGCycler.make("Tilt when leaning", SettingsPanel.ON_OFF, LGSettings.get_value("play", "tilt"), set_play.bind("tilt"), 440))
+	col.add_child(LGCycler.make("Field of view", FOV, LGSettings.get_value("play", "fov"), set_play.bind("fov"), 440))
 
 
 func _ready() -> void:

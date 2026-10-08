@@ -13,6 +13,11 @@ const UNUSED := ["CogtoTestCurrency", "StrengthAttribute", "LightMeterAttribute"
 	"SanityAttribute", "StaminaAttribute", "HealthAttribute", "HealthAutoConsume",
 	"StaminaAutoConsume", "AutoPickUpZone"]
 
+## Cogito's head bob at full strength (Tiptoe scales it by the "bob" setting).
+const BOB_WALK := 0.03
+const BOB_SPRINT := 0.05
+const BOB_CROUCH := 0.04
+
 const LEAN_OFFSET := 0.42
 const LEAN_TILT := 9.0
 const LEAN_SPEED := 9.0
@@ -35,6 +40,8 @@ var light_probe: LightProbe
 var _lean := 0.0
 var _mantle_tween: Tween
 var _feet_offset := 0.0
+## Whether the view rolls when leaning, free looking or sliding (a setting).
+var _tilt := false
 
 
 func _ready():
@@ -61,6 +68,14 @@ func _ready():
 	sprint_volume_db = -18.0
 	crouch_volume_db = -40.0
 	_feet_offset = -_feet_height()
+	# The player moves every physics tick but the screen may draw more often:
+	# the body's position is smoothed between ticks, while the nodes the mouse
+	# turns (body and head) follow it at once, with no lag.
+	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
+	body.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	head.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	neck.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
+	eyes.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
 	_reload_options()
 	super()
 	light_probe = LightProbe.new()
@@ -90,7 +105,15 @@ func _reload_options():
 	# Cogito's INVERT_Y_AXIS = true turns the look upside down (mouse down looks up).
 	INVERT_Y_AXIS = bool(LGSettings.get_value("play", "invert_look", false))
 	TOGGLE_CROUCH = bool(LGSettings.get_value("play", "toggle_crouch", true))
-	HEADBOBBLE = float(LGSettings.get_value("play", "head_bob", 0.7))
+	# Comfort: head bob, view roll and field of view. Cogito's HEADBOBBLE is
+	# a whole number and leaves crouching out, so the bob is scaled here.
+	var bob := float(LGSettings.get_value("play", "bob", 0.0))
+	HEADBOBBLE = 1
+	WIGGLE_ON_WALKING_INTENSITY = BOB_WALK * bob
+	WIGGLE_ON_SPRINTING_INTENSITY = BOB_SPRINT * bob
+	WIGGLE_ON_CROUCHING_INTENSITY = BOB_CROUCH * bob
+	_tilt = bool(LGSettings.get_value("play", "tilt", false))
+	camera.fov = float(LGSettings.get_value("play", "fov", 75.0))
 	JOY_H_SENS = float(LGSettings.get_value("play", "stick_sensitivity", 2.0))
 	JOY_V_SENS = JOY_H_SENS
 
@@ -105,6 +128,8 @@ func _physics_process(delta):
 		return
 	super(delta)
 	_update_lean(delta)
+	if not _tilt:
+		eyes.rotation.z = 0.0
 
 
 func _input(event):
@@ -128,6 +153,7 @@ func hide_in(spot: HideSpot) -> void:
 	player_interaction_component.process_mode = Node.PROCESS_MODE_DISABLED
 	var eye_offset := camera.global_position - global_position
 	global_position = spot.global_transform * spot.eye - eye_offset
+	reset_physics_interpolation()
 	body.global_rotation.y = spot.global_rotation.y + PI
 	head.rotation.x = 0.0
 	visibility = 0.0
@@ -143,6 +169,7 @@ func leave_hiding() -> void:
 	var spot := hiding
 	hiding = null
 	global_position = spot.global_transform * spot.exit + Vector3(0, -_feet_offset + 0.05, 0)
+	reset_physics_interpolation()
 	standing_collision_shape.disabled = is_crouching
 	crouching_collision_shape.disabled = not is_crouching
 	player_interaction_component.process_mode = Node.PROCESS_MODE_INHERIT
@@ -206,7 +233,7 @@ func _update_lean(delta: float) -> void:
 			want *= clampf(room / LEAN_OFFSET, 0.0, 1.0)
 	_lean = lerpf(_lean, want, clampf(delta * LEAN_SPEED, 0.0, 1.0))
 	neck.position.x = _lean * LEAN_OFFSET
-	camera.rotation.z = -deg_to_rad(_lean * LEAN_TILT)
+	camera.rotation.z = -deg_to_rad(_lean * LEAN_TILT) if _tilt else 0.0
 
 
 ## Climbs onto a ledge in front (a sill, a low wall, a crate) if there is
@@ -258,6 +285,7 @@ func _try_mantle() -> bool:
 	main_velocity = Vector3.ZERO
 	velocity = Vector3.ZERO
 	_mantle_tween = create_tween()
+	_mantle_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	_mantle_tween.tween_property(self, "global_position", up, MANTLE_TIME * 0.6).set_trans(Tween.TRANS_SINE)
 	_mantle_tween.tween_property(self, "global_position", target, MANTLE_TIME * 0.4)
 	StealthNoise.make(self, feet, 2.5, "climb", self)
