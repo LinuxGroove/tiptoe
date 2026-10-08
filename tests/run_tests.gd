@@ -206,6 +206,17 @@ func _test_audio_manifest() -> void:
 			if l.file != "assets/audio/voice/%s/%s.ogg" % [v, Sfx.slug(l.text)]:
 				bad.append(l.file)
 	check(bad.is_empty(), "voice files match their lines %s" % [bad])
+	var missing := []
+	for v in m.voices.voices:
+		for l in m.voices.voices[v].lines:
+			if not ResourceLoader.exists("res://" + l.file):
+				missing.append(l.file)
+	for t in m.music.tracks + m.sfx.sounds:
+		if not ResourceLoader.exists("res://" + t.file):
+			missing.append(t.file)
+	check(missing.is_empty(), "every recorded line, track and sound is here (%d missing: %s)" % [missing.size(), missing.slice(0, 5)])
+	for job in Jobs.all():
+		check(job.music == "" or Sfx.music(job.music, "") != "", "%s has its own night music" % job.title)
 	check(Sfx.voice_line("nobody", "Hello?") == "", "people without a recorded line mumble")
 	check(Sfx.voice_line("low", "Burglar!") != "" and Sfx.voice_line("high", "Burglar!") != "", "Ted and Maggie have recorded lines")
 	for track in ["title", "night", "chase", "escaped", "night_over"]:

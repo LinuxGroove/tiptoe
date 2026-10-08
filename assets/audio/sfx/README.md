@@ -1,17 +1,23 @@
 # Sound effects
 
-Twelve of these sounds were generated with Lemonade's ThinkSound model by `tools/lemonade/generate.py` (see `../GENERATED.md` for each one's prompt, seed and settings); they are marked (ThinkSound) below. The rest are synthesized for Tiptoe by `tools/sfx/make_sfx.py` (needs numpy and ffmpeg). `make_sfx.py` still knows how to build its own versions of the generated sounds, so rebuild synthesized ones by name, `python3 tools/sfx/make_sfx.py assets/audio/sfx --only doorbell,dog_whine`, rather than all at once, which would replace the generated ones. Everything else comes from Kenney's packs (see `KENNEY_PICKS.md`).
+Twenty-nine of these sounds were generated with Lemonade's ThinkSound model by `tools/lemonade/generate.py` (see `../GENERATED.md` for each one's prompt, seed and settings); they are marked (ThinkSound) below. The rest are synthesized for Tiptoe by `tools/sfx/make_sfx.py` (needs numpy and ffmpeg). `make_sfx.py` still knows how to build its own versions of the generated sounds, so rebuild synthesized ones by name, `python3 tools/sfx/make_sfx.py assets/audio/sfx --only doorbell,dog_whine`, rather than all at once, which would replace the generated ones. Everything else comes from Kenney's packs (see `KENNEY_PICKS.md`).
 
 All of them are 44.1 kHz mono Ogg Vorbis peaking at about -3 dBFS, so set how loud each one plays in the game. Files ending in `_loop` loop seamlessly.
 
 - `alarm_loop.ogg`: a burglar alarm: two-tone electronic siren over a bell rattle (1 s loop).
 - `ambience_night_loop.ogg`: quiet night garden, crickets and a soft breeze (ThinkSound, 9.2 s loop).
+- `bottle_machine.ogg`: a bottle-return machine whirring and clattering (ThinkSound).
 - `breaker_off.ogg`: the house hum, a heavy fuse box breaker thunk, then the hum dies (ThinkSound).
 - `breaker_on.ogg`: breaker thunk, then a low electrical hum (ThinkSound).
 - `camera_alert.ogg`: two-beep alert from a security camera that spotted you.
 - `camera_servo_loop.ogg`: quiet servo whirr of a security camera panning (1 s loop).
 - `caper_done.ogg`: small happy glockenspiel run when a goal is done.
+- `cart_rattle.ogg`: a shopping cart nesting into a line of carts (ThinkSound).
+- `coffee_machine.ogg`: an office coffee machine grinding and dripping (ThinkSound).
+- `confetti_pop.ogg`: a confetti cannon bang and fluttering paper (ThinkSound).
 - `conveyor_loop.ogg`: a conveyor belt's rollers rattling along (1 s loop).
+- `crane_motor_loop.ogg`: an overhead factory crane's motor whine (ThinkSound, loop).
+- `crate_crash.ogg`: a crate of glass bottles smashing on concrete (ThinkSound).
 - `crowd_murmur_loop.ogg`: a room full of people chatting, too far off to make out (8 s loop).
 - `dart_fire.ogg`: toy foam dart blaster "thwip" (trigger, spring, air).
 - `dart_hit_soft.ogg`: soft foam dart bopping something.
@@ -22,11 +28,17 @@ All of them are 44.1 kHz mono Ogg Vorbis peaking at about -3 dBFS, so set how lo
 - `dog_whine.ogg`: short questioning dog whine that rises at the end. Kept synthesized: none of ThinkSound's whines rose at the end.
 - `doorbell.ogg`: two-tone "ding-dong" chime doorbell. Kept synthesized: ThinkSound didn't make a clean two-tone chime.
 - `fridge_hum_loop.ogg`: quiet fridge compressor hum for kitchens (ThinkSound, 4.5 s loop).
+- `glass_clink.ogg`: two champagne glasses clinking (ThinkSound).
+- `gong.ogg`: a large gong struck once (ThinkSound).
+- `hatch_creak.ogg`: a metal roof hatch creaking open (ThinkSound).
+- `kettle_whistle.ogg`: a kettle coming to the boil and whistling (ThinkSound).
 - `keypad_beep.ogg`: one key pressed on a door keypad.
 - `keypad_ok.ogg`: two rising beeps and a lock clacking open: the right code.
 - `keypad_wrong.ogg`: a low buzzy double honk: the wrong code.
 - `laser_hum_loop.ogg`: thin electric buzz of a laser gate (1 s loop).
 - `lead_hint.ogg`: soft, curious "hmm?" vibraphone bell for a new hint.
+- `line_start.ogg`: a bottling line's motors spinning up (ThinkSound).
+- `line_stop.ogg`: a bottling line slowing to a stop: a running take wound down by generate.py (ThinkSound).
 - `lock_open.ogg`: a lock cylinder turning and the bolt clacking open (ThinkSound).
 - `lockpick_tick_1.ogg`: tiny metallic pin tick of a lock pick, lowest of four.
 - `lockpick_tick_2.ogg`: lock pick pin tick, second pitch.
@@ -42,11 +54,17 @@ All of them are 44.1 kHz mono Ogg Vorbis peaking at about -3 dBFS, so set how lo
 - `mumble_low_3.ogg`: low gibberish voice, cheery.
 - `noisemaker_rattle_loop.ogg`: wind-up clockwork tin toy clattering (ThinkSound, 2.7 s loop).
 - `noisemaker_wind.ogg`: winding the toy's key, ratchet clicks (ThinkSound).
+- `photo_flash.ogg`: a camera shutter click (ThinkSound).
+- `quartet_loop.ogg`: a polite string quartet at a gala, stereo, made as music (ACE-Step, 60 s loop).
 - `safe_dial_tick.ogg`: one detent click of a safe's combination dial.
 - `safe_open.ogg`: heavy safe door bolts clunking back, then a short metallic creak.
 - `server_hum_loop.ogg`: a lab full of computers: fans, coil whine, relay ticks (2 s loop).
+- `shop_bell.ogg`: a shop door's bell jangling (ThinkSound).
 - `slide_door.ogg`: a sliding door hissing and whirring open or shut.
 - `snooze.ogg`: sleepy, wobbling slide down when someone is put to sleep.
 - `snore_loop.ogg`: a dog snoring gently (ThinkSound, 6.6 s loop).
 - `spotted.ogg`: short "!" sting, two quick rising plucks, when someone sees you.
 - `suspicion_tick.ogg`: subtle rising blip while a suspicion meter fills.
+- `till_ding.ogg`: a cash register's "no sale" ding (ThinkSound).
+- `town_hall_bell.ogg`: a single deep bronze bell toll from the town hall tower (ThinkSound).
+- `vent_crawl.ogg`: someone shuffling through a tin air duct (ThinkSound).
