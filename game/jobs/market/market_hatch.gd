@@ -129,6 +129,13 @@ func _use(pic: PlayerInteractionComponent) -> void:
 	climb(player, false)
 
 
+## How far through picking the padlock the Moth is, 0 when nobody is.
+func pick_progress() -> float:
+	if _picker == null:
+		return 0.0
+	return clampf(1.0 - _pick_left / PICK_TIME, 0.0, 1.0)
+
+
 func _from_below(player: Node) -> bool:
 	return player.global_position.y < level.global_position.y + JobLevel.STOREY
 

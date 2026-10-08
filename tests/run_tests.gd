@@ -401,6 +401,20 @@ func _test_level() -> void:
 	check(not job.pause.visible and not get_tree().paused, "Escape closes it again")
 	get_tree().paused = false
 	job.pause.visible = false
+	# Looking at the locked front door shows Tiptoe's prompt cards, each with
+	# the key to press; hints come up once as message cards.
+	var hud := job.hud
+	hud._on_object_detected(lvl.doors.front_door.interaction_nodes)
+	var lines := hud.prompt_lines()
+	check(["interact2", "Pick the lock"] in lines, "the locked door offers to pick the lock (%s)" % [lines])
+	var cap := JobHud.key_cap("interact")
+	check(cap.get_child(0) is Label and cap.get_child(0).text not in ["", "interact"], "the prompt's key cap names the key")
+	cap.free()
+	hud._on_hint(null, "It's locked.")
+	hud._on_hint(null, "It's locked.")
+	check(hud.toast_lines().count("It's locked.") == 1, "a hint shows once, not stacked")
+	hud._on_nothing_detected()
+	check(hud.prompt_lines().is_empty(), "the prompts go when looking away")
 	# The player is lit under the porch light and hidden in the back garden.
 	job.player.global_position = Vector3(0.4, 0.9, 6.0)
 	await _physics(20)

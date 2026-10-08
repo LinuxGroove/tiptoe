@@ -1,12 +1,23 @@
 class_name JobHud
 extends Control
 ## The heads-up display during a job: the light gem (how lit you are), rings
-## for noises, what's in your bag, the lead you're following, capers as you
-## finish them, and notes you read. Cogito's own HUD still shows prompts and
-## hints underneath.
+## for noises, what's in your bag, what you can do with the thing you're
+## looking at, the lead you're following, short messages, capers as you
+## finish them, and notes you read. Prompts and messages are parchment cards
+## in the game's own font (Cogito's own prompt and hint areas are hidden).
 
 const RING_TIME := 0.9
 const TOAST_TIME := 3.5
+## Text sizes: prompts and messages are read at a glance, from a couch too.
+const PROMPT_SIZE := 26
+const TOAST_SIZE := 24
+## Messages longer than this wrap.
+const TOAST_WIDTH := 640.0
+const KEY_SIZE := 44
+## The brown edge of a parchment card, and its accent for plain messages.
+const EDGE := Color("8a5a32")
+## The same message again within this many seconds isn't shown twice.
+const REPEAT_TIME := 1.5
 
 var run: JobRun
 var player: Node
@@ -24,6 +35,17 @@ var _note_text: Label
 var _capers: PanelContainer
 var _capers_list: VBoxContainer
 var _center: Label
+var _center_card: PanelContainer
+var _lead_card: PanelContainer
+## The cards under the crosshair: what you can do with what you look at.
+var _prompts: VBoxContainer
+var _prompt_name: Label
+var _pick_bar: ProgressBar
+var _pic: PlayerInteractionComponent
+var _prompt_nodes: Array = []
+var _carrying: Node
+var _last_toast := ""
+var _last_toast_at := -10.0
 ## [position, radius, age, kind]
 var _rings: Array = []
 var _note_from := Vector3.ZERO
@@ -41,16 +63,16 @@ func _init() -> void:
 	_gem.draw.connect(_draw_gem)
 	_gem.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_gem)
-	_gem_label = _label("", 16)
+	_gem_label = _label("", 20)
 	_gem_label.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
 	_gem_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_gem_label.position += Vector2(-80, -28)
 	_gem_label.custom_minimum_size = Vector2(160, 0)
 	add_child(_gem_label)
-	_bag = _label("", 18)
+	_bag = _label("", 22)
 	_bag.position = Vector2(24, 20)
 	add_child(_bag)
-	_gadget = _label("", 20)
+	_gadget = _label("", 24)
 	_gadget.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
 	_gadget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_gadget.custom_minimum_size = Vector2(420, 0)
@@ -64,40 +86,57 @@ func _init() -> void:
 	_alarm.add_theme_color_override("font_color", Color(1.0, 0.3, 0.25))
 	_alarm.visible = false
 	add_child(_alarm)
-	_lead = _label("", 20)
-	_lead.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
-	_lead.position += Vector2(24, -64)
-	_lead.add_theme_color_override("font_color", Color("ffd54a"))
-	add_child(_lead)
+	_lead_card = card(Color("6fb6e8"))
+	_lead_card.visible = false
+	_lead = ink_label("", 22)
+	_lead.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_lead.custom_minimum_size = Vector2(460, 0)
+	_lead_card.add_child(_lead)
+	var lead_box := _corner_box(Control.PRESET_BOTTOM_LEFT, Vector2(24, -96))
+	lead_box.alignment = BoxContainer.ALIGNMENT_END
+	lead_box.add_child(_lead_card)
 	_toasts = VBoxContainer.new()
-	_toasts.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
-	_toasts.position += Vector2(-300, 24)
-	_toasts.custom_minimum_size = Vector2(600, 0)
+	# Top right, out of the way of the crosshair and of what people say.
+	_toasts.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
+	_toasts.position += Vector2(-24 - TOAST_WIDTH - 60, 20)
+	_toasts.custom_minimum_size = Vector2(TOAST_WIDTH + 60, 0)
+	_toasts.add_theme_constant_override("separation", 8)
 	_toasts.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_toasts)
-	_center = _label("", 24)
-	_center.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	_prompts = VBoxContainer.new()
+	_prompts.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	_prompts.position += Vector2(-360, 48)
+	_prompts.custom_minimum_size = Vector2(720, 0)
+	_prompts.add_theme_constant_override("separation", 8)
+	_prompts.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_prompts)
+	_center_card = card(EDGE)
+	_center_card.visible = false
+	_center = ink_label("", TOAST_SIZE)
 	_center.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_center.custom_minimum_size = Vector2(800, 0)
-	_center.position += Vector2(-400, 80)
-	add_child(_center)
+	_center_card.add_child(_center)
+	var center_box := VBoxContainer.new()
+	center_box.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	center_box.position += Vector2(-400, 200)
+	center_box.custom_minimum_size = Vector2(800, 0)
+	center_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center_box.add_child(_center_card)
+	_center_card.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	add_child(center_box)
 	_note = PanelContainer.new()
 	_note.visible = false
 	_note.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
-	var paper := StyleBoxFlat.new()
-	paper.bg_color = Color(0.96, 0.93, 0.82)
-	paper.set_content_margin_all(28)
-	paper.set_corner_radius_all(4)
-	_note.add_theme_stylebox_override("panel", paper)
+	_note.theme_type_variation = "ParchmentPanel"
+	_note.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 12)
 	_note.add_child(col)
-	_note_title = _label("", 24)
-	_note_title.add_theme_color_override("font_color", Color(0.2, 0.15, 0.1))
+	_note_title = Label.new()
+	_note_title.theme_type_variation = "InkHeader"
 	col.add_child(_note_title)
-	_note_text = _label("", 20)
-	_note_text.add_theme_color_override("font_color", Color(0.15, 0.12, 0.1))
+	_note_text = ink_label("", 24)
 	_note_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_note_text.custom_minimum_size = Vector2(460, 0)
+	_note_text.custom_minimum_size = Vector2(600, 0)
 	col.add_child(_note_text)
 	add_child(_note)
 	_capers = PanelContainer.new()
@@ -120,8 +159,190 @@ func setup(p_run: JobRun, p_player: Node) -> void:
 	_update_bag()
 
 
+## Shows what the player can do with whatever they look at, and the short
+## messages (hints) the things they use send back, as Tiptoe's own cards.
+func watch_prompts(pic: PlayerInteractionComponent) -> void:
+	_pic = pic
+	pic.interactive_object_detected.connect(_on_object_detected)
+	pic.nothing_detected.connect(_on_nothing_detected)
+	pic.started_carrying.connect(_on_started_carrying)
+	pic.hint_prompt.connect(_on_hint)
+	var router := get_node_or_null("/root/LGInput")
+	if router:
+		router.device_changed.connect(_on_device_changed)
+
+
+func _on_object_detected(nodes: Array[Node]) -> void:
+	_carrying = null
+	_prompt_nodes = nodes
+	_build_prompts()
+
+
+func _on_nothing_detected() -> void:
+	_carrying = null
+	_prompt_nodes = []
+	_build_prompts()
+
+
+func _on_started_carrying(node: Node) -> void:
+	_carrying = node
+	_build_prompts()
+
+
+func _on_device_changed(_family: String) -> void:
+	_build_prompts()
+
+
+func _on_hint(_icon: Texture2D, text: String) -> void:
+	toast(text)
+
+
+## The prompt cards showing now, as [action, text] pairs (for tests).
+func prompt_lines() -> Array:
+	var out := []
+	for c in _prompts.get_children():
+		if c.has_meta("action") and not c.is_queued_for_deletion():
+			out.append([c.get_meta("action"), c.get_meta("text")])
+	return out
+
+
+func _build_prompts() -> void:
+	for c in _prompts.get_children():
+		_prompts.remove_child(c)
+		c.queue_free()
+	_pick_bar = null
+	if _carrying != null and is_instance_valid(_carrying):
+		_add_prompt(_carrying.input_map_action, "Drop it")
+		return
+	if _prompt_nodes.is_empty() or _pic == null:
+		return
+	var thing: Node = _prompt_nodes[0].get_parent()
+	var title: String = thing.get("display_name") if thing.get("display_name") else ""
+	if title != "":
+		_prompt_name = _label(title, 24)
+		_prompt_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		_prompts.add_child(_prompt_name)
+	for node in _prompt_nodes:
+		if not is_instance_valid(node) or not node is InteractionComponent:
+			continue
+		var ic: InteractionComponent = node
+		if ic.set_disabled(_pic.get_parent()) or ic.is_disabled or ic.interaction_text == "":
+			continue
+		if ic.attribute_check == 2 and not ic.check_attribute(_pic):
+			continue
+		_add_prompt(ic.input_map_action, tr(ic.interaction_text))
+	if thing.has_method("pick_progress"):
+		_pick_bar = ProgressBar.new()
+		_pick_bar.show_percentage = false
+		_pick_bar.custom_minimum_size = Vector2(320, 14)
+		_pick_bar.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		_pick_bar.max_value = 1.0
+		_pick_bar.visible = false
+		_prompts.add_child(_pick_bar)
+
+
+func _add_prompt(action: String, text: String) -> void:
+	var c := card(EDGE)
+	c.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	c.set_meta("action", action)
+	c.set_meta("text", text)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 14)
+	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	c.add_child(row)
+	row.add_child(key_cap(action))
+	var l := ink_label(text, PROMPT_SIZE)
+	l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	row.add_child(l)
+	_prompts.add_child(c)
+
+
+## The button for an action: the controller's button glyph when playing on
+## a controller, else the key's name on a dark key cap (the white keyboard
+## glyphs get lost on parchment).
+static func key_cap(action: String) -> Control:
+	var router: Node = Engine.get_main_loop().root.get_node_or_null("LGInput")
+	var tex: Texture2D = router.glyph_for_action(action) if router and router.is_gamepad() else null
+	if tex:
+		var icon := TextureRect.new()
+		icon.texture = tex
+		icon.custom_minimum_size = Vector2(KEY_SIZE, KEY_SIZE)
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		return icon
+	var cap := PanelContainer.new()
+	var box := StyleBoxFlat.new()
+	box.bg_color = LGTheme.INK
+	box.set_corner_radius_all(8)
+	box.set_content_margin_all(6)
+	box.content_margin_left = 12
+	box.content_margin_right = 12
+	cap.add_theme_stylebox_override("panel", box)
+	cap.custom_minimum_size = Vector2(KEY_SIZE, KEY_SIZE)
+	cap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var l := Label.new()
+	l.text = router.label_for_action(action) if router else action
+	l.add_theme_font_override("font", LGTheme.heading_font)
+	l.add_theme_font_size_override("font_size", 22)
+	l.add_theme_color_override("font_color", LGTheme.PARCHMENT)
+	l.add_theme_constant_override("outline_size", 0)
+	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	cap.add_child(l)
+	return cap
+
+
+## A parchment card with a coloured edge on its left, like the game's menus.
+static func card(accent: Color) -> PanelContainer:
+	var c := PanelContainer.new()
+	var box := StyleBoxFlat.new()
+	box.bg_color = Color(LGTheme.PARCHMENT, 0.96)
+	box.border_color = EDGE if accent == EDGE else accent.darkened(0.25)
+	box.set_border_width_all(3)
+	box.border_width_left = 10
+	box.set_corner_radius_all(10)
+	box.content_margin_left = 20
+	box.content_margin_right = 20
+	box.content_margin_top = 8
+	box.content_margin_bottom = 8
+	box.shadow_color = Color(0, 0, 0, 0.4)
+	box.shadow_size = 6
+	c.add_theme_stylebox_override("panel", box)
+	c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return c
+
+
+## Dark ink text for a parchment card.
+static func ink_label(text: String, font_size: int) -> Label:
+	var l := Label.new()
+	l.text = text
+	l.theme_type_variation = "InkLabel"
+	l.add_theme_font_size_override("font_size", font_size)
+	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return l
+
+
+func _corner_box(preset: Control.LayoutPreset, offset: Vector2) -> VBoxContainer:
+	var box := VBoxContainer.new()
+	box.set_anchors_and_offsets_preset(preset)
+	box.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	box.position += offset
+	box.custom_minimum_size = Vector2(520, 0)
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(box)
+	return box
+
+
 func _process(delta: float) -> void:
 	_gem.queue_redraw()
+	if _pic:
+		var busy: bool = player.is_showing_ui or get_tree().paused
+		_prompts.visible = not busy
+		if _pick_bar and is_instance_valid(_pick_bar) and _pic.interactable and _pic.interactable.has_method("pick_progress"):
+			var t: float = _pic.interactable.pick_progress()
+			_pick_bar.visible = t > 0.0
+			_pick_bar.value = t
 	if player:
 		var v: float = player.visibility
 		_gem_label.text = "Hidden" if v < 0.25 else ("Dim" if v < 0.5 else "Lit up")
@@ -166,17 +387,44 @@ func show_note(title: String, text: String) -> void:
 ## A line in the middle of the screen, or "" to clear it.
 func say(text: String) -> void:
 	_center.text = text
+	_center_card.visible = text != ""
 
 
-func toast(text: String, color := Color.WHITE) -> void:
-	var l := _label(text, 22)
-	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	l.add_theme_color_override("font_color", color)
-	_toasts.add_child(l)
-	var t := l.create_tween()
+## A short message card at the top of the screen that fades after a while.
+## `color` is its edge: gold for capers, blue for leads, red for trouble.
+func toast(text: String, color := EDGE) -> void:
+	if text == "":
+		return
+	var now := Time.get_ticks_msec() / 1000.0
+	if text == _last_toast and now - _last_toast_at < REPEAT_TIME:
+		return
+	_last_toast = text
+	_last_toast_at = now
+	var c := card(EDGE if color == Color.WHITE else color)
+	c.size_flags_horizontal = Control.SIZE_SHRINK_END
+	var l := ink_label(text, TOAST_SIZE)
+	var font: Font = LGTheme.body_font
+	if font and font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, TOAST_SIZE).x > TOAST_WIDTH:
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.custom_minimum_size = Vector2(TOAST_WIDTH, 0)
+	c.add_child(l)
+	_toasts.add_child(c)
+	while _toasts.get_child_count() > 4:
+		_toasts.get_child(0).queue_free()
+		_toasts.remove_child(_toasts.get_child(0))
+	var t := c.create_tween()
 	t.tween_interval(TOAST_TIME)
-	t.tween_property(l, "modulate:a", 0.0, 0.6)
-	t.tween_callback(l.queue_free)
+	t.tween_property(c, "modulate:a", 0.0, 0.6)
+	t.tween_callback(c.queue_free)
+
+
+## The message cards showing now (for tests).
+func toast_lines() -> PackedStringArray:
+	var out := PackedStringArray()
+	for c in _toasts.get_children():
+		if not c.is_queued_for_deletion():
+			out.append((c.get_child(0) as Label).text)
+	return out
 
 
 func _on_caper_done(caper: CaperDef) -> void:
@@ -192,8 +440,10 @@ func _on_lead_found(lead: LeadDef) -> void:
 func _on_lead_step(lead: LeadDef, text: String) -> void:
 	if not LGSettings.get_value("play", "leads", true):
 		_lead.text = ""
+		_lead_card.visible = false
 		return
 	_lead.text = ("Lead: " + text) if text != "" else ""
+	_lead_card.visible = text != ""
 	if text != "" and player:
 		Sfx.at(player, "lead_hint", player.global_position, -10.0)
 
@@ -237,10 +487,10 @@ func _toggle_capers() -> void:
 		return
 	for c in _capers_list.get_children():
 		c.queue_free()
-	_capers_list.add_child(_label("Capers", 22))
+	_capers_list.add_child(_label("Capers", 28))
 	for c in run.job.capers:
 		var done := run.is_caper_done(c.id) or Progress.has_caper(run.job.id, c.id)
-		var l := _label(("[x] " if done else "[ ] ") + c.title, 18)
+		var l := _label(("[x] " if done else "[ ] ") + c.title, 22)
 		if run.is_caper_done(c.id):
 			l.add_theme_color_override("font_color", Color("ffd54a"))
 		_capers_list.add_child(l)
@@ -262,8 +512,8 @@ func _draw() -> void:
 	for r in _rings:
 		var pos: Vector3 = r[0]
 		var t: float = r[2] / RING_TIME
-		var on_screen := cam.unproject_position(pos)
 		var behind := cam.is_position_behind(pos)
+		var on_screen := Vector2(-1, -1) if behind else cam.unproject_position(pos)
 		var view := get_viewport_rect().size
 		if behind or not Rect2(Vector2.ZERO, view).has_point(on_screen):
 			# Pin it to the edge of the screen, towards the noise.

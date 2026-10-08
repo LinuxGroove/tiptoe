@@ -94,6 +94,14 @@ func _physics_process(delta: float) -> void:
 		_update_text()
 
 
+## How far through picking the lock the player is (0..1), 0 when nobody's
+## picking it. The HUD shows it under the prompts.
+func pick_progress() -> float:
+	if _picker == null or pick_time <= 0.0:
+		return 0.0
+	return clampf(1.0 - _pick_left / pick_time, 0.0, 1.0)
+
+
 ## Opens or closes it for a person (the owners don't sneak).
 func person_open(by: Node) -> void:
 	if not is_open:

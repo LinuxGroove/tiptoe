@@ -1,7 +1,7 @@
 extends Node
 ## Takes screenshots of a job from set viewpoints, for checking how a level
 ## looks. Run with a display (xvfb-run on a server):
-##   xvfb-run -s "-screen 0 1280x720x24" godot --path . tools/screenshot.tscn -- --out=/tmp/shots [--job=maple_close] [--view=name]
+##   xvfb-run -s "-screen 0 1280x720x24" godot --path . tools/screenshot.tscn -- --out=/tmp/shots [--job=maple_close] [--view=name] [--at=x,y,z,yaw,pitch]
 ## Each view is a player position, a facing and a look pitch.
 
 const VIEWS := {
@@ -29,6 +29,7 @@ var _job: Job
 func _ready() -> void:
 	var job_id := "maple_close"
 	var only := ""
+	var spot := []
 	for a in OS.get_cmdline_user_args():
 		if a.begins_with("--out="):
 			_out = a.trim_prefix("--out=")
@@ -36,6 +37,8 @@ func _ready() -> void:
 			job_id = a.trim_prefix("--job=")
 		elif a.begins_with("--view="):
 			only = a.trim_prefix("--view=")
+		elif a.begins_with("--at="):
+			spot = Array(a.trim_prefix("--at=").split_floats(","))
 	DirAccess.make_dir_recursive_absolute(_out)
 	LGSettings.register_defaults(GameConfig.SETTING_DEFAULTS)
 	LGInput.register_actions(GameConfig.ACTIONS)
@@ -55,6 +58,9 @@ func _ready() -> void:
 	var views: Dictionary = _job.level.screenshot_views()
 	if views.is_empty():
 		views = VIEWS.duplicate()
+	if spot.size() == 5:
+		views = {"at": [Vector3(spot[0], spot[1], spot[2]), spot[3], spot[4]]}
+		only = "at"
 	for id in _job.level.starts:
 		var t: Transform3D = _job.level.start_transform(id)
 		views["start_" + id] = [t.origin - Vector3(0, 0.9, 0), rad_to_deg(t.basis.get_euler().y), 0.0]

@@ -69,6 +69,7 @@ func _ready() -> void:
 	for g in job.open_gadgets(mastery):
 		player.add_item(g.id, g.get("count", GADGET_COUNTS.get(g.id, 1)))
 	hud.setup(run, player)
+	hud.watch_prompts(player.player_interaction_component)
 	gadgets = Gadgets.new()
 	gadgets.player = player
 	add_child(gadgets)

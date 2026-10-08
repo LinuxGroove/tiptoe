@@ -75,6 +75,12 @@ func _ready():
 			if c:
 				c.hide()
 				c.process_mode = Node.PROCESS_MODE_DISABLED
+		# Tiptoe's HUD draws the prompts and hints as its own cards. Cogito
+		# shows and hides these areas itself, so they're made see-through.
+		for n in ["PromptUI/PromptArea", "HintArea"]:
+			var c := hud.get_node_or_null(n) as CanvasItem
+			if c:
+				c.modulate.a = 0.0
 	add_to_group("moth")
 
 

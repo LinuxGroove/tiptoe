@@ -21,6 +21,9 @@ const HURRY_SPEED := 2.6
 const CHASE_SPEED := 4.4
 const SIGHT_RANGE := 14.0
 const SIGHT_HALF_ANGLE := 55.0
+## What people say: its size on screen, and how far off it can still be read.
+const BUBBLE_PIXEL := 0.0011
+const BUBBLE_RANGE := 22.0
 ## Within this you're seen even in the dark.
 const TOUCH_RANGE := 1.6
 const CATCH_RANGE := 1.1
@@ -87,6 +90,7 @@ var _state_t := 0.0
 var _last_seen := Vector3.ZERO
 var _sees_player := false
 var _bubble: Label3D
+var _bubble_tween: Tween
 var _mark: Label3D
 var _doors_opened: Array = []
 var _spotted_this_time := false
@@ -139,7 +143,18 @@ func setup(p_name: String, look: String, p_level: JobLevel, p_run: JobRun, p_rou
 	agent.height = 1.7
 	agent.path_height_offset = 0.0
 	add_child(agent)
-	_bubble = _label3d(Vector3(0, 2.15, 0), 40)
+	_bubble = _label3d(Vector3(0, 2.2, 0), 48)
+	# What they say stays the same size on screen however far off they are,
+	# in the game's font, and fades out past earshot.
+	_bubble.fixed_size = true
+	_bubble.pixel_size = BUBBLE_PIXEL
+	_bubble.font = LGTheme.body_font
+	_bubble.modulate = LGTheme.PARCHMENT
+	_bubble.outline_modulate = Color(0.12, 0.08, 0.05, 0.95)
+	_bubble.outline_size = 18
+	_bubble.width = 900
+	_bubble.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_bubble.visibility_range_end = BUBBLE_RANGE
 	_mark = _label3d(Vector3(0, 2.0, 0), 96)
 	_mark.text = ""
 	add_to_group("hears")
@@ -276,7 +291,7 @@ func snooze() -> void:
 	rig.play("sleep")
 	_mark.text = ""
 	_bubble.text = "Zzz"
-	_bubble.modulate.a = 1.0
+	_show_bubble()
 	Sfx.at(self, "snooze", global_position + Vector3(0, 1.4, 0), -4.0)
 	run.record("snoozed")
 
@@ -658,16 +673,24 @@ func say(text: String) -> void:
 	if text == "":
 		return
 	_bubble.text = text
-	_bubble.modulate.a = 1.0
-	var t := _bubble.create_tween()
-	t.tween_interval(2.5)
-	t.tween_property(_bubble, "modulate:a", 0.0, 0.5)
+	_show_bubble()
+	_bubble_tween = _bubble.create_tween()
+	# Longer lines stay up longer, so they can be read.
+	_bubble_tween.tween_interval(2.5 + text.length() * 0.03)
+	# Transparency fades the text and its outline together.
+	_bubble_tween.tween_property(_bubble, "transparency", 1.0, 0.5)
 	var recorded := Sfx.voice_line(voice, text)
 	if recorded != "":
 		Sfx.at(self, recorded, global_position + Vector3(0, 1.6, 0), -2.0)
 	else:
 		Sfx.at(self, "mumble_%s_%d" % [mumble, randi_range(1, 3)], global_position + Vector3(0, 1.6, 0), -6.0)
 	said.emit(self, text)
+
+
+func _show_bubble() -> void:
+	if _bubble_tween:
+		_bubble_tween.kill()
+	_bubble.transparency = 0.0
 
 
 func _update_mark() -> void:
