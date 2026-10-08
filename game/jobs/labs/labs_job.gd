@@ -10,6 +10,7 @@ static func make() -> JobDef:
 	j.place = "after hours"
 	j.treasure = "The school's model rocket"
 	j.treasure_item = "rocket"
+	j.treasure_model = "res://game/jobs/labs/rocket.tscn"
 	j.music = "night_labs"
 	j.blurb = "Hoard Labs \"invents\" things by taking other people's. Its latest idea is the Kettleford school's model rocket, which won the county science fair before Augustus Hoard confiscated it \"for safety\". It stands in the test hangar behind laser gates. Two guards walk their rounds, Officer Marsh watches the cameras from the security office, and Dr Fenwick is working late again. Bring the rocket home."
 	j.scene = "res://game/jobs/labs/labs_level.gd"
@@ -67,7 +68,7 @@ static func make() -> JobDef:
 			"It's on the desk in his office, off the corridor.",
 			"read:hoard_letter"),
 		CaperDef.make("lights_out", "Trip the main breaker",
-			"It's in goods in. Dobbs will come to fix it.",
+			"It's in goods in. Briggs will come to fix it.",
 			"lights_out"),
 		CaperDef.make("by_the_roof", "Get away over the roof",
 			"Take the rocket out the way the pigeons come in.",

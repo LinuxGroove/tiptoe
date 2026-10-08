@@ -30,9 +30,9 @@ extends JobLevel
 ##   the roof to the hangar's stuck-open high window, onto the catwalk and
 ##   down the stairs, minding Rook's rounds.
 ## - The breaker: pick the goods-in door, trip the main breaker, and run for
-##   the rocket while lights, cameras and lasers are dead and Dobbs comes to
+##   the rocket while lights, cameras and lasers are dead and Briggs comes to
 ##   fix it.
-## - Nap time: snooze-dart Dobbs (or Rook) and borrow the hangar card from
+## - Nap time: snooze-dart Briggs (or Rook) and borrow the hangar card from
 ##   their belt; or snooze Officer Marsh so nobody watches the cameras.
 ## - The confetti cannon: fire it in the workshop to pull everyone that way.
 
@@ -77,18 +77,18 @@ const SHAFT := Rect2(-17.8, -9.85, 1.8, 1.7)
 const CODE_LINE := "One, nine, five, seven. Sputnik year. Server room. Don't forget, Lily."
 const BREAK_LINE := "Tea time. The cameras can watch themselves for five minutes."
 const RESET_LINE := "Who's been fiddling with my switches?"
-const CAMERA_LINE := "Got you on camera three! Dobbs! Rook!"
+const CAMERA_LINE := "Got you on camera three! Briggs! Rook!"
 const COFFEE_LINE := "Ooh, someone made coffee. Don't mind if I do."
 
 const NIGHT_ROTA := """NIGHT ROTA - HOARD LABS
 
 Security office: Officer Marsh (monitors)
-Rounds inside: Dobbs
+Rounds inside: Briggs
 Rounds outside and goods in: Rook
 
 Officer Marsh takes her tea in the break room every few minutes, regular as clockwork. Nobody touches her mug.
 
-The spare hangar card lives in the key cabinet in the security office. It is NOT for borrowing, Dobbs."""
+The spare hangar card lives in the key cabinet in the security office. It is NOT for borrowing, Briggs."""
 
 const FENWICK_JOURNAL := """Lab journal - Dr L. Fenwick
 
@@ -113,14 +113,14 @@ const MAINTENANCE_LOG := """MAINTENANCE LOG - GOODS IN
 
 - Roof hatch over the lab ducts: the lid doesn't lock. The duct runs behind all four labs and into the hangar.
 - Hangar high window by the catwalk: stuck open. Pigeons in again.
-- Main breaker for the whole building: on the wall in here. If it trips, Dobbs knows how to reset it.
+- Main breaker for the whole building: on the wall in here. If it trips, Briggs knows how to reset it.
 - Lasers in the corridor blink while they warm up. They've been warming up since March."""
 
 const IT_MEMO := """IT MEMO
 
 The hangar door can be released from the door controller in the server room (big red button, you can't miss it).
 
-Please stop releasing it to save swiping your card, Dobbs. That's what the card is for."""
+Please stop releasing it to save swiping your card, Briggs. That's what the card is for."""
 
 const FIREWORKS_NOTE := """CONFISCATED
 Kettleford Primary School, Bonfire Night.
@@ -1074,7 +1074,7 @@ func _marks() -> void:
 
 func voice_info() -> Dictionary:
 	return {
-		"labs_guard_a": {"who": "Dobbs, a cheerful, chatty night guard in his thirties who loves a quiet night", "kokoro": "am_puck", "speed": 1.0},
+		"labs_guard_a": {"who": "Briggs, a cheerful, chatty night guard in his thirties who loves a quiet night", "kokoro": "am_puck", "speed": 1.0},
 		"labs_guard_b": {"who": "Rook, a dry, bored night guard in her forties who has seen it all", "kokoro": "af_river", "speed": 0.95},
 		"labs_scientist": {"who": "Dr Lily Fenwick, a brilliant, scatterbrained scientist working late, who talks to herself", "kokoro": "bf_lily", "speed": 1.05},
 		"labs_officer": {"who": "Officer Marsh, a sharp, no-nonsense security officer who loves her tea break", "kokoro": "af_sky", "speed": 1.0},
@@ -1117,7 +1117,7 @@ func add_people(p_run: JobRun) -> Array:
 		"wake": ["Wha...? Was I asleep? Don't tell Marsh."],
 	}
 	dobbs = Person.new()
-	dobbs.setup("Dobbs", SOLDIER, self, p_run, [
+	dobbs.setup("Briggs", SOLDIER, self, p_run, [
 		{"at": "lobby", "time": 6.0, "face": Vector3(0, 0, 1), "say": "Quiet night. Love a quiet night."},
 		{"at": "corridor_w", "time": 3.0, "clip": "look-around"},
 		{"at": "corridor_e", "time": 2.0},
@@ -1163,7 +1163,7 @@ func add_people(p_run: JobRun) -> Array:
 	], "labs_scientist", {
 		"mumble": "high",
 		"lines": {
-			"curious": ["Hello? Dobbs, is that you?", "What was that?", "Hm?"],
+			"curious": ["Hello? Briggs, is that you?", "What was that?", "Hm?"],
 			"seen": ["Who's that? You're not on my team."],
 			"spotted": ["Security! Someone's in the labs!", "Who are you?"],
 			"others": ["What's all the fuss?"],
@@ -1185,7 +1185,7 @@ func add_people(p_run: JobRun) -> Array:
 		"lines": {
 			"curious": ["Hm? Who's there?", "What was that?"],
 			"seen": ["Is someone out there?"],
-			"spotted": ["Intruder! Dobbs! Rook!", "I can see you, you know!"],
+			"spotted": ["Intruder! Briggs! Rook!", "I can see you, you know!"],
 			"lost": ["They've gone off camera."],
 			"give_up": ["Nothing on the monitors.", "Back to the screens, then."],
 			"catch": ["Gotcha. Out you go."],

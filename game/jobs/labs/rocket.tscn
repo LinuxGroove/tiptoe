@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/kenney/space-kit/rocket_finsA.glb" id="1"]
+[ext_resource type="PackedScene" path="res://assets/kenney/space-kit/rocket_sidesA.glb" id="2"]
+[ext_resource type="PackedScene" path="res://assets/kenney/space-kit/rocket_topA.glb" id="3"]
+
+[node name="Rocket" type="Node3D"]
+
+[node name="Fins" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.5)
+
+[node name="Sides" parent="." instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.7, -1.5)
+
+[node name="Top" parent="." instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.7, -1.5)

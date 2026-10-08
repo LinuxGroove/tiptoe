@@ -48,6 +48,9 @@ func _ready() -> void:
 	Engine.time_scale = 4.0
 	await _frames(600)
 	Engine.time_scale = 1.0
+	# Hold everyone still, so nobody catches the player hopping between views.
+	for p in _job.people:
+		p.process_mode = Node.PROCESS_MODE_DISABLED
 	# Maple Close's views are here; later jobs list theirs in the level.
 	var views: Dictionary = _job.level.screenshot_views()
 	if views.is_empty():
