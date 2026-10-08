@@ -46,6 +46,8 @@ func _ready() -> void:
 	_test_noise()
 	printerr("- _test_audio_manifest")
 	_test_audio_manifest()
+	printerr("- _test_launch_ping")
+	_test_launch_ping()
 	printerr("- _test_title_menu")
 	await _test_title_menu()
 	printerr("- _test_systems")
@@ -538,3 +540,33 @@ func _test_built_job(id: String) -> void:
 	check(job.player.global_position.distance_to(lvl.start_transform(def.start_points[0].id).origin) < 0.5, "%s: the player starts at the first start point" % id)
 	job.queue_free()
 	await _frames(2)
+
+
+## The launch ping says only what it should, honours DO_NOT_TRACK and never
+## goes out from tests.
+func _test_launch_ping() -> void:
+	for v in ["1", "yes", "true", " 1 "]:
+		check(LGLaunchPing.opted_out(v), "DO_NOT_TRACK=%s turns pings off" % v)
+	for v in ["", "0", "false"]:
+		check(not LGLaunchPing.opted_out(v), "DO_NOT_TRACK=%s leaves pings on" % v)
+	check(not LGLaunchPing.should_send(), "headless runs don't ping")
+	LGLaunchPing.send(GameConfig.GAME_ID)
+	check(not LGLaunchPing.sent, "tests send no ping")
+	var id := LGLaunchPing.install_id()
+	check(LGLaunchPing.is_install_id(id), "the install id is 32 hex digits")
+	check(LGLaunchPing.install_id() == id, "the install id is kept between runs")
+	var body := LGLaunchPing.body(GameConfig.GAME_ID, id)
+	check(body.keys() == ["game", "install", "version", "os", "distro", "os_version", "arch"], "a ping says nothing more")
+	check(body.game == GameConfig.GAME_ID and body.version == LGVersion.current(), "a ping names the game and version")
+	check(body.arch == Engine.get_architecture_name() and body.os == OS.get_name(), "a ping names the OS and CPU")
+	var server := {}
+	for key in ["scheme", "host", "port"]:
+		server[key] = LGSettings.get_value("online", key)
+	LGSettings.set_value("online", "scheme", "https", false)
+	LGSettings.set_value("online", "host", "play.example.org", false)
+	LGSettings.set_value("online", "port", 443, false)
+	check(LGLaunchPing.url(LGSettings) == "https://play.example.org:443/launch", "pings go to the game server's /launch")
+	LGSettings.set_value("online", "host", "", false)
+	check(LGLaunchPing.url(LGSettings) == "", "no server, no ping")
+	for key in server:
+		LGSettings.set_value("online", key, server[key], false)

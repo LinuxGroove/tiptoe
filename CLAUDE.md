@@ -40,6 +40,7 @@ Run the script check and the tests before every commit. A new `class_name` needs
 - **People** navigate a mesh baked at runtime from `Kit.NAV_GROUP` (doors left out; people open them as they walk). Listeners join the "hears" group; anything that makes a sound calls `StealthNoise.make`.
 - **Cogito** provides the player controller, interaction raycast and prompts, and footsteps. Tiptoe's own interactables, HUD, pause menu and AI replace the rest; keep Cogito's files as they are and list any change in its `VENDORED.md`.
 - **Everything works offline.** No server or network is needed.
+- **Launch ping.** `game/main.gd` calls `LGLaunchPing.send(GameConfig.GAME_ID)` at startup: one anonymous request to the game server's `/launch` (game, random install id, version, OS, CPU) so the server counts every player, online or not. It's skipped headless, from source and with `DO_NOT_TRACK` set, and never blocks or retries.
 
 ## The shared add-on
 
