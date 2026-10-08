@@ -10,6 +10,7 @@ static func make() -> JobDef:
 	j.place = "on the night shift"
 	j.treasure = "The clock tower's last cog"
 	j.treasure_item = "cog"
+	j.treasure_model = "res://assets/kenney/factory-kit/cog-a.glb"
 	j.music = "night_bottling"
 	j.blurb = "Augustus Hoard took the clock tower's last cog \"for polishing\" and bolted it into his lemonade bottling line as a drive wheel. Kettleford's clock hasn't ticked since. Mr Platt the foreman watches from his office, and Rosa and Eddie mind the line. The cog only comes off with the line stopped. Bring it home."
 	j.scene = "res://game/jobs/bottling/bottling_level.gd"
