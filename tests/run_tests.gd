@@ -191,6 +191,9 @@ func _test_audio_manifest() -> void:
 				bad.append(l.file)
 	check(bad.is_empty(), "voice files match their lines %s" % [bad])
 	check(Sfx.voice_line("nobody", "Hello?") == "", "people without a recorded line mumble")
+	check(Sfx.voice_line("low", "Burglar!") != "" and Sfx.voice_line("high", "Burglar!") != "", "Ted and Maggie have recorded lines")
+	for track in ["title", "night", "chase", "escaped", "night_over"]:
+		check(Sfx.music(track, "") != "", "the %s music is ours" % track)
 
 
 func _test_title_menu() -> void:

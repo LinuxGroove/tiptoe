@@ -186,7 +186,7 @@ func _on_finished(result: Dictionary) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	player.is_movement_paused = true
 	results.show_result(job, result, unlocked)
-	LGAudio.play_music(Sfx.music("escaped" if result.get("escaped", false) else "night_over", MUSIC), -10.0)
+	LGAudio.play_music(Sfx.music("escaped" if result.get("escaped", false) else "night_over", MUSIC), -10.0, false)
 
 
 func _on_again() -> void:
