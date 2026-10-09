@@ -15,8 +15,13 @@ const JOB_SCENE := preload("res://game/jobs/job.tscn")
 const TITLE_SCENE := preload("res://game/ui/title.tscn")
 ## Seconds of the night before the shots, for the people to get to their places.
 const SETTLE := 20.0
-## Where to stand to see someone: degrees off the way they face, best first.
-const AROUND := [0.0, 35.0, -35.0, 70.0, -70.0, 110.0, -110.0, 180.0]
+## The player's eyes above their feet.
+const EYE := 1.6
+## How far the camera may rise to see someone over a crowd.
+const LIFT := 0.6
+## Where to stand to see someone: degrees off the way they face, best first,
+## in front (from higher up before giving up on it), then to the side.
+const AROUND := [[0.0, 25.0, -25.0, 50.0, -50.0], [75.0, -75.0, 100.0, -100.0, 130.0, -130.0, 180.0]]
 ## The menus, in the order the README lists them: [file, caption].
 const MENUS := [
 	["title", "The title, on the first night"],
@@ -34,6 +39,8 @@ const MENUS := [
 ]
 
 var _job: Job
+## Where the player's neck sits, before any lift.
+var _neck_y := NAN
 
 
 func _ready() -> void:
@@ -150,39 +157,69 @@ func _close_job() -> void:
 
 
 ## A view of someone from a couple of metres away: from in front if there's
-## room to stand and nothing (or nobody) in the way, else from the side or
-## behind. The view's fourth item is who it's of, so only they speak.
+## room to stand and nobody in the way, else from a little higher up (over a
+## crowd's heads), else from the side or behind, else wherever the fewest
+## people are in the way. The view's fourth item is who it's of, so
+## only they speak, and its fifth how far the camera is lifted.
 func _facing(p: Node3D) -> Array:
 	var dog := p is Dog
 	var front: Vector3 = p.rig.global_basis.z
 	front.y = 0.0
 	front = front.normalized()
-	var head: Vector3 = p.global_position + Vector3(0, 0.5 if dog else 1.4, 0)
+	var head := _head(p)
 	var space := _job.get_world_3d().direct_space_state
 	var fallback := []
-	for d in ([2.0, 1.5] if dog else [2.6, 2.0]):
-		for a in AROUND:
-			var dir := front.rotated(Vector3.UP, deg_to_rad(a))
-			var at: Vector3 = p.global_position + dir * d
-			var view := [at, rad_to_deg(atan2(dir.x, dir.z)), -28.0 if dog else -12.0, p]
-			var eye := at + Vector3(0, 1.5, 0)
-			var q := PhysicsRayQueryParameters3D.create(head, eye, Kit.LAYER_SOLID | Kit.LAYER_GLASS)
-			if not space.intersect_ray(q).is_empty():
-				continue
-			if fallback.is_empty():
-				fallback = view
-			if _room_to_stand(space, at, p.global_position.y) and not _someone_between(p, head, eye):
-				return view
-	return fallback
+	var best := []
+	var fewest := 1000
+	for angles in AROUND:
+		for lift in ([0.0] if dog else [0.0, LIFT]):
+			for d in ([2.0, 1.5] if dog else [2.6, 2.0]):
+				for a in angles:
+					var dir := front.rotated(Vector3.UP, deg_to_rad(a))
+					var at: Vector3 = p.global_position + dir * d
+					var ground := _ground(space, at, p.global_position.y)
+					if ground.is_finite():
+						at = ground
+					var eye := at + Vector3(0, EYE + lift, 0)
+					var q := PhysicsRayQueryParameters3D.create(head, eye, Kit.LAYER_SOLID | Kit.LAYER_GLASS | Kit.LAYER_INTERACT)
+					if not space.intersect_ray(q).is_empty():
+						continue
+					# Down at their face, keeping room above it for what they say.
+					var pitch := -28.0 if dog else minf(-12.0, 5.0 - rad_to_deg(atan2(eye.y - head.y, d)))
+					var view := [at, rad_to_deg(atan2(dir.x, dir.z)), pitch, p, lift]
+					if fallback.is_empty():
+						fallback = view
+					if not ground.is_finite():
+						continue
+					var n := _in_the_way(p, head, eye)
+					if n == 0:
+						return view
+					if n < fewest and lift == 0.0:
+						fewest = n
+						best = view
+	return best if not best.is_empty() else fallback
 
 
-## Whether the player fits at `at`: floor no higher than a step above
-## `floor_y` (not a bench or a table), and nothing solid where they'd stand.
-func _room_to_stand(space: PhysicsDirectSpaceState3D, at: Vector3, floor_y: float) -> bool:
+## Whether someone is sitting or lying down (their head is lower).
+func _seated(who: Node3D) -> bool:
+	var clip: String = who.rig.current_clip()
+	return clip.begins_with("sit") or clip == "sleep"
+
+
+## Roughly where someone's head is.
+func _head(who: Node3D) -> Vector3:
+	var up := 0.5 if who is Dog else (0.95 if _seated(who) else 1.4)
+	return who.global_position + Vector3(0, who.rig.position.y + up, 0)
+
+
+## The floor where the player would stand near `at`, if they fit there: no
+## higher than a step above `floor_y` (not a bench or a table), and nothing
+## solid in the way. Vector3.INF if not.
+func _ground(space: PhysicsDirectSpaceState3D, at: Vector3, floor_y: float) -> Vector3:
 	var down := PhysicsRayQueryParameters3D.create(Vector3(at.x, floor_y + 2.0, at.z), Vector3(at.x, floor_y - 1.0, at.z), Kit.LAYER_SOLID)
 	var hit := space.intersect_ray(down)
 	if hit.is_empty() or hit.position.y > floor_y + 0.3:
-		return false
+		return Vector3.INF
 	var shape := CapsuleShape3D.new()
 	shape.radius = 0.35
 	shape.height = 1.5
@@ -190,20 +227,34 @@ func _room_to_stand(space: PhysicsDirectSpaceState3D, at: Vector3, floor_y: floa
 	q.shape = shape
 	q.collision_mask = Kit.LAYER_SOLID | Kit.LAYER_GLASS | Kit.LAYER_INTERACT
 	q.transform = Transform3D(Basis.IDENTITY, hit.position + Vector3(0, 0.95, 0))
-	return space.intersect_shape(q, 1).is_empty()
+	return hit.position if space.intersect_shape(q, 1).is_empty() else Vector3.INF
 
 
-## Whether anyone but `who` stands in the way from their head to the eye.
-func _someone_between(who: Node3D, from: Vector3, to: Vector3) -> bool:
-	var a := Vector2(from.x, from.z)
-	var b := Vector2(to.x, to.z)
+## How many people but `who` are in the way from the eye to their face (a
+## seated head that looks lower than their chin doesn't count), or a lot if
+## someone is where the player would stand.
+func _in_the_way(who: Node3D, head: Vector3, eye: Vector3) -> int:
+	var a := Vector2(head.x, head.z)
+	var b := Vector2(eye.x, eye.z)
+	var chin := (eye.y - head.y + 0.3) / maxf(a.distance_to(b), 0.01)
+	var n := 0
 	for other in _job.people:
 		if other == who:
 			continue
 		var o := Vector2(other.global_position.x, other.global_position.z)
-		if Geometry2D.get_closest_point_to_segment(o, a, b).distance_to(o) < 0.5:
-			return true
-	return false
+		if o.distance_to(b) < 0.6:
+			n += 10
+			continue
+		var near := Geometry2D.get_closest_point_to_segment(o, a, b)
+		var t := a.distance_to(near) / maxf(a.distance_to(b), 0.01)
+		# Near the camera, someone just off the line still fills the picture.
+		if near.distance_to(o) >= lerpf(0.6, 0.9, t):
+			continue
+		# How far below the eye the top of their head looks, against the chin.
+		var top := (eye.y - _head(other).y - 0.4) / maxf(o.distance_to(b), 0.01)
+		if top < chin:
+			n += 1
+	return n
 
 
 ## Puts the player at a view and gives the picture a moment to settle.
@@ -214,8 +265,13 @@ func _stand(view: Array) -> void:
 	p.rotation.y = 0.0
 	p.body.rotation.y = deg_to_rad(view[1])
 	p.head.rotation.x = deg_to_rad(view[2])
+	if is_nan(_neck_y):
+		_neck_y = p.neck.position.y
+	p.neck.position.y = _neck_y + (view[4] if view.size() > 4 else 0.0)
 	p.reset_physics_interpolation()
 	_job.hud.clear_messages()
+	# A use prompt would cover the face in a picture of someone.
+	_job.hud._prompts.modulate.a = 1.0 if view.size() < 4 else 0.0
 	for who in _job.people:
 		if who is Person:
 			who.hush()
