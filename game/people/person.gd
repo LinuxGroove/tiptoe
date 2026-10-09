@@ -692,6 +692,28 @@ func say(text: String) -> void:
 	said.emit(self, text)
 
 
+## Shows a line over their head and leaves it there, silently (for
+## screenshots; [method say] is the real thing).
+func show_line(text: String) -> void:
+	_show_bubble()
+	_bubble.text = text
+
+
+## Puts away whatever they were saying or thinking.
+func hush() -> void:
+	_show_bubble()
+	_bubble.text = ""
+	_mark.text = ""
+
+
+## The first thing their routine has them say, or "".
+func first_line() -> String:
+	for step in routine:
+		if step.get("say", "") != "":
+			return step.say
+	return ""
+
+
 func _show_bubble() -> void:
 	if _bubble_tween:
 		_bubble_tween.kill()

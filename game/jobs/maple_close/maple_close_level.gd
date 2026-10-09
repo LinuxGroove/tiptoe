@@ -463,6 +463,23 @@ func set_power(on: bool) -> void:
 
 ## The pizza delivery is welcome at the door, and in the hall and kitchen
 ## just after Ted lets them in.
+func screenshot_views() -> Dictionary:
+	return {
+		"street": [Vector3(-4, 0, 16), 0.0, 0.0],
+		"front": [Vector3(-1, 0, 8.5), 0.0, 5.0],
+		"garden": [Vector3(-8, 0, -12), 150.0, 5.0],
+		"alley": [Vector3(14.5, 0, -8), 180.0, 0.0],
+		"hall": [Vector3(-1, 0, 4), 0.0, 0.0],
+		"living": [Vector3(-2.6, 0, 0), 120.0, -5.0],
+		"kitchen": [Vector3(0, 0, -1.6), 60.0, -10.0],
+		"landing": [Vector3(-1, UP, 3.5), 0.0, -5.0],
+		"bedroom": [Vector3(-2.5, UP, 0.5), 35.0, -12.0],
+		"study": [Vector3(2.8, UP, -2), -110.0, -10.0],
+		"garage": [Vector3(6.8, 0, 0.4), -39.0, -10.0],
+		"roof": [Vector3(10.5, UP, -2.5), 70.0, 5.0],
+	}
+
+
 func expects(_person: Person, p: Moth) -> bool:
 	if p.disguise != "pizza":
 		return false
@@ -532,6 +549,7 @@ func add_people(p_run: JobRun) -> Array:
 	add_child(maggie)
 	var dog := Dog.new()
 	dog.setup(self, p_run, points["dog_bed"])
+	dog.name = "Biscuit"
 	dog.position = points["dog_bed"]
 	add_child(dog)
 	return [ted, maggie, dog]

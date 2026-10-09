@@ -1047,7 +1047,7 @@ func screenshot_views() -> Dictionary:
 		"front": [Vector3(4, 0, 11), 20.0, 5.0],
 		"window": [Vector3(-3, 0, 7.6), 0.0, -5.0],
 		"shop": [Vector3(1, 0, 4.5), 10.0, -10.0],
-		"aisles": [Vector3(-2, 0, 4.0), 60.0, -10.0],
+		"aisles": [Vector3(-1.25, 0, 4.8), 0.0, -8.0],
 		"till": [Vector3(3, 0, 1.5), -110.0, -15.0],
 		"stock": [Vector3(2.5, 0, -5), 70.0, -10.0],
 		"stock_back": [Vector3(-6, 0, -6), -130.0, -5.0],
@@ -1057,7 +1057,7 @@ func screenshot_views() -> Dictionary:
 		"bay": [Vector3(-8, 0, -19), -130.0, 5.0],
 		"alley": [Vector3(10, 0, -18), 90.0, 0.0],
 		"fuse": [Vector3(-15, 0, -19), 40.0, -5.0],
-		"passage": [Vector3(11, 0, 7), 0.0, 0.0],
-		"roof": [Vector3(4, UP, -2), 60.0, -15.0],
+		"passage": [Vector3(12, 0, 9.5), 8.0, 3.0],
+		"roof": [Vector3(8, UP, 4), 37.0, -10.0],
 		"hatch": [Vector3(-3.5, 0, -9.0), 0.0, 35.0],
 	}

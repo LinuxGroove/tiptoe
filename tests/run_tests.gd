@@ -239,6 +239,9 @@ func _test_title_menu() -> void:
 		board.pressed.emit()
 		await _frames(1)
 		check(_find_button(title, "Maple Close") != null, "the job board lists Maple Close")
+		# The locked jobs' lines wrap, so the board keeps beside the shelf.
+		var width: float = title._col.get_combined_minimum_size().x
+		check(width <= 640.0, "the job board is no wider than its buttons (%d)" % width)
 		_find_button(title, "Maple Close").pressed.emit()
 		await _frames(1)
 		check(_find_button(title, "Start the job") != null, "a job shows its briefing")
@@ -429,6 +432,14 @@ func _test_level() -> void:
 	check(hud.toast_lines().count("It's locked.") == 1, "a hint shows once, not stacked")
 	hud._on_nothing_detected()
 	check(hud.prompt_lines().is_empty(), "the prompts go when looking away")
+	# The capers list keeps to the right edge and grows from there, so long
+	# caper names stay on screen (headless, the screen is tiny).
+	hud._toggle_capers()
+	await _frames(2)
+	var list := hud._capers.get_global_rect()
+	var screen := hud.get_viewport_rect()
+	check(list.end.x < screen.end.x and is_equal_approx(list.get_center().y, screen.get_center().y), "the capers list keeps to the right edge (%s)" % [list])
+	hud._toggle_capers()
 	# The player is lit under the porch light and hidden in the back garden.
 	job.player.global_position = Vector3(0.4, 0.9, 6.0)
 	await _physics(20)
