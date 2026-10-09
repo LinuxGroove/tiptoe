@@ -239,6 +239,9 @@ func _test_title_menu() -> void:
 		board.pressed.emit()
 		await _frames(1)
 		check(_find_button(title, "Maple Close") != null, "the job board lists Maple Close")
+		# The locked jobs' lines wrap, so the board keeps beside the shelf.
+		var width: float = title._col.get_combined_minimum_size().x
+		check(width <= 640.0, "the job board is no wider than its buttons (%d)" % width)
 		_find_button(title, "Maple Close").pressed.emit()
 		await _frames(1)
 		check(_find_button(title, "Start the job") != null, "a job shows its briefing")

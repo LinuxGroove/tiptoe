@@ -81,14 +81,20 @@ func _show_board() -> void:
 			var b := LGUi.button("%s   (mastery %d)" % [job.title, Progress.mastery(job.id)], _show_job.bind(job.id), 600)
 			_col.add_child(b)
 		elif job.playable:
-			var l := LGUi.label("%s: bring home %s first" % [job.title, before.treasure.to_lower()], "HintLabel")
-			_col.add_child(l)
+			_col.add_child(_board_line("%s: bring home %s first" % [job.title, before.treasure.to_lower()]))
 		else:
-			var l := LGUi.label("%s: %s (coming later)" % [job.title, job.treasure], "HintLabel")
-			_col.add_child(l)
+			_col.add_child(_board_line("%s: %s (coming later)" % [job.title, job.treasure]))
 		before = job
 	_col.add_child(LGUi.button("Back", _show_main))
 	LGUi.focus_first(_col)
+
+
+## A locked job on the board, wrapped to the buttons' width.
+func _board_line(text: String) -> Label:
+	var l := LGUi.label(text, "HintLabel")
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	l.custom_minimum_size = Vector2(600, 0)
+	return l
 
 
 func _show_job(id: String) -> void:
