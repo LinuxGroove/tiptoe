@@ -142,8 +142,13 @@ func _init() -> void:
 	_capers = PanelContainer.new()
 	_capers.theme_type_variation = "DarkPanel"
 	_capers.visible = false
+	# Against the right edge, growing left and both ways down the middle, so
+	# long caper names stay on screen.
 	_capers.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
-	_capers.position += Vector2(-520, -240)
+	_capers.offset_right = -24.0
+	_capers.offset_left = -24.0
+	_capers.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	_capers.grow_vertical = Control.GROW_DIRECTION_BOTH
 	_capers_list = VBoxContainer.new()
 	_capers.add_child(_capers_list)
 	add_child(_capers)
@@ -416,6 +421,19 @@ func toast(text: String, color := EDGE) -> void:
 	t.tween_interval(TOAST_TIME)
 	t.tween_property(c, "modulate:a", 0.0, 0.6)
 	t.tween_callback(c.queue_free)
+
+
+## Puts away everything that comes and goes: message cards, the line in the
+## middle, the alarm, a note and the capers list (for screenshots).
+func clear_messages() -> void:
+	for c in _toasts.get_children():
+		_toasts.remove_child(c)
+		c.queue_free()
+	say("")
+	show_alarm(false)
+	_note.visible = false
+	_capers.visible = false
+	_rings.clear()
 
 
 ## The message cards showing now (for tests).

@@ -77,9 +77,8 @@ func _show_board() -> void:
 	var before: JobDef = null
 	for job in Jobs.all():
 		if job.playable and Jobs.is_open(job.id):
-			var m := Progress.mastery(job.id)
-			var done := Progress.capers_done(job.id).size()
-			var b := LGUi.button("%s: %s   (mastery %d, capers %d/%d)" % [job.title, job.treasure, m, done, job.capers.size()], _show_job.bind(job.id), 600)
+			# Short enough to fit beside the shelf; the job's page has the rest.
+			var b := LGUi.button("%s   (mastery %d)" % [job.title, Progress.mastery(job.id)], _show_job.bind(job.id), 600)
 			_col.add_child(b)
 		elif job.playable:
 			var l := LGUi.label("%s: bring home %s first" % [job.title, before.treasure.to_lower()], "HintLabel")
@@ -96,6 +95,7 @@ func _show_job(id: String) -> void:
 	var job := Jobs.get_job(id)
 	_clear()
 	_col.add_child(LGUi.label(job.title, "HeaderMedium"))
+	_col.add_child(LGUi.label("The treasure: " + job.treasure, "HintLabel"))
 	var blurb := LGUi.label(job.blurb)
 	blurb.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	blurb.custom_minimum_size = Vector2(600, 0)

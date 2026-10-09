@@ -32,7 +32,8 @@ func _init() -> void:
 	for k in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Clear", "0", "Enter"]:
 		var b := Button.new()
 		b.text = k
-		b.custom_minimum_size = Vector2(76, 56)
+		# Wide enough for Clear and Enter, so the columns match.
+		b.custom_minimum_size = Vector2(136, 56)
 		b.pressed.connect(_press.bind(k))
 		grid.add_child(b)
 	var back := Button.new()

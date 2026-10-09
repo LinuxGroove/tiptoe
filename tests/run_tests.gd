@@ -429,6 +429,14 @@ func _test_level() -> void:
 	check(hud.toast_lines().count("It's locked.") == 1, "a hint shows once, not stacked")
 	hud._on_nothing_detected()
 	check(hud.prompt_lines().is_empty(), "the prompts go when looking away")
+	# The capers list keeps to the right edge and grows from there, so long
+	# caper names stay on screen (headless, the screen is tiny).
+	hud._toggle_capers()
+	await _frames(2)
+	var list := hud._capers.get_global_rect()
+	var screen := hud.get_viewport_rect()
+	check(list.end.x < screen.end.x and is_equal_approx(list.get_center().y, screen.get_center().y), "the capers list keeps to the right edge (%s)" % [list])
+	hud._toggle_capers()
 	# The player is lit under the porch light and hidden in the back garden.
 	job.player.global_position = Vector3(0.4, 0.9, 6.0)
 	await _physics(20)
