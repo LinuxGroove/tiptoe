@@ -159,4 +159,4 @@ func _show_about() -> void:
 
 
 func _quit() -> void:
-	get_tree().quit()
+	LGScenes.quit()
