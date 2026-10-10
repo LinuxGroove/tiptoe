@@ -4,6 +4,14 @@ extends RefCounted
 
 const GAME_ID := "tiptoe"
 
+## This round's own questions at the end of a play test (LGPlaytest), on top
+## of the standard ones, and standard ones that don't fit the game. Change
+## them for each round of play testing.
+const PLAYTEST := {
+	"skip": [],
+	"questions": [],
+}
+
 const SETTING_DEFAULTS := {
 	"online": {
 		"enabled": true,
