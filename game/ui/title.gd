@@ -150,10 +150,12 @@ func _set_play(value: Variant, key: String) -> void:
 func _show_about() -> void:
 	_clear()
 	_col.add_child(LGUi.label("About Tiptoe", "HeaderMedium"))
-	var t := LGUi.label("A sneaky first person game about putting things back. Made by the LinuxGroove team with Godot, Cogito and Kenney's assets.")
+	var t := LGUi.label("A sneaky first person game about putting things back. A LinuxGroove game, made with Godot, Cogito and Kenney's assets.")
 	t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	t.custom_minimum_size = Vector2(600, 0)
 	_col.add_child(t)
+	_col.add_child(LGUi.label("Created by", "NameLabel"))
+	_col.add_child(LGUi.label("Drew VanDine\nKaden VanDine\nKen VanDine"))
 	_col.add_child(LGUi.button("Back", _show_main))
 	LGUi.focus_first(_col)
 
