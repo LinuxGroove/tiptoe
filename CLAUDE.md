@@ -60,6 +60,6 @@ Run the script check and the tests before every commit. A new `class_name` needs
 
 ## Releases
 
-Pushing to `main` builds the snap and publishes it to the `edge` channel; a GitHub release publishes to `candidate`. The **Windows and macOS** workflow (`desktop.yml`) exports both from Linux. CI injects the server key from the `GAME_SERVER_KEY` secret, so never commit the real key; `SERVER_KEY` stays `defaultkey` in git.
+Pushing to `main` builds the snap and publishes it to the `edge` channel; a GitHub release publishes to `candidate`. Until the `tiptoe` snap is registered in the Snap Store, `PUBLISH` in `snap.yml` is `"false"`, so builds keep the snap as an artifact and publish nothing. The **Windows and macOS** workflow (`desktop.yml`) exports both from Linux. CI injects the server key from the `GAME_SERVER_KEY` secret, so never commit the real key; `SERVER_KEY` stays `defaultkey` in git.
 
 Versions are `vYYYY.WW.MINOR`, derived from git by `tools/version.sh`; make releases with the **Release** workflow. Commit subjects become the release notes, so write them for players.
