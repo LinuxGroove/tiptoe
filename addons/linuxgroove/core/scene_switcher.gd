@@ -43,6 +43,16 @@ func is_busy() -> bool:
 	return _busy
 
 
+## Quits the game. A play test that's recording ends first, with its survey.
+func quit() -> void:
+	var playtest := LGPlaytest.current()
+	if playtest and playtest.is_finishing():
+		return
+	if playtest and playtest.is_recording():
+		await playtest.finish("quit")
+	get_tree().quit()
+
+
 func _swap(path_or_packed: Variant, setup: Callable) -> void:
 	var packed: PackedScene = path_or_packed if path_or_packed is PackedScene else load(path_or_packed)
 	await _fade(1.0)
@@ -54,10 +64,17 @@ func _swap(path_or_packed: Variant, setup: Callable) -> void:
 	if old:
 		old.queue_free()
 		await old.tree_exited
+	# The new scene is current as soon as it enters the tree, as with Godot's
+	# own change_scene, so its _ready can use current_scene. In an exported
+	# game a method call on a null current_scene crashes rather than erroring.
+	node.tree_entered.connect(_make_current.bind(node), CONNECT_ONE_SHOT)
 	tree.root.add_child(node)
-	tree.current_scene = node
 	await _fade(0.0)
 	scene_changed.emit(node)
+
+
+func _make_current(node: Node) -> void:
+	get_tree().current_scene = node
 
 
 func _fade(target: float) -> void:

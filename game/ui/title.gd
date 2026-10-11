@@ -77,25 +77,31 @@ func _show_board() -> void:
 	var before: JobDef = null
 	for job in Jobs.all():
 		if job.playable and Jobs.is_open(job.id):
-			var m := Progress.mastery(job.id)
-			var done := Progress.capers_done(job.id).size()
-			var b := LGUi.button("%s: %s   (mastery %d, capers %d/%d)" % [job.title, job.treasure, m, done, job.capers.size()], _show_job.bind(job.id), 600)
+			# Short enough to fit beside the shelf; the job's page has the rest.
+			var b := LGUi.button("%s   (mastery %d)" % [job.title, Progress.mastery(job.id)], _show_job.bind(job.id), 600)
 			_col.add_child(b)
 		elif job.playable:
-			var l := LGUi.label("%s: bring home %s first" % [job.title, before.treasure.to_lower()], "HintLabel")
-			_col.add_child(l)
+			_col.add_child(_board_line("%s: bring home %s first" % [job.title, before.treasure.to_lower()]))
 		else:
-			var l := LGUi.label("%s: %s (coming later)" % [job.title, job.treasure], "HintLabel")
-			_col.add_child(l)
+			_col.add_child(_board_line("%s: %s (coming later)" % [job.title, job.treasure]))
 		before = job
 	_col.add_child(LGUi.button("Back", _show_main))
 	LGUi.focus_first(_col)
+
+
+## A locked job on the board, wrapped to the buttons' width.
+func _board_line(text: String) -> Label:
+	var l := LGUi.label(text, "HintLabel")
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	l.custom_minimum_size = Vector2(600, 0)
+	return l
 
 
 func _show_job(id: String) -> void:
 	var job := Jobs.get_job(id)
 	_clear()
 	_col.add_child(LGUi.label(job.title, "HeaderMedium"))
+	_col.add_child(LGUi.label("The treasure: " + job.treasure, "HintLabel"))
 	var blurb := LGUi.label(job.blurb)
 	blurb.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	blurb.custom_minimum_size = Vector2(600, 0)
@@ -144,13 +150,15 @@ func _set_play(value: Variant, key: String) -> void:
 func _show_about() -> void:
 	_clear()
 	_col.add_child(LGUi.label("About Tiptoe", "HeaderMedium"))
-	var t := LGUi.label("A sneaky first person game about putting things back. Made by the LinuxGroove team with Godot, Cogito and Kenney's assets.")
+	var t := LGUi.label("A sneaky first person game about putting things back. A LinuxGroove game, made with Godot, Cogito and Kenney's assets.")
 	t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	t.custom_minimum_size = Vector2(600, 0)
 	_col.add_child(t)
+	_col.add_child(LGUi.label("Created by", "NameLabel"))
+	_col.add_child(LGUi.label("Drew VanDine\nKaden VanDine\nKen VanDine"))
 	_col.add_child(LGUi.button("Back", _show_main))
 	LGUi.focus_first(_col)
 
 
 func _quit() -> void:
-	get_tree().quit()
+	LGScenes.quit()

@@ -46,6 +46,10 @@ func _ready() -> void:
 	_test_noise()
 	printerr("- _test_audio_manifest")
 	_test_audio_manifest()
+	printerr("- _test_launch_ping")
+	_test_launch_ping()
+	printerr("- _test_playtest")
+	await _test_playtest()
 	printerr("- _test_title_menu")
 	await _test_title_menu()
 	printerr("- _test_systems")
@@ -237,6 +241,9 @@ func _test_title_menu() -> void:
 		board.pressed.emit()
 		await _frames(1)
 		check(_find_button(title, "Maple Close") != null, "the job board lists Maple Close")
+		# The locked jobs' lines wrap, so the board keeps beside the shelf.
+		var width: float = title._col.get_combined_minimum_size().x
+		check(width <= 640.0, "the job board is no wider than its buttons (%d)" % width)
 		_find_button(title, "Maple Close").pressed.emit()
 		await _frames(1)
 		check(_find_button(title, "Start the job") != null, "a job shows its briefing")
@@ -427,6 +434,14 @@ func _test_level() -> void:
 	check(hud.toast_lines().count("It's locked.") == 1, "a hint shows once, not stacked")
 	hud._on_nothing_detected()
 	check(hud.prompt_lines().is_empty(), "the prompts go when looking away")
+	# The capers list keeps to the right edge and grows from there, so long
+	# caper names stay on screen (headless, the screen is tiny).
+	hud._toggle_capers()
+	await _frames(2)
+	var list := hud._capers.get_global_rect()
+	var screen := hud.get_viewport_rect()
+	check(list.end.x < screen.end.x and is_equal_approx(list.get_center().y, screen.get_center().y), "the capers list keeps to the right edge (%s)" % [list])
+	hud._toggle_capers()
 	# The player is lit under the porch light and hidden in the back garden.
 	job.player.global_position = Vector3(0.4, 0.9, 6.0)
 	await _physics(20)
@@ -550,3 +565,68 @@ func _test_built_job(id: String) -> void:
 	check(job.player.global_position.distance_to(lvl.start_transform(def.start_points[0].id).origin) < 0.5, "%s: the player starts at the first start point" % id)
 	job.queue_free()
 	await _frames(2)
+
+
+## The launch ping says only what it should, honours DO_NOT_TRACK and never
+## goes out from tests.
+func _test_launch_ping() -> void:
+	for v in ["1", "yes", "true", " 1 "]:
+		check(LGLaunchPing.opted_out(v), "DO_NOT_TRACK=%s turns pings off" % v)
+	for v in ["", "0", "false"]:
+		check(not LGLaunchPing.opted_out(v), "DO_NOT_TRACK=%s leaves pings on" % v)
+	check(not LGLaunchPing.should_send(), "headless runs don't ping")
+	LGLaunchPing.send(GameConfig.GAME_ID)
+	check(not LGLaunchPing.sent, "tests send no ping")
+	var id := LGLaunchPing.install_id()
+	check(LGLaunchPing.is_install_id(id), "the install id is 32 hex digits")
+	check(LGLaunchPing.install_id() == id, "the install id is kept between runs")
+	var body := LGLaunchPing.body(GameConfig.GAME_ID, id)
+	check(body.keys() == ["game", "install", "version", "os", "distro", "os_version", "arch"], "a ping says nothing more")
+	check(body.game == GameConfig.GAME_ID and body.version == LGVersion.current(), "a ping names the game and version")
+	check(body.arch == Engine.get_architecture_name() and body.os == OS.get_name(), "a ping names the OS and CPU")
+	var server := {}
+	for key in ["scheme", "host", "port"]:
+		server[key] = LGSettings.get_value("online", key)
+	LGSettings.set_value("online", "scheme", "https", false)
+	LGSettings.set_value("online", "host", "play.example.org", false)
+	LGSettings.set_value("online", "port", 443, false)
+	check(LGLaunchPing.url(LGSettings) == "https://play.example.org:443/launch", "pings go to the game server's /launch")
+	LGSettings.set_value("online", "host", "", false)
+	check(LGLaunchPing.url(LGSettings) == "", "no server, no ping")
+	for key in server:
+		LGSettings.set_value("online", key, server[key], false)
+
+
+## Play test recording: main sets it up, quitting ends it first, and a
+## session packs into one zip with its events and answers.
+func _test_playtest() -> void:
+	check((load("res://game/main.gd") as GDScript).source_code.contains("LGPlaytest.setup(GameConfig.GAME_ID, GameConfig.PLAYTEST)"), "main sets up play test recording")
+	check((load("res://game/ui/title.gd") as GDScript).source_code.contains("LGScenes.quit"), "quitting from the title ends a play test first")
+	var dir := "user://test_playtest"
+	LGPlaytestPack._remove(dir)
+	var p := LGPlaytest.setup(GameConfig.GAME_ID, GameConfig.PLAYTEST)
+	p.dir = dir
+	await get_tree().process_frame
+	p.begin()
+	check(LGPlaytest.recording(), "a play test records")
+	LGPlaytest.event("test", {"at": Vector2(1, 2)})
+	p.mark("fun", "a note")
+	var zip := p._end("test", {"fun": 5})
+	var r := ZIPReader.new()
+	check(zip != "" and r.open(zip) == OK, "a play test packs into one zip")
+	var files := r.get_files()
+	for f in ["session.json", "events.jsonl", "survey.json"]:
+		check(f in files, "the zip holds " + f)
+	if "session.json" in files:
+		var info: Dictionary = JSON.parse_string(r.read_file("session.json").get_string_from_utf8())
+		check(info.get("game") == GameConfig.GAME_ID and int(info.get("marks", 0)) == 1, "session.json names the game and counts the notes")
+		check(not info.get("settings", {}).get("online", {}).has("server_key"), "the server key never goes in a recording")
+	r.close()
+	var survey := LGPlaytestSurvey.make(GameConfig.PLAYTEST)
+	check("fun" in survey.questions() and "name" in survey.questions(), "the survey asks the standard questions")
+	for id in GameConfig.PLAYTEST.get("skip", []):
+		check(not id in survey.questions(), "the survey skips " + id)
+	survey.free()
+	p.queue_free()
+	await get_tree().process_frame
+	LGPlaytestPack._remove(dir)

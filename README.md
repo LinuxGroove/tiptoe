@@ -54,9 +54,18 @@ godot --path . -- --job=maple_close --start=street
 ```
 
 `--job` skips the menus. Tests: `godot --headless --path . tests/run_tests.tscn`.
-Screenshots of a level: `xvfb-run godot --path . tools/screenshot.tscn -- --out=/tmp/shots`.
+Screenshots of every job and the menus are in
+[docs/screenshots](docs/screenshots/README.md);
+`xvfb-run godot --path . --resolution 1280x720 tools/screenshot.tscn -- --all=docs/screenshots`
+remakes them (see `tools/screenshot.gd` for one job or one view).
 
-Everything works offline; nothing in Tiptoe needs a server yet.
+Everything works offline; nothing in Tiptoe needs a server.
+
+When the game starts with the internet on, it tells the LinuxGroove game
+server once, so we can count how many people play and on what: a random id
+made on the first run, the game's version, the OS and the CPU, and nothing
+else. It never signs in, and with no network nothing is sent. Set
+`DO_NOT_TRACK=1` to turn it off.
 
 ## License
 

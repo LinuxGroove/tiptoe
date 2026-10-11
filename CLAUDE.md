@@ -9,8 +9,11 @@ godot --headless --path . --import && godot --headless --path . --import   # twi
 godot --headless --path . tools/check_scripts.tscn                  # every script compiles
 godot --headless --path . tests/run_tests.tscn -- --games=3         # unit tests and scripted nights against the AI
 godot --path . -- --job=maple_close --start=street                  # straight into a job
-xvfb-run -a -s "-screen 0 1280x720x24" godot --path . --resolution 1280x720 tools/screenshot.tscn -- --out=/tmp/shots [--view=who]
+xvfb-run -a -s "-screen 0 1280x720x24" godot --path . --resolution 1280x720 tools/screenshot.tscn -- --out=/tmp/shots [--job=market] [--view=who]
+xvfb-run -a -s "-screen 0 1280x720x24" godot --path . --resolution 1280x720 tools/screenshot.tscn -- --all=docs/screenshots [--job=market]
 ```
+
+On a server with no GPU, xvfb gives Godot no Vulkan and it falls back to OpenGL, which looks paler than the game; install `mesa-vulkan-drivers` and set `VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.json` for screenshots in the real renderer (slowly: a whole `--all` run takes a while).
 
 Run the script check and the tests before every commit. A new `class_name` needs an `--import` before the script check finds it. Headless runs reimport assets and rewrite `*.import` files and `icon.png.import`; revert those (`git checkout -- '*.import'`, `rm icon.png.import`) unless you meant to change them.
 
@@ -31,6 +34,7 @@ Run the script check and the tests before every commit. A new `class_name` needs
 | `addons/com.heroiclabs.nakama/` | Vendored Nakama client with a local patch (see its `VENDORED.md`) |
 | `assets/` | Kenney packs (`kenney/`), Blender-made props and clips (`models/`), synthesized sounds (`audio/sfx/`) |
 | `tools/` | Script checker, screenshots, Blender scripts, the sound synthesizer |
+| `docs/screenshots/` | Every job's places, start points and people, and the menus, made by `tools/screenshot.tscn -- --all=docs/screenshots` |
 
 ## How the game is built
 
@@ -39,7 +43,9 @@ Run the script check and the tests before every commit. A new `class_name` needs
 - **Layers**: 1 world, 2 interactables, 4 people, 8 window glass (stops bodies, not sight, light or sound), 16 doors (people walk through open leaves). `Kit.LAYER_SOLID` is what blocks sight, light and sound.
 - **People** navigate a mesh baked at runtime from `Kit.NAV_GROUP` (doors left out; people open them as they walk). Listeners join the "hears" group; anything that makes a sound calls `StealthNoise.make`.
 - **Cogito** provides the player controller, interaction raycast and prompts, and footsteps. Tiptoe's own interactables, HUD, pause menu and AI replace the rest; keep Cogito's files as they are and list any change in its `VENDORED.md`.
+- **Play tests.** The shared add-on's `LGPlaytest` records a play test when the Play test recording setting is on (or with `-- --playtest`): a picture every few seconds, game events, frame times and controls, the player's notes (F8, or Note this moment in the pause menu) and a survey when they quit, all in one zip in `user://playtest/`. Game events go through `LGPlaytest.event()` and `moment()`; the round's own survey questions (and standard ones to skip) are `GameConfig.PLAYTEST`. Quit through `LGScenes.quit()` so the survey comes first.
 - **Everything works offline.** No server or network is needed.
+- **Launch ping.** `game/main.gd` calls `LGLaunchPing.send(GameConfig.GAME_ID)` at startup: one anonymous request to the game server's `/launch` (game, random install id, version, OS, CPU) so the server counts every player, online or not. It's skipped headless, from source and with `DO_NOT_TRACK` set, and never blocks or retries.
 
 ## The shared add-on
 
