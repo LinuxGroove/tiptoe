@@ -10,6 +10,11 @@ on:
   # doesn't fire the release event).
   workflow_dispatch:
 
+# The tiptoe snap isn't registered in the Snap Store yet, so builds keep the
+# snap as an artifact and publish nothing. Set this to "true" once it is.
+env:
+  PUBLISH: "false"
+
 jobs:
   snap:
     name: Build the snap (${{ matrix.arch }})
@@ -55,7 +60,7 @@ jobs:
           name: tiptoe-snap-${{ matrix.arch }}
           path: ${{ steps.build.outputs.snap }}
       - name: Publish to the candidate channel
-        if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && github.ref_type == 'tag')
+        if: env.PUBLISH == 'true' && (github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && github.ref_type == 'tag'))
         uses: snapcore/action-publish@v1
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
@@ -63,7 +68,7 @@ jobs:
           snap: ${{ steps.build.outputs.snap }}
           release: candidate
       - name: Publish to the edge channel
-        if: github.event_name == 'push'
+        if: env.PUBLISH == 'true' && github.event_name == 'push'
         uses: snapcore/action-publish@v1
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
