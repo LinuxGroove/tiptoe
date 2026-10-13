@@ -141,6 +141,15 @@ func _input(event):
 	super(event)
 
 
+## Opens the pause menu as the menu button does, unless something else has
+## the player (a keypad, a note, being caught, the results).
+func open_pause() -> void:
+	if is_showing_ui or is_movement_paused or is_dead or currently_tweening or CogitoSceneManager.is_currently_loading:
+		return
+	_on_pause_movement()
+	get_node(pause_menu).open_pause_menu()
+
+
 ## Steps into a hiding spot, looking out of it.
 func hide_in(spot: HideSpot) -> void:
 	if hiding != null:
