@@ -89,6 +89,7 @@ func _ready() -> void:
 	level.at_way_out.connect(_on_way_out)
 	level.alarm_changed.connect(hud.show_alarm)
 	pause.give_up.connect(_on_give_up)
+	LGFocusPause.watch(self, player.open_pause)
 	pause.quit_to_title.connect(_on_quit)
 	run.finished.connect(_on_finished)
 	results.again.connect(_on_again)
